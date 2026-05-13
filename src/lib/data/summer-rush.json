@@ -1,0 +1,198 @@
+{
+	"site": {
+		"title": "Summer Rush",
+		"season": "Summer 2026",
+		"tagline": "One Jetlag related event across the European Jet Lag Discord communities each weekend.",
+		"description": "Each event is organized by one of the participating servers.",
+		"primaryAction": {
+			"label": "Events"
+		},
+		"secondaryAction": {
+			"label": "Servers"
+		}
+	},
+	"events": [
+		{
+			"id": "utrecht-2026-05-25",
+			"title": "H+S Utrecht",
+			"dateLabel": "25.05.2026",
+			"city": "Utrecht",
+			"country": "Netherlands",
+			"hostServerId": "benelux",
+			"status": "Signup Open"
+		},
+		{
+			"id": "brno-2026-05-30",
+			"title": "H+S Brno",
+			"dateLabel": "30.05.2026",
+			"city": "Brno",
+			"country": "Czechia",
+			"hostServerId": "europe",
+			"status": "Proposed"
+		},
+		{
+			"id": "barcelona-2026-06-06",
+			"title": "Scavenger Hunt Del. Barcelona",
+			"dateLabel": "06.06.2026",
+			"city": "Barcelona",
+			"country": "Spain",
+			"hostServerId": "europe",
+			"status": "Signup Open"
+		},
+		{
+			"id": "copenhagen-2026-06-13",
+			"title": "H+S Copenhagen",
+			"dateLabel": "13.06.2026",
+			"city": "Copenhagen",
+			"country": "Denmark",
+			"hostServerId": "nordics",
+			"status": "Proposed"
+		},
+		{
+			"id": "bucharest-2026-06-21",
+			"title": "H+S Bucharest",
+			"dateLabel": "21.06.2026",
+			"city": "Bucharest",
+			"country": "Romania",
+			"hostServerId": "europe",
+			"status": "Signup Open"
+		},
+		{
+			"id": "canton-zurich-2026-06-27",
+			"title": "H+S Canton Zurich",
+			"dateLabel": "27.06.2026",
+			"city": "Canton Zurich",
+			"country": "Switzerland",
+			"hostServerId": "switzerland",
+			"status": "Proposed"
+		},
+		{
+			"id": "south-limburg-2026-07-04",
+			"title": "H+S South Limburg",
+			"dateLabel": "04.07.2026",
+			"city": "South Limburg",
+			"country": "Netherlands",
+			"hostServerId": "benelux",
+			"status": "Signup Open"
+		},
+		{
+			"id": "graz-2026-07-11",
+			"title": "H+S Graz",
+			"dateLabel": "11.07.2026",
+			"city": "Graz",
+			"country": "Austria",
+			"hostServerId": "europe",
+			"status": "Proposed"
+		},
+		{
+			"id": "finding-north-2026-07-18",
+			"title": "Finding North",
+			"dateLabel": "18.07.2026",
+			"city": "Germany",
+			"country": "",
+			"hostServerId": "germany",
+			"status": "Signup Open"
+		},
+		{
+			"id": "open-2026-07-25",
+			"title": "Open weekend",
+			"dateLabel": "25.07.2026",
+			"city": "TBA",
+			"country": "",
+			"hostServerId": "",
+			"status": "TBA"
+		},
+		{
+			"id": "belgium-2026-08-01",
+			"title": "H+S Belgium",
+			"dateLabel": "01.08.2026",
+			"city": "Belgium",
+			"country": "",
+			"hostServerId": "benelux",
+			"status": "Signup Open"
+		},
+		{
+			"id": "open-2026-08-08",
+			"title": "Open weekend",
+			"dateLabel": "08.08.2026",
+			"city": "TBA",
+			"country": "",
+			"hostServerId": "",
+			"status": "TBA"
+		},
+		{
+			"id": "paris-2026-08-15",
+			"title": "H+S Paris",
+			"dateLabel": "15.08.2026",
+			"city": "Paris",
+			"country": "France",
+			"hostServerId": "europe",
+			"status": "Proposed"
+		},
+		{
+			"id": "bens-playground-2026-08-22",
+			"title": "Race to Bens playground",
+			"dateLabel": "22.08.2026",
+			"city": "Benelux",
+			"country": "",
+			"hostServerId": "benelux",
+			"status": "Signup Open"
+		},
+		{
+			"id": "milan-2026-08-29",
+			"title": "H+S Milan",
+			"dateLabel": "29.08.2026",
+			"city": "Milan",
+			"country": "Italy",
+			"hostServerId": "europe",
+			"status": "Confirmed"
+		},
+		{
+			"id": "switzerland-2026-09-05",
+			"title": "H+S Switzerland",
+			"dateLabel": "05.09.2026",
+			"city": "Switzerland",
+			"country": "",
+			"hostServerId": "switzerland",
+			"status": "Proposed"
+		}
+	],
+	"servers": [
+		{
+			"id": "europe",
+			"name": "Jet Lag Europa",
+			"region": "Europe-wide",
+			"icon": "JLE",
+			"invite": "https://discord.gg/aZsKMx7aht"
+		},
+		{
+			"id": "benelux",
+			"name": "Jet Lag Benelux",
+			"region": "Belgium, Netherlands and Luxembourg",
+			"icon": "JLB",
+			"invite": "https://discord.gg/eeWcZg5f5c"
+		},
+		{
+			"id": "switzerland",
+			"name": "Jet Lag Switzerland",
+			"region": "Switzerland",
+			"icon": "JLS",
+			"invite": "https://discord.gg/VaUdHf6Dy7"
+		},
+		{
+			"id": "germany",
+			"name": "Jet Lag Germany",
+			"region": "Germany",
+			"icon": "JLD",
+			"invite": "https://discord.gg/gkzZQAHXnR"
+		},
+		{
+			"id": "nordics",
+			"name": "Jet Lag Nordics",
+			"region": "Nordics",
+			"icon": "JLN",
+			"invite": "https://discord.gg/6fwsNZDJck"
+		}
+	],
+	"notes": ["Join the corresponding community server for event details and signups."]
+}
