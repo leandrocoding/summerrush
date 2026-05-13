@@ -19,7 +19,9 @@
 			"city": "Utrecht",
 			"country": "Netherlands",
 			"hostServerId": "benelux",
-			"status": "Signup Open"
+			"status": "Signup Open",
+			"eventId": "1503099088218882158",
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "brno-2026-05-30",
@@ -28,7 +30,9 @@
 			"city": "Brno",
 			"country": "Czechia",
 			"hostServerId": "europe",
-			"status": "Proposed"
+			"status": "Proposed",
+			"eventId": "",
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "barcelona-2026-06-06",
@@ -37,7 +41,9 @@
 			"city": "Barcelona",
 			"country": "Spain",
 			"hostServerId": "europe",
-			"status": "Signup Open"
+			"status": "Signup Open",
+			"eventId": "1483201820427030668",
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "copenhagen-2026-06-13",
@@ -46,7 +52,9 @@
 			"city": "Copenhagen",
 			"country": "Denmark",
 			"hostServerId": "nordics",
-			"status": "Proposed"
+			"status": "Proposed",
+			"eventId": "",
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "bucharest-2026-06-21",
@@ -55,7 +63,9 @@
 			"city": "Bucharest",
 			"country": "Romania",
 			"hostServerId": "europe",
-			"status": "Signup Open"
+			"status": "Signup Open",
+			"eventId": "1483202864150220900",
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "canton-zurich-2026-06-27",
@@ -64,7 +74,9 @@
 			"city": "Canton Zurich",
 			"country": "Switzerland",
 			"hostServerId": "switzerland",
-			"status": "Proposed"
+			"status": "Proposed",
+			"eventId": "",
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "south-limburg-2026-07-04",
@@ -73,7 +85,9 @@
 			"city": "South Limburg",
 			"country": "Netherlands",
 			"hostServerId": "benelux",
-			"status": "Signup Open"
+			"status": "Signup Open",
+			"eventId": "1503374560827805767",
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "graz-2026-07-11",
@@ -82,7 +96,9 @@
 			"city": "Graz",
 			"country": "Austria",
 			"hostServerId": "europe",
-			"status": "Proposed"
+			"status": "Proposed",
+			"eventId": "",
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "finding-north-2026-07-18",
@@ -91,7 +107,9 @@
 			"city": "Germany",
 			"country": "",
 			"hostServerId": "germany",
-			"status": "Signup Open"
+			"status": "Signup Open",
+			"eventId": "",
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "open-2026-07-25",
@@ -100,7 +118,9 @@
 			"city": "TBA",
 			"country": "",
 			"hostServerId": "",
-			"status": "TBA"
+			"status": "TBA",
+			"eventId": "",
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "belgium-2026-08-01",
@@ -109,7 +129,9 @@
 			"city": "Belgium",
 			"country": "",
 			"hostServerId": "benelux",
-			"status": "Signup Open"
+			"status": "Signup Open",
+			"eventId": "1503310013450424390",
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "open-2026-08-08",
@@ -118,7 +140,9 @@
 			"city": "TBA",
 			"country": "",
 			"hostServerId": "",
-			"status": "TBA"
+			"status": "TBA",
+			"eventId": "",
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "paris-2026-08-15",
@@ -127,7 +151,9 @@
 			"city": "Paris",
 			"country": "France",
 			"hostServerId": "europe",
-			"status": "Proposed"
+			"status": "Proposed",
+			"eventId": "",
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "bens-playground-2026-08-22",
@@ -136,7 +162,9 @@
 			"city": "Benelux",
 			"country": "",
 			"hostServerId": "benelux",
-			"status": "Signup Open"
+			"status": "Signup Open",
+			"eventId": "1498353015164375241",
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "milan-2026-08-29",
@@ -145,7 +173,9 @@
 			"city": "Milan",
 			"country": "Italy",
 			"hostServerId": "europe",
-			"status": "Confirmed"
+			"status": "Confirmed",
+			"eventId": "1494043999974195291",
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "switzerland-2026-09-05",
@@ -154,7 +184,9 @@
 			"city": "Switzerland",
 			"country": "",
 			"hostServerId": "switzerland",
-			"status": "Proposed"
+			"status": "Proposed",
+			"eventId": "",
+			"eventLinkOverride": ""
 		}
 	],
 	"servers": [

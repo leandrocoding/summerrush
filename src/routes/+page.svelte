@@ -34,6 +34,15 @@
 	function locationFor(event: SummerRushEvent) {
 		return [event.city, event.country].filter(Boolean).join(' - ');
 	}
+
+	function eventUrlFor(event: SummerRushEvent, organizer: Server | undefined) {
+		if (event.eventLinkOverride) return event.eventLinkOverride;
+		if (!event.eventId || !organizer?.invite) return '';
+
+		const url = new URL(organizer.invite);
+		url.searchParams.set('event', event.eventId);
+		return url.toString();
+	}
 </script>
 
 <svelte:head>
@@ -72,7 +81,7 @@
 		</div>
 		<div>
 			<strong>Europe</strong>
-			<span>weekend event series</span>
+			<span>Event every weekend</span>
 		</div>
 	</section>
 
@@ -85,6 +94,7 @@
 		<div class="event-list">
 			{#each events as event (event.id)}
 				{@const organizer = organizerFor(event)}
+				{@const eventUrl = eventUrlFor(event, organizer)}
 				<article class="event-row">
 					<div class="date">
 						<span>{dateLabel(event)}</span>
@@ -105,6 +115,15 @@
 					<div class="organizer">
 						<span>Organizer</span>
 						<strong>{organizer?.name ?? 'TBA'}</strong>
+					</div>
+
+					<div class="event-action">
+						{#if eventUrl}
+							<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+							<a class="event-button" href={eventUrl}>Go to event</a>
+						{:else}
+							<span class="event-button disabled">Go to event</span>
+						{/if}
 					</div>
 				</article>
 			{/each}
@@ -190,6 +209,7 @@
 	.brand,
 	nav a,
 	.button,
+	.event-row a,
 	.server-row a {
 		font-weight: 700;
 		text-decoration: none;
@@ -345,7 +365,7 @@
 	}
 
 	.event-row {
-		grid-template-columns: 120px 42px minmax(180px, 1fr) minmax(160px, 0.8fr);
+		grid-template-columns: 120px 42px minmax(180px, 1fr) minmax(160px, 0.8fr) minmax(150px, auto);
 	}
 
 	.server-row {
@@ -407,6 +427,12 @@
 		justify-items: end;
 	}
 
+	.event-action {
+		display: grid;
+		justify-items: end;
+	}
+
+	.event-button,
 	.join-button {
 		display: inline-flex;
 		align-items: center;
@@ -421,6 +447,15 @@
 		text-decoration: none;
 	}
 
+	.event-button {
+		min-height: 40px;
+		width: min(100%, 150px);
+		border: 1px solid #171717;
+		background: transparent;
+		color: #171717;
+	}
+
+	.event-button.disabled,
 	.join-button.disabled {
 		cursor: not-allowed;
 		opacity: 0.42;
@@ -469,6 +504,12 @@
 			width: 100%;
 		}
 
+		.event-action {
+			justify-items: start;
+			width: 100%;
+		}
+
+		.event-button,
 		.join-button {
 			width: 100%;
 		}
