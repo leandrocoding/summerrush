@@ -73,7 +73,7 @@
 	<section class="summary" aria-label="Series summary">
 		<div>
 			<strong>{events.length}</strong>
-			<span>listed event{events.length === 1 ? '' : 's'}</span>
+			<span>event{events.length === 1 ? '' : 's'}</span>
 		</div>
 		<div>
 			<strong>{servers.length}</strong>
