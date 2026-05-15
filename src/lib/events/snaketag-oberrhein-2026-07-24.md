@@ -10,8 +10,8 @@ The rail network between Frankfurt and Karlsruhe ranks among the most important 
 
 ### Getting There
 
-* **Meeting point:**
-* **Flights:** Frankfurt Airport (FRA) is about 10 minutes from central station by train. Cologne Bonn Airport (CGN), Karlsruhe/Baden-Baden Airport (FKB) and Stuttgart Airport (STR) can also work as a budget option, with onward rail connections to Zürich.
+* **Meeting point:** Frankfurt Hauptbahnhof on 24th of July at 09:30 AM, half an hour before kick-off.
+* **Flights:** Frankfurt Airport (FRA) is about 10 minutes from central station by train. Cologne Bonn Airport (CGN), Karlsruhe/Baden-Baden Airport (FKB) and Stuttgart Airport (STR) can also work as a budget option, with onward rail connections to Frankfurt.
 * **Trains:** Frankfurt Hbf has direct international and intercity connections, including ICE, IC/EC, TGV, and frequent regional express lines.
 * **Deutschland-Ticket:** All participants need to own the Deutschland-Ticket. The ticket covers all local and regional public transport in Germany and costs 63€ in total. **WARNING:** The Deutschland-Ticket is a subscription. If you purchase the ticket specifically for this event, you must cancel it immediately to avoid an unpleasant surprise one month later.
 
