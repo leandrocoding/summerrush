@@ -128,12 +128,12 @@
 			"eventLinkOverride": ""
 		},
 		{
-			"id": "open-2026-07-25",
-			"title": "Snaketag across Oberrain",
+			"id": "snaketag-2026-07-25",
+			"title": "Snaketag across Oberrhein",
 			"dateLabel": "24.07.2026 -\n25.07.2026",
-			"city": "Oberrain",
+			"city": "Baden-Württemberg, Hessen, Rheinland-Pfalz",
 			"country": "Germany",
-			"hostServerId": "europa",
+			"hostServerId": "germany",
 			"status": "Planning",
 			"eventId": "",
 			"eventLinkOverride": ""
