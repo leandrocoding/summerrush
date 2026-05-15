@@ -32,7 +32,21 @@
 			"hostServerId": "europe",
 			"status": "Proposed",
 			"eventId": "",
-			"eventLinkOverride": ""
+			"eventLinkOverride": "",
+			"description": "Playing H+S across Brno in Czechia",
+			"image": "/events/brno-map.jpg",
+			"imageAlt": "Custom Map of Brno",
+			"details": ["Game starts at 10:00 at Česká.", "Teams will be announced before the event."],
+			"links": [
+				{
+					"label": "Rules",
+					"url": "https://docs.google.com/document/d/1ASpIJ_EcKq24-QmP_dQm3REs3u4laWlLsllpwbRfokI/edit?usp=sharing"
+				},
+				{
+					"label": "Map",
+					"url": "https://docs.google.com/document/d/1ASpIJ_EcKq24-QmP_dQm3REs3u4laWlLsllpwbRfokI/edit?usp=sharing"
+				}
+			]
 		},
 		{
 			"id": "barcelona-2026-06-06",
@@ -75,7 +89,7 @@
 			"country": "Switzerland",
 			"hostServerId": "switzerland",
 			"status": "Proposed",
-			"eventId": "",
+			"eventId": "1504831127708504114",
 			"eventLinkOverride": ""
 		},
 		{
@@ -113,7 +127,7 @@
 		},
 		{
 			"id": "open-2026-07-25",
-			"title": "Open weekend",
+			"title": "Snaketag across Oberrain",
 			"dateLabel": "25.07.2026",
 			"city": "TBA",
 			"country": "",
@@ -125,7 +139,7 @@
 		{
 			"id": "belgium-2026-08-01",
 			"title": "H+S Belgium",
-			"dateLabel": "01.08.2026",
+			"dateLabel": "01.08.2026\n02.08.202",
 			"city": "Belgium",
 			"country": "",
 			"hostServerId": "benelux",
@@ -221,7 +235,7 @@
 		{
 			"id": "nordics",
 			"name": "Jet Lag Nordics",
-			"region": "Nordics",
+			"region": "Denmark, Norway, Sweden, Finland and Iceland",
 			"icon": "JLN",
 			"invite": "https://discord.gg/6fwsNZDJck"
 		}

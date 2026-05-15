@@ -1,15 +1,16 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import jlbIcon from '$lib/assets/JLB.png';
+	import jlbIcon from '$lib/assets/JLBW.png';
 	import jldIcon from '$lib/assets/JLD.png';
-	import jleIcon from '$lib/assets/JLE.png';
-	import jlnIcon from '$lib/assets/JLN.png';
+	import jleIcon from '$lib/assets/JLEH.png';
+	import jlnIcon from '$lib/assets/JLNH.png';
 	import jlsIcon from '$lib/assets/JLS.png';
 	import summerRush from '$lib/data/summer-rush.json';
 
 	type SummerRushEvent = (typeof summerRush.events)[number];
 	type Server = (typeof summerRush.servers)[number];
 
+	const eventContentModules = import.meta.glob('/src/lib/events/*.md', { eager: true });
 	const { site, events, servers, notes } = summerRush;
 	const icons = {
 		JLB: jlbIcon,
@@ -42,6 +43,14 @@
 		const url = new URL(organizer.invite);
 		url.searchParams.set('event', event.eventId);
 		return url.toString();
+	}
+
+	function eventPathFor(event: SummerRushEvent) {
+		return resolve(`/events/${event.id}`);
+	}
+
+	function hasEventInfo(event: SummerRushEvent) {
+		return `/src/lib/events/${event.id}.md` in eventContentModules;
 	}
 </script>
 
@@ -108,7 +117,7 @@
 					{/if}
 
 					<div class="event-main">
-						<h3>{event.title}</h3>
+						<h3><a href={eventPathFor(event)}>{event.title}</a></h3>
 						<p>{locationFor(event)}</p>
 					</div>
 
@@ -118,11 +127,18 @@
 					</div>
 
 					<div class="event-action">
+						{#if hasEventInfo(event)}
+							<a class="info-button" href={eventPathFor(event)}>More info</a>
+						{:else}
+							<span class="info-button disabled">More info</span>
+						{/if}
 						{#if eventUrl}
 							<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-							<a class="event-button" href={eventUrl}>Go to event</a>
+							<a class="event-button" href={eventUrl} target="_blank" rel="noreferrer"
+								>Open in Discord <span aria-hidden="true">↗</span></a
+							>
 						{:else}
-							<span class="event-button disabled">Go to event</span>
+							<span class="event-button disabled">Open in Discord <span aria-hidden="true">↗</span></span>
 						{/if}
 					</div>
 				</article>
@@ -133,7 +149,7 @@
 	<section class="section" id="servers" aria-labelledby="servers-title">
 		<div class="section-header">
 			<p class="eyebrow">Communities</p>
-			<h2 id="servers-title">Servers</h2>
+			<h2 id="servers-title">Discord Servers</h2>
 		</div>
 
 		<div class="server-list">
@@ -365,7 +381,7 @@
 	}
 
 	.event-row {
-		grid-template-columns: 120px 42px minmax(180px, 1fr) minmax(160px, 0.8fr) minmax(150px, auto);
+		grid-template-columns: 120px 42px minmax(180px, 1fr) minmax(160px, 0.8fr) 296px;
 	}
 
 	.server-row {
@@ -396,7 +412,7 @@
 		height: 42px;
 		border-radius: 8px;
 		object-fit: contain;
-		background: white;
+		background: transparent;
 	}
 
 	.server-icon.empty {
@@ -409,6 +425,15 @@
 	.server-row p {
 		margin-bottom: 0;
 		line-height: 1.45;
+	}
+
+	.event-main a {
+		text-decoration: none;
+	}
+
+	.event-main a:hover {
+		text-decoration: underline;
+		text-underline-offset: 3px;
 	}
 
 	.organizer {
@@ -429,10 +454,13 @@
 
 	.event-action {
 		display: grid;
-		justify-items: end;
+		grid-template-columns: repeat(2, 144px);
+		justify-content: flex-end;
+		gap: 8px;
 	}
 
 	.event-button,
+	.info-button,
 	.join-button {
 		display: inline-flex;
 		align-items: center;
@@ -449,16 +477,34 @@
 
 	.event-button {
 		min-height: 40px;
-		width: min(100%, 150px);
+		width: 144px;
+		border: 1px solid #5865f2;
+		padding: 0 12px;
+		background: #5865f2;
+		color: white;
+		gap: 6px;
+	}
+
+	.info-button {
+		min-height: 40px;
+		width: 144px;
 		border: 1px solid #171717;
+		padding: 0 12px;
 		background: transparent;
 		color: #171717;
 	}
 
 	.event-button.disabled,
+	.info-button.disabled,
 	.join-button.disabled {
 		cursor: not-allowed;
 		opacity: 0.42;
+	}
+
+	.info-button.disabled {
+		border-color: #bdb6aa;
+		background: #ebe6dc;
+		color: #69645d;
 	}
 
 	footer {
@@ -505,11 +551,13 @@
 		}
 
 		.event-action {
-			justify-items: start;
+			grid-template-columns: 1fr;
+			justify-content: flex-start;
 			width: 100%;
 		}
 
 		.event-button,
+		.info-button,
 		.join-button {
 			width: 100%;
 		}
