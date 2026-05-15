@@ -136,6 +136,20 @@
 			{/if}
 		{/if}
 	</section>
+
+	{#if event.mapEmbedUrl}
+		<section class="map-section" aria-labelledby="map-title">
+			<h2 id="map-title">{event.mapTitle || 'Map'}</h2>
+			<div class="map-frame">
+				<iframe
+					src={event.mapEmbedUrl}
+					title={event.mapTitle || `${event.title} map`}
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"
+				></iframe>
+			</div>
+		</section>
+	{/if}
 </main>
 
 <style>
@@ -444,6 +458,32 @@
 		border: 1px solid #171717;
 		border-radius: 6px;
 		padding: 0 12px;
+	}
+
+	.map-section {
+		padding-top: 44px;
+	}
+
+	.map-section h2 {
+		margin-bottom: 14px;
+		font-size: clamp(1.5rem, 3vw, 2.3rem);
+		line-height: 1.05;
+	}
+
+	.map-frame {
+		overflow: hidden;
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		border: 1px solid #ded9cf;
+		border-radius: 8px;
+		background: #ebe6dc;
+	}
+
+	.map-frame iframe {
+		display: block;
+		width: 100%;
+		height: 100%;
+		border: 0;
 	}
 
 	@media (max-width: 760px) {

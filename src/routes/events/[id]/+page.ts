@@ -12,6 +12,8 @@ export type RichEventLink = {
 export type RichEvent = SummerRushEvent & {
 	image?: string;
 	imageAlt?: string;
+	mapEmbedUrl?: string;
+	mapTitle?: string;
 	description?: string;
 	details?: string[];
 	links?: RichEventLink[];

@@ -31,3 +31,16 @@ We will meet near the main station before starting the game.
 ```
 
 Put embedded images in `static/events/`, then reference them with `/events/<filename>`.
+
+## Map Embeds
+
+Add a Google Maps embed to an event in `src/lib/data/summer-rush.json`:
+
+```json
+{
+	"mapEmbedUrl": "https://www.google.com/maps/d/u/1/embed?mid=...",
+	"mapTitle": "Brno game map"
+}
+```
+
+The map appears at the bottom of the event detail page.

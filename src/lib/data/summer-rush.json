@@ -90,7 +90,9 @@
 			"hostServerId": "switzerland",
 			"status": "Signup Open",
 			"eventId": "1504831127708504114",
-			"eventLinkOverride": ""
+			"eventLinkOverride": "",
+			"mapEmbedUrl": "https://www.google.com/maps/d/u/1/embed?mid=12jDeazKnODw0iv2N9h6sh5StSKgUgYA&ehbc=2E312F",
+			"mapTitle": "Game map"
 		},
 		{
 			"id": "south-limburg-2026-07-04",
