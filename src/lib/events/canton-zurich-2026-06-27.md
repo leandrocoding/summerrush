@@ -1,18 +1,23 @@
 ![Zürich Panorama](zh-panorama.jpg)
-This event will take place on Saturday, April 25, 2026, centered around the city of Zürich and the surrounding canton.
 
-### Travel and Accessibility
-Zürich is highly accessible from international and domestic locations. 
-*   **Air Travel:** Zürich Flughafen (ZRH) is the primary airport and is located approximately 10 minutes by train from the city center. For those seeking lower-cost flights, EuroAirport Basel-Mulhouse-Freiburg (BSL)as a viable alternative with direct trains to Zürich.
-*   **Rail Connections:** Zürich Hauptbahnhof (HB) serves as the meeting point. It has high-speed, direct connections to major European cities via ICE, TGV, and Railjet. 
-*   **Local Transport:** The game is played using the ZVV (Zürcher Verkehrsverbund) network. Participants should consider a ZVV 9 Uhr Pass, a 24-hour single ticket, or a Switzerland-wide day pass.
+Join us on Saturday, June 27, 2026 for a Hide + Seek game across Zürich and the surrounding canton. The game uses the dense ZVV public transport network, so expect quick connections, tactical station choices, and plenty of chances to move between urban, lakeside, and hillside areas.
 
-### Game Format and Map Scale
-*   **Format:** The game follows the standard Hide + Seek format. This game is designated as a medium metric game.
-*   **The Map:** The playable area includes all train stations within the ZVV zone. Check it out [here](https://www.google.com/maps/d/u/1/edit?mid=12jDeazKnODw0iv2N9h6sh5StSKgUgYA&usp=sharing).
-*   **Hiding Radius:** 500m.
+### Getting There
 
-### Regional Information
-Zürich is the largest city in Switzerland and is known for its highly efficient infrastructure and historic landmarks.
-*   **Public Utilities:** The city features over 1,200 public fountains, providing free and high-quality drinking water throughout the urban area.
-*   **Transit Density:** The ZVV network is one of the densest in the world, ensuring that even if a connection is missed, another is usually available within minutes.
+* **Meeting point:** We will meet at Zürich Hauptbahnhof (HB), the city's main station and the best-connected point for local and long-distance arrivals.
+* **Flights:** Zürich Airport (ZRH) is about 10 minutes from the city center by train. EuroAirport Basel-Mulhouse-Freiburg (BSL) can also work as a budget option, with onward rail connections to Zürich.
+* **Trains:** Zürich HB has direct international and intercity connections, including ICE, TGV, Railjet, and frequent Swiss long-distance trains.
+* **Transit tickets:** The game runs on the ZVV network. Depending on when you arrive and how long you stay, consider a ZVV 9 Uhr Pass, a 24-hour ZVV ticket, or a Swiss day pass.
+
+### Game Info & Map
+
+* **Format:** Standard Hide + Seek rules with a medium metric setup.
+* **Playable area:** The map covers train stations inside the canton Zürich.
+* **Hiding radius:** 500 m around the chosen station.
+* **Map:** Checkout the embedded map below, or open the full version [here](https://www.google.com/maps/d/u/1/edit?mid=12jDeazKnODw0iv2N9h6sh5StSKgUgYA&usp=sharing).
+
+### About Zürich
+
+Zürich is compact, walkable, and very transit-heavy, which makes it a strong setting for Hide + Seek. The city mixes dense central stations with quieter suburbs, lakefront routes, and elevated viewpoints, so both seekers and hiders should have interesting strategic options.
+
+You do not need to rely on bottled water during the day: Zürich has many public fountains with clean drinking water. Bring a bottle, comfortable shoes, and enough phone battery for navigation, communication, and checking connections.
