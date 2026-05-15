@@ -1,4 +1,4 @@
-![Brandenburg Forest](finding-north-forest.png.jpg)
+![Brandenburg Forest](finding-north-forest.png)
 
 Join us from Friday, July 17 to Sunday, July 19, 2026 for **Finding North** — a 3-day navigation challenge through the forests, fields, and villages of Brandenburg.
 

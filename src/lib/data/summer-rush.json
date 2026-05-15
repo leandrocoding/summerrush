@@ -32,21 +32,7 @@
 			"hostServerId": "europa",
 			"status": "Signup Open",
 			"eventId": "",
-			"eventLinkOverride": "",
-			"description": "Playing H+S across Brno in Czechia",
-			"image": "/events/brno-map.jpg",
-			"imageAlt": "Custom Map of Brno",
-			"details": ["Game starts at 10:00 at Česká.", "Teams will be announced before the event."],
-			"links": [
-				{
-					"label": "Rules",
-					"url": "https://docs.google.com/document/d/1ASpIJ_EcKq24-QmP_dQm3REs3u4laWlLsllpwbRfokI/edit?usp=sharing"
-				},
-				{
-					"label": "Map",
-					"url": "https://docs.google.com/document/d/1ASpIJ_EcKq24-QmP_dQm3REs3u4laWlLsllpwbRfokI/edit?usp=sharing"
-				}
-			]
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "barcelona-2026-06-06",
