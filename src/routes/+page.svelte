@@ -89,8 +89,8 @@
 			<span>participating servers</span>
 		</div>
 		<div>
-			<strong>Europe</strong>
-			<span>Event every weekend</span>
+			<strong>12</strong>
+			<span>Countries</span>
 		</div>
 	</section>
 
@@ -138,7 +138,9 @@
 								>Open in Discord <span aria-hidden="true">↗</span></a
 							>
 						{:else}
-							<span class="event-button disabled">Open in Discord <span aria-hidden="true">↗</span></span>
+							<span class="event-button disabled"
+								>Open in Discord <span aria-hidden="true">↗</span></span
+							>
 						{/if}
 					</div>
 				</article>

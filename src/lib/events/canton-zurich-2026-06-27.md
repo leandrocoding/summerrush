@@ -8,14 +8,11 @@ Zürich is highly accessible from international and domestic locations.
 *   **Local Transport:** The game is played using the ZVV (Zürcher Verkehrsverbund) network. Participants should consider a ZVV 9 Uhr Pass, a 24-hour single ticket, or a Switzerland-wide day pass.
 
 ### Game Format and Map Scale
-*   **Format:** The game follows the standard Hide + Seek format. This session is designated as a medium metric game.
-*   **The Map:** The playable area includes all train stations within the ZVV zone. Check it out here.
+*   **Format:** The game follows the standard Hide + Seek format. This game is designated as a medium metric game.
+*   **The Map:** The playable area includes all train stations within the ZVV zone. Check it out [here](https://www.google.com/maps/d/u/1/edit?mid=12jDeazKnODw0iv2N9h6sh5StSKgUgYA&usp=sharing).
 *   **Hiding Radius:** 500m.
 
 ### Regional Information
 Zürich is the largest city in Switzerland and is known for its highly efficient infrastructure and historic landmarks.
 *   **Public Utilities:** The city features over 1,200 public fountains, providing free and high-quality drinking water throughout the urban area.
 *   **Transit Density:** The ZVV network is one of the densest in the world, ensuring that even if a connection is missed, another is usually available within minutes.
-
-### Event Participation
-*   **Host Server:** [Jetlag Schweiz](https://jl-e.org/ch)
