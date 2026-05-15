@@ -6,6 +6,8 @@ The objective of the event is to create the longest possible non-intersecting pa
 
 ### About the region
 
+The rail network between Frankfurt and Karlsruhe ranks among the most important in all of Germany, featuring several railway lines that run parallel to one another, and thereby offering excellent conditions for a Snake based game.
+
 ### Getting There
 
 *
