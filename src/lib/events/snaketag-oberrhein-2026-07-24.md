@@ -19,6 +19,9 @@ The rail network between Frankfurt and Karlsruhe ranks among the most important 
 
 * **Format:** A two days game based on strategic routing and advanced timetable navigation under intense psychological pressure. The game takes place on **24th to 25th of July between 10 AM and 7 PM**.
 * **Team Building:** Three teams are formed, all taking the role of the "Snaker", with the goal to create the longest snake on the gaming area. At the same time, each team must sabotage the competition to prevent them from forming a longer snake than their own.
-* **Movement:** All travel must occur on local public transport lines. High speed rail (e.g. ICEs, ICs, etc.) or special trains are banned. Every team is required to keep their trackers visible to the opposing teams.
+* **Movement:** All travel must occur on local public transport lines. High speed rail (e.g. ICE, IC) or special trains are banned. Every team is required to keep their trackers visible to the opposing teams.
 * **Challenges:** To travel, you must pay 1 coin per kilometre. Coins must be earned by completing challenges. In addition to enabling travel, coins also allow you to purchase powerups. These allow you to, for example, temporarily make your location invisible to the other teams, curse a specific section of the route, or place a roadblock for an opposing team at a strategic stop.
-* **Scoring:** 
+* **Scoring:** By completing a trip from one node to the next, the corresponding number of kilometres is credited to the scoreboard. Additionally, players have the option to complete a Node Expedition within a specific city. For each completed Node Expedition, the Snaker team receives 10 permanent kilometres that will be credited to the longest snake of each team after the game concluded.
+
+### Game Map
+
