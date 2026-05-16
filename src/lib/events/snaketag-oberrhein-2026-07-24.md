@@ -25,7 +25,7 @@ The rail network between Frankfurt and Karlsruhe ranks among the most important 
 
 ### Game Map
 
-<img src="static/events/Snaketag_Oberrhein_Map.png" style="max-height: 550px; width: auto;" alt="Snaketag Oberrhein Map">
+<img src="https://github.com/leandrocoding/summerrush/blob/main/static/events/Snaketag_Oberrhein_Map.png" style="max-height: 550px; width: auto;" alt="Snaketag Oberrhein Map 2">
 
 <!-- ![Snaketag Oberrhein Map](Snaketag_Oberrhein_Map.png) -->
 
