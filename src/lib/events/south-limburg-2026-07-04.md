@@ -1,4 +1,4 @@
-![Church Limburg](southlimburg1.JPG)
+![Church Limburg](southlimburg1.jpg)
 
 Join us on Saturday, July 4th, 2026 for a Hide + Seek game across South Limburg! The game uses the regional buses and trains of the region, making it a fun map with some complex strategy.  
 
