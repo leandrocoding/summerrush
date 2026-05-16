@@ -17,6 +17,6 @@ The rail network between Frankfurt and Karlsruhe ranks among the most important 
 
 ### Game Info
 
-*
-*
+* **Format:** A two days game based on strategic routing and advanced timetable navigation under intense psychological pressure. The game takes place on **24th to 25th of July between 10 AM and 7 PM**.
+* 
 *
