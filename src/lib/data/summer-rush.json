@@ -21,7 +21,9 @@
 			"hostServerId": "benelux",
 			"status": "Signup Open",
 			"eventId": "1503099088218882158",
-			"eventLinkOverride": ""
+			"eventLinkOverride": "",
+			"mapEmbedUrl": "https://www.google.com/maps/d/embed?mid=1MeDsle22i6fUYCRWnKpUE2PsYhJUkvI&ehbc=2E312F",
+			"mapTitle": "Game map"
 		},
 		{
 			"id": "brno-2026-05-30",
@@ -32,7 +34,9 @@
 			"hostServerId": "europa",
 			"status": "Signup Open",
 			"eventId": "",
-			"eventLinkOverride": ""
+			"eventLinkOverride": "",
+			"mapEmbedUrl": "https://www.google.com/maps/d/u/2/embed?mid=1UV5Ov3X3xq7mu5MeOA7OhoL6ICGyOUI&ehbc=2E312F",
+			"mapTitle": "Game map"
 		},
 		{
 			"id": "barcelona-2026-06-06",
@@ -46,6 +50,17 @@
 			"eventLinkOverride": ""
 		},
 		{
+			"id": "libero-2026-06-06",
+			"title": "H+S Canton Bern + Jura + Solothurn",
+			"dateLabel": "06.06.2026",
+			"city": "Canton Bern + Jura + Solothurn",
+			"country": "Switzerland",
+			"hostServerId": "switzerland",
+			"status": "Signup Open",
+			"eventId": "1504867562469720146",
+			"eventLinkOverride": ""
+		},
+		{
 			"id": "copenhagen-2026-06-13",
 			"title": "H+S Copenhagen",
 			"dateLabel": "13.06.2026",
@@ -54,7 +69,9 @@
 			"hostServerId": "nordics",
 			"status": "Signup Open",
 			"eventId": "",
-			"eventLinkOverride": ""
+			"eventLinkOverride": "",
+			"mapEmbedUrl": "",
+			"mapTitle": "Game map"
 		},
 		{
 			"id": "bucharest-2026-06-21",
@@ -65,7 +82,9 @@
 			"hostServerId": "europa",
 			"status": "Signup Open",
 			"eventId": "1483202864150220900",
-			"eventLinkOverride": ""
+			"eventLinkOverride": "",
+			"mapEmbedUrl": "https://www.google.com/maps/d/embed?mid=1nuFY_Trs7jGm4xP4NY_LqnkyvJVG47U&ehbc=2E312F",
+			"mapTitle": "Game map"
 		},
 		{
 			"id": "canton-zurich-2026-06-27",
@@ -92,11 +111,11 @@
 			"eventLinkOverride": ""
 		},
 		{
-			"id": "graz-2026-07-11",
-			"title": "H+S Graz",
+			"id": "budapest-2026-07-11",
+			"title": "H+S Budapest",
 			"dateLabel": "11.07.2026",
-			"city": "Graz",
-			"country": "Austria",
+			"city": "Budapest",
+			"country": "Hungary",
 			"hostServerId": "europa",
 			"status": "Planning",
 			"eventId": "",
@@ -133,14 +152,16 @@
 			"hostServerId": "benelux",
 			"status": "Signup Open",
 			"eventId": "1503310013450424390",
-			"eventLinkOverride": ""
+			"eventLinkOverride": "",
+			"mapEmbedUrl": "https://www.google.com/maps/d/embed?mid=1aIZJtPKwNZvyTpyVZenRCFwrhRrwlik&ehbc=2E312F",
+			"mapTitle": "Game map"
 		},
 		{
-			"id": "open-2026-08-08",
-			"title": "H+S Budapest",
+			"id": "graz-2026-08-08",
+			"title": "H+S Graz",
 			"dateLabel": "08.08.2026",
-			"city": "Budapest",
-			"country": "Hungary",
+			"city": "Graz",
+			"country": "Austria",
 			"hostServerId": "europa",
 			"status": "Planning",
 			"eventId": "",

@@ -1,24 +1,13 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import jlbIcon from '$lib/assets/JLBW.png';
-	import jldIcon from '$lib/assets/JLD.png';
-	import jleIcon from '$lib/assets/JLEH.png';
-	import jlnIcon from '$lib/assets/JLNH.png';
-	import jlsIcon from '$lib/assets/JLS.png';
 	import summerRush from '$lib/data/summer-rush.json';
+	import { serverIconFor } from '$lib/server-icons';
 
 	type SummerRushEvent = (typeof summerRush.events)[number];
 	type Server = (typeof summerRush.servers)[number];
 
 	const eventContentModules = import.meta.glob('/src/lib/events/*.md', { eager: true });
 	const { site, events, servers, notes } = summerRush;
-	const icons = {
-		JLB: jlbIcon,
-		JLD: jldIcon,
-		JLE: jleIcon,
-		JLN: jlnIcon,
-		JLS: jlsIcon
-	};
 
 	function dateLabel(event: SummerRushEvent) {
 		return event.dateLabel || 'Date TBA';
@@ -29,7 +18,7 @@
 	}
 
 	function iconFor(server: Server) {
-		return icons[server.icon as keyof typeof icons] ?? jleIcon;
+		return serverIconFor(server.icon);
 	}
 
 	function locationFor(event: SummerRushEvent) {

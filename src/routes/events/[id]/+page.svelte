@@ -1,10 +1,6 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import jlbIcon from '$lib/assets/JLB.png';
-	import jldIcon from '$lib/assets/JLD.png';
-	import jleIcon from '$lib/assets/JLE.png';
-	import jlnIcon from '$lib/assets/JLN.png';
-	import jlsIcon from '$lib/assets/JLS.png';
+	import { serverIconFor } from '$lib/server-icons';
 	import type { Component } from 'svelte';
 	import type { PageData } from './$types';
 
@@ -19,16 +15,7 @@
 	const eventUrl = $derived(data.eventUrl);
 	const organizer = $derived(data.organizer);
 	const site = $derived(data.site);
-	const EventContent = $derived(
-		eventContentModules[`/src/lib/events/${event.id}.md`]?.default
-	);
-	const icons = {
-		JLB: jlbIcon,
-		JLD: jldIcon,
-		JLE: jleIcon,
-		JLN: jlnIcon,
-		JLS: jlsIcon
-	};
+	const EventContent = $derived(eventContentModules[`/src/lib/events/${event.id}.md`]?.default);
 
 	function dateLabel() {
 		return event.dateLabel || 'Date TBA';
@@ -39,8 +26,7 @@
 	}
 
 	function organizerIcon() {
-		if (!organizer) return jleIcon;
-		return icons[organizer.icon as keyof typeof icons] ?? jleIcon;
+		return serverIconFor(organizer?.icon);
 	}
 </script>
 
