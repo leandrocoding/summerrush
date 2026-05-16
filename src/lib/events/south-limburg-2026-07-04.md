@@ -3,9 +3,9 @@ Join us on Saturday, July 4th, 2026 for a Hide + Seek game across South Limburg!
 ### Getting There 
 
 * **Meeting point:** We will meet in front of the Maastricht railway station.  
-* **Flights:** Maastricht Aachen Airport is the local option, but has few flights. Other airports in the wider region are Brussels, Düsseldorf, Köln Bonn and Schiphol. All are well connected to trains going to Maastricht.  
-* **Trains:** The station has direct trains to Utrecht and Amsterdam, Liege and Aachen, making it well connected to anyone in the Euregio and further. Cities like Cologne and Brussels are also less than a 2 hour train journey away.   
-* **Transit tickets:** The game runs on a complex network combining regional busses and trains. We recommend to use either the Euregioticket or the dagkaart dal, both available in the Arriva app or on their website.  
+* **Flights:** Maastricht Aachen Airport (MST) is the local option, but has few flights. Other airports in the wider region include Brussels (BRU & CRL), Düsseldorf (DUS), Köln Bonn (CGN) and Schiphol (AMS). All are well connected to trains going to Maastricht.  
+* **Trains:** The station has direct trains to Utrecht, Amsterdam, Liege and Aachen, making it well connected to anyone in the Euregio and further. Cities like Cologne and Brussels are also less than a 2 hour train journey away.   
+* **Transit tickets:** The game runs on a complex network combining regional busses and trains. We recommend to use either the Euregioticket or the Dagkaart Dal ticket, both available in the Arriva app, on the Arriva website or at Arriva ticket machines.  
 ### Game Info & Map 
 
 * **Format:** Standard Hide + Seek rules with a Medium Metric setup and Expansion Pack. 
