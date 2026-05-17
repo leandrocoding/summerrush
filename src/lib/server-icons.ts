@@ -3,13 +3,15 @@ import jldIcon from '$lib/assets/JLD.png';
 import jleIcon from '$lib/assets/JLEH.png';
 import jlnIcon from '$lib/assets/JLNH.png';
 import jlsIcon from '$lib/assets/JLS.png';
+import jlukIcon from '$lib/assets/jluk.png';
 
 const serverIcons = {
 	JLB: jlbIcon,
 	JLD: jldIcon,
 	JLE: jleIcon,
 	JLN: jlnIcon,
-	JLS: jlsIcon
+	JLS: jlsIcon,
+	JLUK: jlukIcon
 } as const;
 
 export type ServerIconName = keyof typeof serverIcons;

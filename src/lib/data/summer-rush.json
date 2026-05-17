@@ -39,6 +39,17 @@
 			"mapTitle": "Game map"
 		},
 		{
+			"id": "dublin-2026-05-30",
+			"title": "H+S Dublin",
+			"dateLabel": "30.05.2026",
+			"city": "Dublin",
+			"country": "Ireland",
+			"hostServerId": "uk",
+			"status": "Signup Open",
+			"eventId": "1463612008816705711",
+			"eventLinkOverride": ""
+		},
+		{
 			"id": "barcelona-2026-06-06",
 			"title": "Scavenger Hunt Del. Barcelona",
 			"dateLabel": "06.06.2026",
@@ -68,10 +79,21 @@
 			"country": "Denmark",
 			"hostServerId": "nordics",
 			"status": "Signup Open",
-			"eventId": "",
+			"eventId": "1505649314721173565",
 			"eventLinkOverride": "",
 			"mapEmbedUrl": "",
 			"mapTitle": "Game map"
+		},
+		{
+			"id": "brum-brawl-2026-06-20",
+			"title": "Brum Brawl",
+			"dateLabel": "20.06.2026",
+			"city": "Birmingham",
+			"country": "UK",
+			"hostServerId": "uk",
+			"status": "Signup Open",
+			"eventId": "1503071813792432138",
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "bucharest-2026-06-21",
@@ -98,6 +120,17 @@
 			"eventLinkOverride": "",
 			"mapEmbedUrl": "https://www.google.com/maps/d/u/1/embed?mid=12jDeazKnODw0iv2N9h6sh5StSKgUgYA&ehbc=2E312F",
 			"mapTitle": "Game map"
+		},
+		{
+			"id": "hull-2026-06-27",
+			"title": "H+S Hull",
+			"dateLabel": "27.06.2026",
+			"city": "Hull",
+			"country": "UK",
+			"hostServerId": "uk",
+			"status": "Signup Open",
+			"eventId": "1504960647702642688",
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "south-limburg-2026-07-04",
@@ -247,6 +280,13 @@
 			"region": "Denmark, Norway, Sweden, Finland and Iceland",
 			"icon": "JLN",
 			"invite": "https://discord.gg/6fwsNZDJck"
+		},
+		{
+			"id": "uk",
+			"name": "Jet Lag: UK and Ireland",
+			"region": "UK and Ireland",
+			"icon": "JLUK",
+			"invite": "https://discord.gg/a7B9BujnjQ"
 		}
 	],
 	"notes": ["Join the corresponding community server for event details and signups."]
