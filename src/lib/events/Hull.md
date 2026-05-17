@@ -1,0 +1,25 @@
+![Hull](Hull.jpg)
+
+Join us on Saturday, June 27, 2026 for a Hide + Seek game across the city of Kingston Upon Hull, UK. The game uses the numerous bus routes around the city. Expect an unpredictable game, developing quirky strategies around the winding suburban routes. This game is being organised by Mel B.
+
+### Getting There
+
+* **Meeting point:** We will meet at [Queen Victoria Square](https://maps.app.goo.gl/9piBbC7YZhdhvrsc9) in the centre of Hull. This is around a 5 minute walk from Hull Paragon Station, the main railway station and bus station for the city.
+* **Flights:** Hull is a fairly isolated city, Humberside Airport is closest but is small and has limited flights and no public transport connection. Manchester, Newcastle and Leeds Bradford Airport will all put you in the region but around 2-3 hours and 1-3 trains away. Alternatively you can use a London Airport and take a direct train from London Kings Cross Station, but you’ll need to make your way from the airport to Kings Cross.
+* **Trains:** Hull Paragon Station sees occasional direct trains to London as well as regular services towards the hubs of Leeds, York and Doncaster.
+* **Transit tickets:** The game will use the Hull Card day ticket which covers the 2 main bus operators in the city. This ticket can purchased from the driver of the first bus you board as part of the game and costs £6.30
+
+### Game Info & Map
+
+* **Format:** Standard Hide + Seek rules with a small metric setup.
+* **Playable area:** The map covers bus stops reachable with a Hull card day ticket, this approximately covers all of the city of Hull.
+* **Hiding radius:** 400 m around the chosen stop.
+* **Map:** Checkout the embedded map below, or open the full version [here](https://www.google.com/maps/d/u/1/edit?mid=1i6InA9pjErt2Lo_STj_Tzo8uD2ve-Po&usp=sharing).
+
+### About Hull
+
+Hull is an isolated city that lies on the large river Humber, named the UK’s city of culture in 2017. The game map covers the city centre with its docks and riverfront as well as suburbs, retail parks and quieter outlying villages. 
+Apart from the standard H&S packing list (water, power bank, comfortable clothing and shoes), it is recommended to download the [Stagecoach Bus](https://www.stagecoachbus.com/promos-and-offers/national/stagecoachbusapp)  and [EY Buses](https://www.eastyorkshirebuses.co.uk/app) applications on your phone. [bustimes.org](http://bustimes.org) is also recommended, this third party website gives info on all buses in the UK. 
+If you are staying for longer the region has plenty to do. Hull itself is home to the award winning aquarium The Deep as well various museums and galleries. Nearby is the beautiful city of York with its stunning minister, city walls and the historic shambles. Also in York you’ll find the NRM, the UK’s premier railway museum. If you are more of a nature person the North York Moors National Park is around 2 hours to the north of Hull.
+
+<iframe src="https://www.google.com/maps/d/u/1/embed?mid=1i6InA9pjErt2Lo_STj_Tzo8uD2ve-Po&ehbc=2E312F" width="640" height="480"></iframe>
