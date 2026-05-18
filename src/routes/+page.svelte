@@ -78,7 +78,7 @@
 			<span>participating servers</span>
 		</div>
 		<div>
-			<strong>12</strong>
+			<strong>14</strong>
 			<span>Countries</span>
 		</div>
 	</section>
