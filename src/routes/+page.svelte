@@ -8,6 +8,9 @@
 
 	const eventContentModules = import.meta.glob('/src/lib/events/*.md', { eager: true });
 	const { site, events, servers, notes } = summerRush;
+	const today = new Date().toLocaleDateString('sv-SE');
+	const upcomingEvents = events.filter((event) => !isPastEvent(event));
+	const pastEvents = events.filter(isPastEvent).reverse();
 
 	function dateLabel(event: SummerRushEvent) {
 		return event.dateLabel || 'Date TBA';
@@ -40,6 +43,10 @@
 
 	function hasEventInfo(event: SummerRushEvent) {
 		return `/src/lib/events/${event.id}.md` in eventContentModules;
+	}
+
+	function isPastEvent(event: SummerRushEvent) {
+		return Boolean(event.endDate && event.endDate < today);
 	}
 </script>
 
@@ -90,51 +97,27 @@
 		</div>
 
 		<div class="event-list">
-			{#each events as event (event.id)}
-				{@const organizer = organizerFor(event)}
-				{@const eventUrl = eventUrlFor(event, organizer)}
-				<article class="event-row">
-					<div class="date">
-						<span>{dateLabel(event)}</span>
-						<small>{event.status}</small>
-					</div>
-
-					{#if organizer}
-						<img class="server-icon" src={iconFor(organizer)} alt="" />
-					{:else}
-						<span class="server-icon empty" aria-hidden="true"></span>
-					{/if}
-
-					<div class="event-main">
-						<h3><a href={eventPathFor(event)}>{event.title}</a></h3>
-						<p>{locationFor(event)}</p>
-					</div>
-
-					<div class="organizer">
-						<span>Organizer</span>
-						<strong>{organizer?.name ?? 'TBA'}</strong>
-					</div>
-
-					<div class="event-action">
-						{#if hasEventInfo(event)}
-							<a class="info-button" href={eventPathFor(event)}>More info</a>
-						{:else}
-							<span class="info-button disabled">More info</span>
-						{/if}
-						{#if eventUrl}
-							<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-							<a class="event-button" href={eventUrl} target="_blank" rel="noreferrer"
-								>Open in Discord <span aria-hidden="true">↗</span></a
-							>
-						{:else}
-							<span class="event-button disabled"
-								>Open in Discord <span aria-hidden="true">↗</span></span
-							>
-						{/if}
-					</div>
-				</article>
+			{#each upcomingEvents as event (event.id)}
+				{@render eventRow(event)}
+			{:else}
+				<p class="empty-state">No upcoming events right now.</p>
 			{/each}
 		</div>
+
+		{#if pastEvents.length}
+			<details class="archive">
+				<summary>
+					<span>Past events</span>
+					<strong>{pastEvents.length}</strong>
+				</summary>
+
+				<div class="event-list">
+					{#each pastEvents as event (event.id)}
+						{@render eventRow(event, true)}
+					{/each}
+				</div>
+			</details>
+		{/if}
 	</section>
 
 	<section class="section" id="servers" aria-labelledby="servers-title">
@@ -170,6 +153,55 @@
 		{/each}
 	</footer>
 </main>
+
+{#snippet eventRow(event: SummerRushEvent, isArchived = false)}
+	{@const organizer = organizerFor(event)}
+	{@const eventUrl = eventUrlFor(event, organizer)}
+	<article class="event-row" class:archived={isArchived}>
+		<div class="date">
+			<span>{dateLabel(event)}</span>
+			<small>{isArchived ? 'Completed' : event.status}</small>
+		</div>
+
+		{#if organizer}
+			<img class="server-icon" src={iconFor(organizer)} alt="" />
+		{:else}
+			<span class="server-icon empty" aria-hidden="true"></span>
+		{/if}
+
+		<div class="event-main">
+			<h3><a href={eventPathFor(event)}>{event.title}</a></h3>
+			<p>{locationFor(event)}</p>
+		</div>
+
+		<div class="organizer">
+			<span>Organizer</span>
+			<strong>{organizer?.name ?? 'TBA'}</strong>
+		</div>
+
+		<div class="event-action">
+			{#if hasEventInfo(event)}
+				<a class="info-button" href={eventPathFor(event)}
+					>{isArchived ? 'View event' : 'More info'}</a
+				>
+			{:else}
+				<span class="info-button disabled">{isArchived ? 'View event' : 'More info'}</span>
+			{/if}
+			{#if !isArchived}
+				{#if eventUrl}
+					<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+					<a class="event-button" href={eventUrl} target="_blank" rel="noreferrer"
+						>Open in Discord <span aria-hidden="true">↗</span></a
+					>
+				{:else}
+					<span class="event-button disabled"
+						>Open in Discord <span aria-hidden="true">↗</span></span
+					>
+				{/if}
+			{/if}
+		</div>
+	</article>
+{/snippet}
 
 <style>
 	:global(*) {
@@ -362,6 +394,39 @@
 		border-top: 1px solid #ded9cf;
 	}
 
+	.archive {
+		margin-top: 24px;
+		border-top: 1px solid #ded9cf;
+	}
+
+	.archive summary {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+		min-height: 54px;
+		cursor: pointer;
+		color: #55524c;
+		font-weight: 850;
+		list-style-position: inside;
+	}
+
+	.archive summary strong {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 28px;
+		height: 28px;
+		border: 1px solid #ded9cf;
+		border-radius: 999px;
+		color: #171717;
+		font-size: 0.9rem;
+	}
+
+	.archive .event-list {
+		border-top: 0;
+	}
+
 	.event-row,
 	.server-row {
 		display: grid;
@@ -373,6 +438,11 @@
 
 	.event-row {
 		grid-template-columns: 120px 42px minmax(180px, 1fr) minmax(160px, 0.8fr) 296px;
+	}
+
+	.event-row.archived {
+		grid-template-columns: 120px 42px minmax(180px, 1fr) minmax(160px, 0.8fr) 144px;
+		color: #55524c;
 	}
 
 	.server-row {
@@ -450,6 +520,10 @@
 		gap: 8px;
 	}
 
+	.event-row.archived .event-action {
+		grid-template-columns: 144px;
+	}
+
 	.event-button,
 	.info-button,
 	.join-button {
@@ -495,6 +569,13 @@
 	.info-button.disabled {
 		border-color: #bdb6aa;
 		background: #ebe6dc;
+		color: #69645d;
+	}
+
+	.empty-state {
+		border-bottom: 1px solid #ded9cf;
+		margin-bottom: 0;
+		padding: 18px 0;
 		color: #69645d;
 	}
 

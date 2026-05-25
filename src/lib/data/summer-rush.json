@@ -15,6 +15,8 @@
 		{
 			"id": "utrecht-2026-05-25",
 			"title": "H+S Utrecht",
+			"startDate": "2026-05-25",
+			"endDate": "2026-05-25",
 			"dateLabel": "25.05.2026",
 			"city": "Utrecht",
 			"country": "Netherlands",
@@ -28,6 +30,8 @@
 		{
 			"id": "brno-2026-05-30",
 			"title": "H+S Brno",
+			"startDate": "2026-05-30",
+			"endDate": "2026-05-30",
 			"dateLabel": "30.05.2026",
 			"city": "Brno",
 			"country": "Czechia",
@@ -41,6 +45,8 @@
 		{
 			"id": "dublin-2026-05-30",
 			"title": "H+S Dublin",
+			"startDate": "2026-05-30",
+			"endDate": "2026-05-30",
 			"dateLabel": "30.05.2026",
 			"city": "Dublin",
 			"country": "Ireland",
@@ -52,6 +58,8 @@
 		{
 			"id": "barcelona-2026-06-06",
 			"title": "Scavenger Hunt Del. Barcelona",
+			"startDate": "2026-06-06",
+			"endDate": "2026-06-06",
 			"dateLabel": "06.06.2026",
 			"city": "Barcelona",
 			"country": "Spain",
@@ -63,6 +71,8 @@
 		{
 			"id": "libero-2026-06-06",
 			"title": "H+S Canton Bern + Jura + Solothurn",
+			"startDate": "2026-06-06",
+			"endDate": "2026-06-06",
 			"dateLabel": "06.06.2026",
 			"city": "Canton Bern + Jura + Solothurn",
 			"country": "Switzerland",
@@ -74,6 +84,8 @@
 		{
 			"id": "copenhagen-2026-06-13",
 			"title": "H+S Copenhagen",
+			"startDate": "2026-06-13",
+			"endDate": "2026-06-13",
 			"dateLabel": "13.06.2026",
 			"city": "Copenhagen",
 			"country": "Denmark",
@@ -87,6 +99,8 @@
 		{
 			"id": "brum-brawl-2026-06-20",
 			"title": "Brum Brawl",
+			"startDate": "2026-06-20",
+			"endDate": "2026-06-20",
 			"dateLabel": "20.06.2026",
 			"city": "Birmingham",
 			"country": "UK",
@@ -98,6 +112,8 @@
 		{
 			"id": "bucharest-2026-06-21",
 			"title": "H+S Bucharest",
+			"startDate": "2026-06-21",
+			"endDate": "2026-06-21",
 			"dateLabel": "21.06.2026",
 			"city": "Bucharest",
 			"country": "Romania",
@@ -111,6 +127,8 @@
 		{
 			"id": "canton-zurich-2026-06-27",
 			"title": "H+S Canton Zurich",
+			"startDate": "2026-06-27",
+			"endDate": "2026-06-27",
 			"dateLabel": "27.06.2026",
 			"city": "Canton Zurich",
 			"country": "Switzerland",
@@ -124,6 +142,8 @@
 		{
 			"id": "hull-2026-06-27",
 			"title": "H+S Hull",
+			"startDate": "2026-06-27",
+			"endDate": "2026-06-27",
 			"dateLabel": "27.06.2026",
 			"city": "Hull",
 			"country": "UK",
@@ -135,6 +155,8 @@
 		{
 			"id": "south-limburg-2026-07-04",
 			"title": "H+S South Limburg",
+			"startDate": "2026-07-04",
+			"endDate": "2026-07-04",
 			"dateLabel": "04.07.2026",
 			"city": "South Limburg",
 			"country": "Netherlands",
@@ -146,6 +168,8 @@
 		{
 			"id": "budapest-2026-07-11",
 			"title": "H+S Budapest",
+			"startDate": "2026-07-11",
+			"endDate": "2026-07-11",
 			"dateLabel": "11.07.2026",
 			"city": "Budapest",
 			"country": "Hungary",
@@ -157,6 +181,8 @@
 		{
 			"id": "finding-north-2026-07-18",
 			"title": "Finding North",
+			"startDate": "2026-07-17",
+			"endDate": "2026-07-19",
 			"dateLabel": "17.07.2026 -\n19.07.2026",
 			"city": "Brandenburg",
 			"country": "Germany",
@@ -168,6 +194,8 @@
 		{
 			"id": "snaketag-oberrhein-2026-07-24",
 			"title": "Snaketag Across Oberrhein",
+			"startDate": "2026-07-24",
+			"endDate": "2026-07-25",
 			"dateLabel": "24.07.2026 -\n25.07.2026 *",
 			"city": "Baden-Württemberg, Hessen, Rheinland-Pfalz",
 			"country": "Germany",
@@ -179,6 +207,8 @@
 		{
 			"id": "belgium-2026-08-01",
 			"title": "H+S Belgium",
+			"startDate": "2026-08-01",
+			"endDate": "2026-08-02",
 			"dateLabel": "01.08.2026 -\n02.08.2026",
 			"city": "Belgium",
 			"country": "",
@@ -192,6 +222,8 @@
 		{
 			"id": "graz-2026-08-08",
 			"title": "H+S Graz",
+			"startDate": "2026-08-08",
+			"endDate": "2026-08-08",
 			"dateLabel": "08.08.2026",
 			"city": "Graz",
 			"country": "Austria",
@@ -203,6 +235,8 @@
 		{
 			"id": "paris-2026-08-15",
 			"title": "H+S Paris",
+			"startDate": "2026-08-15",
+			"endDate": "2026-08-15",
 			"dateLabel": "15.08.2026",
 			"city": "Paris",
 			"country": "France",
@@ -214,6 +248,8 @@
 		{
 			"id": "bens-playground-2026-08-22",
 			"title": "Race to Ben's Playground",
+			"startDate": "2026-08-21",
+			"endDate": "2026-08-22",
 			"dateLabel": "21.08.2026-\n22.08.2026",
 			"city": "Netherlands, Germany, France and Switzerland",
 			"country": "",
@@ -225,6 +261,8 @@
 		{
 			"id": "milan-2026-08-29",
 			"title": "H+S Milan",
+			"startDate": "2026-08-29",
+			"endDate": "2026-08-29",
 			"dateLabel": "29.08.2026",
 			"city": "Milan",
 			"country": "Italy",
@@ -236,6 +274,8 @@
 		{
 			"id": "switzerland-2026-09-05",
 			"title": "H+S Switzerland",
+			"startDate": "2026-09-05",
+			"endDate": "2026-09-05",
 			"dateLabel": "05.09.2026",
 			"city": "Switzerland",
 			"country": "",
