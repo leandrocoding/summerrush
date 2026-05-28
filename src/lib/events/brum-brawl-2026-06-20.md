@@ -1,4 +1,4 @@
-![Birmingham](Birmingham.jpeg)
+![Birmingham](birmingham.jpg)
 
 Brum Brawl is a new, but JLTG inspired, team game format taking place across Birmingham, open to new and experienced players. Teams claim different areas on the map by visiting them and then drawing challenges from a deck. Similar to many actual series of JLTG, the strategy element of the game lies in:
 
