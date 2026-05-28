@@ -40,8 +40,7 @@ For buses, it may be worth to double check the routes if it's eligible. If the r
 
 Points are variable depending on difficulties of challenges and depending on how far the locations are. However for each challenge/locations, full points will be awarded only to the team that completes it first. Other teams that completes it after will receive half points.
 Other points awarded including Battles, Curses, Powerups and being the first team to return to the starting location before the end of game time.
-
-Game Map: https://www.atm.cat/en/titols-tarifes/sistema-de-transport/mapa-de-la-zonificacio?tab=zone (All Zones stating 1-6)
+You can check out the Game Map [here!](https://www.atm.cat/en/titols-tarifes/sistema-de-transport/mapa-de-la-zonificacio?tab=zone)
 
 
  
