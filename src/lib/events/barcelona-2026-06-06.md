@@ -31,7 +31,7 @@ For buses, it may be worth to double check the routes if it's eligible. If the r
 * **Movement:** You may use all eligible transport that's covered under the T-Dia ticket. This include rail replacement and special buses arranged by Renfe.
 * **Challenges and Scoring:** Each team will be given a list of all the challenges that they need to complete as well as a map of Bonus locations they must visit in person. 
 
-### There will be 1 hour intervals in which each team will generate a:
+**There will be 1 hour intervals in which each team will generate a:**
 * **Curse:** Curses are to be inflicted onto/any of your opponents. 
 * **Buff:** Buffs are powerups that involve receiving extra points for your team. 
 * **Battle:** You may choose any of your/your opponents and request for a battle challenge.
