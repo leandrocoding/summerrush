@@ -17,4 +17,5 @@ Brum Brawl is a new, but JLTG inspired, team game format taking place across Bir
 
 * **Format:** A brand new area claiming game!
 * **Playable area:** Greater Birmingham.
+
 More information will follow about this game later! Keep an eye out on this page or in the Jet Lag: UK and Ireland Server!
