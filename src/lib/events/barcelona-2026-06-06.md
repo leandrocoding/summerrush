@@ -9,7 +9,6 @@ This event will involve travelling around on several means of transport includin
 
 
 * **Flights:**
-
 Barcelona's main airport is Barcelona JT El Prat, serving several European and International flights.
 It is served by 2 rail lines, both connecting to the city of Barcelona.
 Metro L9 with trains running roughly every 10 mins.
@@ -28,7 +27,6 @@ It is highly recommended to buy the ATM T-Dia. (Zones 1-6) This covers mainly al
 For buses, it may be worth to double check the routes if it's eligible. If the route includes the ATM logo on the maps and buses it is a good sign that it's eligible.
 
 ## Game Info:
-
 * **Format:** 1 Day Scavanger Hunt involving completing many challenges and visiting bonus locations to score points. The main aim is to score as many points as you can. 
 * **Movement:** You may use all eligible transport that's covered under the T-Dia ticket. This include rail replacement and special buses arranged by Renfe.
 * **Challenges and Scoring:** Each team will be given a list of all the challenges that they need to complete as well as a map of Bonus locations they must visit in person. 
