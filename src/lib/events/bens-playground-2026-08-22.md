@@ -5,6 +5,7 @@ Be part of **the largest event of Summer Rush!!**
 The objective of the event is simple: The team which arrives at Ben's famous playground in Merlischachen, Switzerland in the shortest time by hitchhiking, wins!
 
 ### About the routes
+We start at 10am in Utrecht and teams have until 9pm the next day to reach Merlischachen.
 
 From Utrecht to Merlischachen, there are 3 principal routes expected to have the most traffic:
 * **East:** Going to Germany and following the Rhine river up until arriving in Basel, Switzerland.
@@ -30,4 +31,4 @@ Teams are free to decide whichever route they want to take, even a custom route 
 
 * **Hitchhiking Map:** We highly recommend using the [Hitchhiking Map](https://hitchmap.com/) to find spots across the world. Aim for green dots on the map with a thick black border, as those are reviewed the most positively. The map also reveals the average waiting time at each spot.
 * **Navigation Apps:** Google Maps is the standard option to use. We do recommend downloading some maps, as you might not have signal everywhere!
-* **Public Transport Apps:** Try to familiarise with the public transport option on your desired route. For Germany, the obvious app is the [DB Navigator](https://int.bahn.de/en/booking-information/db-navigator) app, as you can get public transport directions across the country and you can also buy tickets for almost every operator in the country.
+* **Public Transport Apps:** Try to familiarise with the public transport options on your desired route. For Germany, the obvious app is the [DB Navigator](https://int.bahn.de/en/booking-information/db-navigator) app, as you can get public transport directions across the country and you can also buy tickets for almost every operator in the country.
