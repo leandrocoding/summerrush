@@ -178,14 +178,15 @@
 			"eventId": "1503374560827805767",
 			"eventLinkOverride": ""
 		},
+
 		{
-			"id": "paris-2026-07-11",
-			"title": "H+S Paris",
+			"id": "budapest-2026-07-11",
+			"title": "H+S Budapest",
 			"startDate": "2026-07-11",
 			"endDate": "2026-07-11",
 			"dateLabel": "11.07.2026",
-			"city": "Paris",
-			"country": "France",
+			"city": "Budapest",
+			"country": "Hungary",
 			"hostServerId": "europa",
 			"status": "Planning",
 			"eventId": "",
@@ -246,15 +247,15 @@
 			"eventLinkOverride": ""
 		},
 		{
-			"id": "budapest-2026-08-15",
-			"title": "H+S Budapest",
+			"id": "paris-2026-08-15",
+			"title": "H+S Paris",
 			"startDate": "2026-08-15",
 			"endDate": "2026-08-15",
 			"dateLabel": "15.08.2026",
-			"city": "Budapest",
-			"country": "Hungary",
+			"city": "Paris",
+			"country": "France",
 			"hostServerId": "europa",
-			"status": "Planning",
+			"status": "Signup Open",
 			"eventId": "",
 			"eventLinkOverride": ""
 		},
