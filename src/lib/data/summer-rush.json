@@ -206,19 +206,6 @@
 			"eventLinkOverride": ""
 		},
 		{
-			"id": "snaketag-oberrhein-2026-07-24",
-			"title": "Snaketag Across Oberrhein",
-			"startDate": "2026-07-24",
-			"endDate": "2026-07-25",
-			"dateLabel": "24.07.2026 -\n25.07.2026 *",
-			"city": "Baden-Württemberg, Hessen, Rheinland-Pfalz",
-			"country": "Germany",
-			"hostServerId": "germany",
-			"status": "Planning",
-			"eventId": "",
-			"eventLinkOverride": ""
-		},
-		{
 			"id": "belgium-2026-08-01",
 			"title": "H+S Belgium",
 			"startDate": "2026-08-01",
@@ -232,6 +219,19 @@
 			"eventLinkOverride": "",
 			"mapEmbedUrl": "https://www.google.com/maps/d/embed?mid=1aIZJtPKwNZvyTpyVZenRCFwrhRrwlik&ehbc=2E312F",
 			"mapTitle": "Game map"
+		},
+		{
+			"id": "snaketag-oberrhein-2026-07-24",
+			"title": "Snaketag Across Oberrhein",
+			"startDate": "2026-08-07",
+			"endDate": "2026-08-08",
+			"dateLabel": "07.08.2026 -\n08.08.2026 *",
+			"city": "Baden-Württemberg, Hessen, Rheinland-Pfalz",
+			"country": "Germany",
+			"hostServerId": "germany",
+			"status": "Signup Open",
+			"eventId": "",
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "graz-2026-08-08",
