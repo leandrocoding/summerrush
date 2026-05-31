@@ -110,6 +110,19 @@
 			"eventLinkOverride": ""
 		},
 		{
+			"id": "londonb4z1-2026-06-20",
+			"title": "Battle 4 Zone 1 London",
+			"startDate": "2026-06-20",
+			"endDate": "2026-06-20",
+			"dateLabel": "20.06.2026",
+			"city": "London",
+			"country": "UK",
+			"hostServerId": "uk",
+			"status": "Signup Open",
+			"eventId": "",
+			"eventLinkOverride": ""
+		},
+		{
 			"id": "bucharest-2026-06-21",
 			"title": "H+S Bucharest",
 			"startDate": "2026-06-21",
