@@ -25,7 +25,7 @@
 			"eventId": "1503099088218882158",
 			"eventLinkOverride": "",
 			"mapEmbedUrl": "https://www.google.com/maps/d/embed?mid=1MeDsle22i6fUYCRWnKpUE2PsYhJUkvI&ehbc=2E312F",
-			"mapTitle": "Game map"
+			"mapTitle": "Game Map"
 		},
 		{
 			"id": "brno-2026-05-30",
@@ -40,7 +40,7 @@
 			"eventId": "1505264890267303986",
 			"eventLinkOverride": "",
 			"mapEmbedUrl": "https://www.google.com/maps/d/u/2/embed?mid=10sap42BJU3w0qkM9oDWKmE3tSSRniHQ&ehbc=2E312F",
-			"mapTitle": "Game map"
+			"mapTitle": "Game Map"
 		},
 		{
 			"id": "dublin-2026-05-30",
@@ -94,7 +94,7 @@
 			"eventId": "1505649314721173565",
 			"eventLinkOverride": "",
 			"mapEmbedUrl": "https://www.google.com/maps/d/embed?mid=13kYC2ShWK2WuIIJUY_cskzXNOuqhUaM&ehbc=2E312F",
-			"mapTitle": "Game map"
+			"mapTitle": "Game Map"
 		},
 		{
 			"id": "brum-brawl-2026-06-20",
@@ -135,7 +135,7 @@
 			"eventId": "1483202864150220900",
 			"eventLinkOverride": "",
 			"mapEmbedUrl": "https://www.google.com/maps/d/embed?mid=1nuFY_Trs7jGm4xP4NY_LqnkyvJVG47U&ehbc=2E312F",
-			"mapTitle": "Game map"
+			"mapTitle": "Game Map"
 		},
 		{
 			"id": "canton-zurich-2026-06-27",
@@ -150,7 +150,7 @@
 			"eventId": "1504831127708504114",
 			"eventLinkOverride": "",
 			"mapEmbedUrl": "https://www.google.com/maps/d/u/1/embed?mid=12jDeazKnODw0iv2N9h6sh5StSKgUgYA&ehbc=2E312F",
-			"mapTitle": "Game map"
+			"mapTitle": "Game Map"
 		},
 		{
 			"id": "hull-2026-06-27",
@@ -206,6 +206,21 @@
 			"eventLinkOverride": ""
 		},
 		{
+			"id": "stockholm-2026-07-18",
+			"title": "H+S Stockholm",
+			"startDate": "2026-07-18",
+			"endDate": "2026-07-18",
+			"dateLabel": "18.07.2026",
+			"city": "Stockholm",
+			"country": "Sweden",
+			"hostServerId": "nordics",
+			"status": "Signup Open",
+			"eventId": "",
+			"eventLinkOverride": "",
+			"mapEmbedUrl": "",
+			"mapTitle": "Game Map"
+		},
+		{
 			"id": "belgium-2026-08-01",
 			"title": "H+S Belgium",
 			"startDate": "2026-08-01",
@@ -218,7 +233,7 @@
 			"eventId": "1503310013450424390",
 			"eventLinkOverride": "",
 			"mapEmbedUrl": "https://www.google.com/maps/d/embed?mid=1aIZJtPKwNZvyTpyVZenRCFwrhRrwlik&ehbc=2E312F",
-			"mapTitle": "Game map"
+			"mapTitle": "Game Map"
 		},
 		{
 			"id": "snaketag-oberrhein-2026-07-24",
