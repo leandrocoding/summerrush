@@ -1,4 +1,4 @@
-# Stockholm Hide + Seek – Saturday, July 18, 2026
+![Stockholm Skyline](stockholm.webp)
 
 Join us on Saturday, July 19, 2026 for a Hide + Seek game across Stockholm and the surrounding area. With Stockholm's extensive public transport network, expect quick connections, tactical station choices, and plenty of opportunities to move around the city.
 
