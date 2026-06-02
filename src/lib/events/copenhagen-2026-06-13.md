@@ -16,7 +16,6 @@ Join us on Saturday, June 13, 2026 for a Hide + Seek game across Copenhagen and 
 * **Meet up time:** 09:00 CEST
 * **End time:** 19:00 CEST
 * **Duration:** ~10 hours (depends when we finish two rounds)
-* **Playable area:** To be announced.
 * **Hiding radius:** 500 m around the chosen station.
 
 ### Contact
