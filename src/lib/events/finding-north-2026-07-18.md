@@ -1,3 +1,47 @@
+<style>
+  input[name="language-switch"] {
+    display: none;
+  }
+
+  .lang-label {
+    display: inline-block;
+    padding: 8px 16px;
+    margin-right: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    font-weight: 500;
+  }
+
+  #btn-en:checked ~ .btn-en-label,
+  #btn-de:checked ~ .btn-de-label {
+    background-color: #333;
+    color: white;
+    border-color: #333;
+  }
+
+  .lang-en,
+  .lang-de {
+    display: none;
+  }
+
+  #btn-en:checked ~ .lang-en,
+  #btn-de:checked ~ .lang-de {
+    display: block;
+  }
+</style>
+
+<input type="radio" id="btn-en" name="language-switch" checked>
+<input type="radio" id="btn-de" name="language-switch">
+
+<label for="btn-en" class="lang-label btn-en-label">English</label>
+<label for="btn-de" class="lang-label btn-de-label">Deutsch</label>
+
+
+<div class="lang-en">
+
 ![Brandenburg Forest](finding-north-forest.png)
 
 Join us from Friday, July 17 to Sunday, July 19, 2026 for **Finding North** — a 3-day navigation challenge through the forests, fields, and villages of Brandenburg.
@@ -32,10 +76,12 @@ Bring proper outdoor clothing, water, food, camping equipment, and comfortable f
 
 Brandenburg offers large forests, open landscapes, small villages, lakes, and long stretches with little orientation — making it an ideal setting for a navigation-based challenge.
 
----
+</div>
 
-<details>
-<summary style="cursor: pointer; font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem;">🇩🇪 Auf Deutsch lesen (Read in German)</summary>
+
+<div class="lang-de">
+
+![Brandenburg Forest](finding-north-forest.png)
 
 Begleiten Sie uns von Freitag, 17. Juli bis Sonntag, 19. Juli 2026 zu **Finding North** — einer 3-tägigen Navigationsherausforderung durch die Wälder, Felder und Dörfer Brandenburgs.
 
@@ -67,6 +113,9 @@ Bringen Sie geeignete Outdoor-Kleidung, Wasser, Essen, Campingausrüstung und be
 
 ### Über Brandenburg
 
+Brandenburg bietet große Wälder, offene Landschaften, kleine Dörfer, Seen und lange Strecken mit wenig Orientierungsmöglichkeiten – was es zu einem idealen Ort für eine navigationsbasierte Herausforderung macht.
+
+</div>
 Brandenburg bietet große Wälder, offene Landschaften, kleine Dörfer, Seen und lange Strecken mit wenig Orientierungsmöglichkeiten – was es zu einem idealen Ort für eine navigationsbasierte Herausforderung macht.
 
 </details>
