@@ -1,44 +1,8 @@
-<style>
-  input[name="language-switch"] {
-    display: none;
-  }
-
-  .lang-label {
-    display: inline-block;
-    padding: 8px 16px;
-    margin-right: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: #f9f9f9;
-    font-weight: 500;
-  }
-
-  #btn-en:checked ~ .btn-en-label,
-  #btn-de:checked ~ .btn-de-label {
-    background-color: #333;
-    color: white;
-    border-color: #333;
-  }
-
-  .lang-en,
-  .lang-de {
-    display: none;
-  }
-
-  #btn-en:checked ~ .lang-en,
-  #btn-de:checked ~ .lang-de {
-    display: block;
-  }
-</style>
-
 <input type="radio" id="btn-en" name="language-switch" checked>
 <input type="radio" id="btn-de" name="language-switch">
 
 <label for="btn-en" class="lang-label btn-en-label">English</label>
 <label for="btn-de" class="lang-label btn-de-label">Deutsch</label>
-
 
 <div class="lang-en">
 
@@ -116,5 +80,3 @@ Bringen Sie geeignete Outdoor-Kleidung, Wasser, Essen, Campingausrüstung und be
 Brandenburg bietet große Wälder, offene Landschaften, kleine Dörfer, Seen und lange Strecken mit wenig Orientierungsmöglichkeiten – was es zu einem idealen Ort für eine navigationsbasierte Herausforderung macht.
 
 </div>
-
-</details>
