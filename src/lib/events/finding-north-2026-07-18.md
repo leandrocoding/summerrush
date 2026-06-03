@@ -116,6 +116,5 @@ Bringen Sie geeignete Outdoor-Kleidung, Wasser, Essen, Campingausrüstung und be
 Brandenburg bietet große Wälder, offene Landschaften, kleine Dörfer, Seen und lange Strecken mit wenig Orientierungsmöglichkeiten – was es zu einem idealen Ort für eine navigationsbasierte Herausforderung macht.
 
 </div>
-Brandenburg bietet große Wälder, offene Landschaften, kleine Dörfer, Seen und lange Strecken mit wenig Orientierungsmöglichkeiten – was es zu einem idealen Ort für eine navigationsbasierte Herausforderung macht.
 
 </details>
