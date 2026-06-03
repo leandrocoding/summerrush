@@ -30,19 +30,19 @@
 	}
 
 	:global(#btn-en:checked ~ .btn-en-label),
-	:global(#btn-de:checked ~ .btn-de-label) {
+	:global(#btn-de:checked ~ .btn-local-label) {
 		background-color: #333;
 		color: white;
 		border-color: #333;
 	}
 
 	:global(.lang-en),
-	:global(.lang-de) {
+	:global(.lang-local) {
 		display: none;
 	}
 
 	:global(#btn-en:checked ~ .lang-en),
-	:global(#btn-de:checked ~ .lang-de) {
+	:global(#btn-de:checked ~ .lang-local) {
 		display: block;
 	}
 </style>
