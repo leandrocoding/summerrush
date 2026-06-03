@@ -1,14 +1,3 @@
-<script>
-  let lang = 'en';
-</script>
-
-<div class="lang-toggle" style="margin-bottom: 2rem;">
-  <button on:click={() => lang = 'en'} class={lang === 'en' ? 'active' : ''}>English</button>
-  <button on:click={() => lang = 'de'} class={lang === 'de' ? 'active' : ''}>Deutsch</button>
-</div>
-
-{#if lang === 'en'}
-
 ![Brandenburg Forest](finding-north-forest.png)
 
 Join us from Friday, July 17 to Sunday, July 19, 2026 for **Finding North** — a 3-day navigation challenge through the forests, fields, and villages of Brandenburg.
@@ -43,9 +32,10 @@ Bring proper outdoor clothing, water, food, camping equipment, and comfortable f
 
 Brandenburg offers large forests, open landscapes, small villages, lakes, and long stretches with little orientation — making it an ideal setting for a navigation-based challenge.
 
-{:else}
+---
 
-![Brandenburg Forest](finding-north-forest.png)
+<details>
+<summary style="cursor: pointer; font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem;">🇩🇪 Auf Deutsch lesen (Read in German)</summary>
 
 Begleiten Sie uns von Freitag, 17. Juli bis Sonntag, 19. Juli 2026 zu **Finding North** — einer 3-tägigen Navigationsherausforderung durch die Wälder, Felder und Dörfer Brandenburgs.
 
@@ -79,4 +69,4 @@ Bringen Sie geeignete Outdoor-Kleidung, Wasser, Essen, Campingausrüstung und be
 
 Brandenburg bietet große Wälder, offene Landschaften, kleine Dörfer, Seen und lange Strecken mit wenig Orientierungsmöglichkeiten – was es zu einem idealen Ort für eine navigationsbasierte Herausforderung macht.
 
-{/if}
+</details>
