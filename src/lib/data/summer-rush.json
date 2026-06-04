@@ -119,7 +119,7 @@
 			"country": "UK",
 			"hostServerId": "uk",
 			"status": "Signup Open",
-			"eventId": "",
+			"eventId": "1512176267523395734",
 			"eventLinkOverride": ""
 		},
 		{
@@ -188,7 +188,7 @@
 			"city": "Budapest",
 			"country": "Hungary",
 			"hostServerId": "europa",
-			"status": "Planning",
+			"status": "Confirmed",
 			"eventId": "1505268916954468352",
 			"eventLinkOverride": ""
 		},
@@ -221,6 +221,19 @@
 			"mapTitle": "Game Map"
 		},
 		{
+			"id": "graz-2026-07-25",
+			"title": "H+S Graz",
+			"startDate": "2026-07-25",
+			"endDate": "2026-07-25",
+			"dateLabel": "25.07.2026",
+			"city": "Graz",
+			"country": "Austria",
+			"hostServerId": "europa",
+			"status": "Planning",
+			"eventId": "",
+			"eventLinkOverride": ""
+		},
+		{
 			"id": "belgium-2026-08-01",
 			"title": "H+S Belgium",
 			"startDate": "2026-08-01",
@@ -249,19 +262,6 @@
 			"eventLinkOverride": ""
 		},
 		{
-			"id": "graz-2026-08-08",
-			"title": "H+S Graz",
-			"startDate": "2026-08-08",
-			"endDate": "2026-08-08",
-			"dateLabel": "08.08.2026",
-			"city": "Graz",
-			"country": "Austria",
-			"hostServerId": "europa",
-			"status": "Planning",
-			"eventId": "",
-			"eventLinkOverride": ""
-		},
-		{
 			"id": "paris-2026-08-15",
 			"title": "H+S Paris",
 			"startDate": "2026-08-15",
@@ -270,7 +270,7 @@
 			"city": "Paris",
 			"country": "France",
 			"hostServerId": "europa",
-			"status": "Signup Open",
+			"status": "Confirmed",
 			"eventId": "1505266208197443785",
 			"eventLinkOverride": ""
 		},
@@ -296,7 +296,7 @@
 			"city": "Milan",
 			"country": "Italy",
 			"hostServerId": "europa",
-			"status": "Confirmed",
+			"status": "Signup Open",
 			"eventId": "1494043999974195291",
 			"eventLinkOverride": ""
 		},
