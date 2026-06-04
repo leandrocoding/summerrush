@@ -29,7 +29,7 @@ The rail network between Frankfurt and Karlsruhe ranks among the most important 
 * **Format:** A two days game based on strategic routing and advanced timetable navigation under intense psychological pressure. The game takes place on **7th to 8th of August between 10 AM and 7 PM**.
 * **Team Building:** Three teams are formed, all taking the role of the "Snaker", with the goal to create the longest snake on the gaming area.] At the same time, each team must sabotage the competition to prevent them from forming a longer snake than their own.
 * **Movement:** All travel must occur on local public transport lines. High speed rail (e.g. ICE, IC) or special trains are banned. Every team is required to keep their trackers visible to the opposing teams.
-* **Challenges:** To travel, you must pay 1 coin per kilometre. Coins must be earned by completing challenges. In addition to enabling travel, coins also allow you to purchase powerups. These allow you to, for example, temporarily make your location invisible to the other teams, curse a specific section of the route, or place a roadblock for an opposing team at a strategic stop.
+* **Challenges:** To travel, you must pay one coin per kilometre. Coins must be earned by completing challenges. In addition to enabling travel, coins also allow you to purchase powerups. These allow you to, for example, temporarily make your location invisible to the other teams, curse a specific section of the route, or place a roadblock for the opposing teams at a strategic stop.
 * **Scoring:** By completing a trip from one node to the next, the corresponding number of kilometres is credited to the scoreboard. Additionally, players have the option to complete a Node Expedition within a specific city. For each completed Node Expedition, the Snaker team receives 10 permanent kilometres that will be credited to the longest snake of each team after the game concluded.
 
 ### Game Map
@@ -47,9 +47,9 @@ The rail network between Frankfurt and Karlsruhe ranks among the most important 
 
 ![Die Stadt Ludwigshafen](Ludwigshafen.jpg)
 
-Werden Sie Teil eines neuen Spielformats: Snaketag — einer Mischung aus den beiden Jet Lag-Spielen [Snake Across South Korea](https://jetlag.fandom.com/wiki/Snake_Across_South_Korea) und [Tag Across Europe](https://jetlag.fandom.com/wiki/Tag_Across_Europe).
+Sei Teil eines neuen Spielformats: Snaketag — einer Mischung aus den beiden Jet Lag-Spielen [Snake Across South Korea](https://jetlag.fandom.com/wiki/Snake_Across_South_Korea) und [Tag Across Europe](https://jetlag.fandom.com/wiki/Tag_Across_Europe).
 
-Ziel des Events ist es, als Snaker die längstmögliche, sich nicht überschneidende Route auf dem Schienennetz zwischen Frankfurt und Karlsruhe zu erstellen, während Sie gleichzeitig gegen zwei rivalisierende Teams antreten müssen, die Ihre Schlange zerstören wollen.
+Ziel des Events ist es, als Snaker die längstmögliche, sich nicht überschneidende Strecke auf dem Schienennetz zwischen Frankfurt und Karlsruhe zu bilden, während die beiden rivalisierenden Teams versuchen deine Schlange zu zerstören.
 
 ### Über die Region
 
@@ -57,18 +57,18 @@ Das Schienennetz zwischen Frankfurt und Karlsruhe zählt zu den wichtigsten in g
 
 ### Anreise
 
-* **Treffpunkt:** Frankfurt Hauptbahnhof am 7. August um 09:30 Uhr, eine halbe Stunde vor dem Anpfiff.
-* **Flüge:** Der Flughafen Frankfurt (FRA) ist mit dem Zug etwa 10 Minuten vom Hauptbahnhof entfernt. Der Flughafen Köln/Bonn (CGN), der Flughafen Karlsruhe/Baden-Baden (FKB) und der Flughafen Stuttgart (STR) eignen sich ebenfalls als günstige Optionen mit anschließenden Zugverbindungen nach Frankfurt.
+* **Treffpunkt:** Frankfurt Hauptbahnhof am 7. August um 09:30 Uhr, eine halbe Stunde vor Spielbeginn.
+* **Flüge:** Der Flughafen Frankfurt Main (FRA) ist mit dem Zug in etwa 10 Minuten vom Hauptbahnhof zu erreichen. Der Flughafen Köln/Bonn (CGN), der Flughafen Karlsruhe/Baden-Baden (FKB) und der Flughafen Stuttgart (STR) eignen sich ebenfalls für Billigflüge mit anschließenden Zugverbindungen nach Frankfurt.
 * **Züge:** Frankfurt Hbf verfügt über direkte internationale und Intercity-Verbindungen, darunter ICE, IC/EC, TGV und regelmäßige Regional-Express-Linien.
-* **Deutschland-Ticket:** Alle Teilnehmer müssen im Besitz des Deutschland-Tickets sein. Das Ticket gilt für den gesamten Nah- und Regionalverkehr in Deutschland und kostet insgesamt 63€. **WARNUNG:** Das Deutschland-Ticket ist ein Abonnement. Wenn Sie das Ticket speziell für diese Veranstaltung erwerben, müssen Sie es unbedingt bis zum 10. des Monats stornieren, ansonsten zahlen Sie 2 Monate!
+* **Deutschland-Ticket:** Alle Teilnehmer müssen das Deutschland-Ticket besitzen. Das Ticket gilt für den gesamten Nah- und Regionalverkehr in Deutschland und kostet insgesamt 63€. **WARNUNG:** Das Deutschland-Ticket ist ein Abonnement. Wenn du das Ticket speziell für diese Veranstaltung kaufst, musst du es unbedingt bis zum 10. des Monats stornieren, ansonsten zahlst du für 2 Monate!
 
 ### Spielinfo
 
-* **Format:** Ein zweitägiges Spiel, basierend auf strategischer Routenplanung und fortgeschrittener Fahrplannavigation unter starkem psychologischem Druck. Das Spiel findet am **7. und 8. August zwischen 10:00 und 19:00 Uhr** statt.
-* **Teambildung:** Es werden drei Teams gebildet, die alle die Rolle des „Snakers“ übernehmen, mit dem Ziel, die längste Schlange im Spielgebiet zu erschaffen. Gleichzeitig muss jedes Team die Konkurrenz sabotieren, um zu verhindern, dass diese eine längere Schlange als die eigene bildet.
+* **Format:** Ein zweitägiges Spiel, basierend auf strategischer Routenplanung und fortgeschrittenen Fahrplannavigationskenntnissen unter starkem psychologischem Druck. Das Spiel findet am **7. und 8. August zwischen 10:00 und 19:00 Uhr** statt.
+* **Teambildung:** Es werden drei Teams gebildet, die alle die Rolle des „Snakers“ übernehmen, mit dem Ziel, die längste Schlange im Spielgebiet zu bilden. Gleichzeitig muss jedes Team die Konkurrenz sabotieren, um zu verhindern, dass diese eine längere Schlange als die eigene bildet.
 * **Fortbewegung:** Alle Fahrten müssen auf Linien des öffentlichen Nahverkehrs stattfinden. Hochgeschwindigkeitszüge (z. B. ICE, IC) oder Sonderzüge sind verboten. Jedes Team ist verpflichtet, seine Tracker für die gegnerischen Teams sichtbar zu halten.
-* **Herausforderungen:** Um zu reisen, müssen Sie 1 Münze pro Kilometer bezahlen. Münzen müssen durch das Abschließen von Herausforderungen verdient werden. Neben der Möglichkeit zu reisen, können Sie mit Münzen auch Power-Ups kaufen. Diese ermöglichen es Ihnen beispielsweise, Ihren Standort vorübergehend für die anderen Teams unsichtbar zu machen, einen bestimmten Streckenabschnitt zu verfluchen oder eine Straßensperre für ein gegnerisches Team an einem strategischen Haltepunkt zu errichten.
-* **Wertung:** Wenn eine Fahrt von einem Knotenpunkt zum nächsten abgeschlossen wird, wird die entsprechende Anzahl an Kilometern auf der Anzeigetafel gutgeschrieben. Zusätzlich haben die Spieler die Möglichkeit, eine Knotenpunkt-Expedition innerhalb einer bestimmten Stadt durchzuführen. Für jede abgeschlossene Knotenpunkt-Expedition erhält das Snaker-Team 10 permanente Kilometer, die nach Spielende der längsten Schlange jedes Teams gutgeschrieben werden.
+* **Herausforderungen:** Um sich auf dem Spielfeld fortbewegen zu können, muss jedes Team eine Münze pro Kilometer bezahlen. Münzen müssen durch das Abschließen von Herausforderungen verdient werden. Neben der Möglichkeit zu reisen, kannst du mit Münzen auch Power-Ups kaufen. Diese ermöglichen es dir beispielsweise, deinen Standort vorübergehend für die anderen Teams unsichtbar zu machen, einen bestimmten Streckenabschnitt zu verfluchen oder eine Straßensperre für die gegnerischen Teams an einem strategischen Haltepunkt zu errichten.
+* **Punktezählung:** Wenn ein Team eine Fahrt von einem Knotenpunkt zum nächsten abschließt, wird die entsprechende Kilometerdistanz zur Gesamtpunktzahl dieser Runde berechnet. Zusätzlich haben die Spieler die Möglichkeit, eine Knotenpunkt-Expedition innerhalb einer bestimmten Stadt durchzuführen. Für jede abgeschlossene Knotenpunkt-Expedition erhält das Snaker-Team 10 permanente Kilometer, die nach Spielende der längsten Schlange jedes Teams gutgeschrieben werden.
 
 ### Spielkarte
 
@@ -76,6 +76,6 @@ Das Schienennetz zwischen Frankfurt und Karlsruhe zählt zu den wichtigsten in g
 
 <!-- ![Snaketag Oberrhein Map](Snaketag_Oberrhein_Map.png) -->
 
-<span style="color:red; font-weight:bold;"> Rote Zahlen: Entfernung zwischen den Checkpoints in Kilometern. </span>
+<span style="color:red; font-weight:bold;"> Rote Zahlen: Abstand zwischen den Knotenpunkten in Kilometern. </span>
 
 </div>
