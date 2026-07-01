@@ -223,9 +223,9 @@
 		{
 			"id": "graz-2026-07-25",
 			"title": "H+S Graz",
-			"startDate": "2026-07-25",
-			"endDate": "2026-07-25",
-			"dateLabel": "25.07.2026",
+			"startDate": "2026-08-08",
+			"endDate": "2026-08-08",
+			"dateLabel": "08.08.2026",
 			"city": "Graz",
 			"country": "Austria",
 			"hostServerId": "europa",
@@ -247,6 +247,19 @@
 			"eventLinkOverride": "",
 			"mapEmbedUrl": "https://www.google.com/maps/d/embed?mid=1aIZJtPKwNZvyTpyVZenRCFwrhRrwlik&ehbc=2E312F",
 			"mapTitle": "Game Map"
+		},
+		{
+			"id": "longhaul-2026-08-08",
+			"title": "The Long Haul",
+			"startDate": "2026-08-08",
+			"endDate": "2026-08-08",
+			"dateLabel": "08.08.2026",
+			"city": "The Netherlands",
+			"country": "",
+			"hostServerId": "benelux",
+			"status": "Singup Open",
+			"eventId": "1521786948463759380",
+			"eventLinkOverride": "",
 		},
 		{
 			"id": "snaketag-oberrhein-2026-07-24",
