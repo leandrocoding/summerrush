@@ -220,19 +220,6 @@
 			"mapTitle": "Game Map"
 		},
 		{
-			"id": "graz-2026-07-25",
-			"title": "H+S Graz",
-			"startDate": "2026-08-08",
-			"endDate": "2026-08-08",
-			"dateLabel": "08.08.2026",
-			"city": "Graz",
-			"country": "Austria",
-			"hostServerId": "europa",
-			"status": "Planning",
-			"eventId": "",
-			"eventLinkOverride": ""
-		},
-		{
 			"id": "belgium-2026-08-01",
 			"title": "H+S Belgium",
 			"startDate": "2026-08-01",
@@ -246,6 +233,19 @@
 			"eventLinkOverride": "",
 			"mapEmbedUrl": "https://www.google.com/maps/d/embed?mid=1aIZJtPKwNZvyTpyVZenRCFwrhRrwlik&ehbc=2E312F",
 			"mapTitle": "Game Map"
+		},
+		{
+			"id": "graz-2026-07-25",
+			"title": "H+S Graz",
+			"startDate": "2026-08-08",
+			"endDate": "2026-08-08",
+			"dateLabel": "08.08.2026",
+			"city": "Graz",
+			"country": "Austria",
+			"hostServerId": "europa",
+			"status": "Planning",
+			"eventId": "",
+			"eventLinkOverride": ""
 		},
 		{
 			"id": "longhaul-2026-08-08",
