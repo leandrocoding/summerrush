@@ -7,6 +7,8 @@
 
 <div class="lang-en">
 
+<span style="color:red; font-weight:bold;"> This event has been cancelled due to a lack of demand. </span>
+
 ![The city of Ludwigshafen](Ludwigshafen.jpg)
 
 Be part of a new game format: Snaketag — a fusion of the two Jet Lag games, [Snake Across South Korea](https://jetlag.fandom.com/wiki/Snake_Across_South_Korea) and [Tag Across Europe](https://jetlag.fandom.com/wiki/Tag_Across_Europe).
@@ -44,6 +46,8 @@ The rail network between Frankfurt and Karlsruhe ranks among the most important 
 
 
 <div class="lang-de">
+
+<span style="color:red; font-weight:bold;"> Diese Veranstaltung wurde aufgrund mangelnder Nachfrage abgesagt. </span>
 
 ![Die Stadt Ludwigshafen](Ludwigshafen.jpg)
 
