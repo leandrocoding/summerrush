@@ -235,7 +235,7 @@
 			"mapTitle": "Game Map"
 		},
 		{
-			"id": "graz-2026-07-25",
+			"id": "graz-2026-08-08",
 			"title": "H+S Graz",
 			"startDate": "2026-08-08",
 			"endDate": "2026-08-08",
@@ -258,6 +258,19 @@
 			"hostServerId": "benelux",
 			"status": "Singup Open",
 			"eventId": "1521786948463759380",
+			"eventLinkOverride": ""
+		},
+		{
+			"id": "copenhagen-2026-08-08",
+			"title": "H+S Copenhagen",
+			"startDate": "2026-08-08",
+			"endDate": "2026-08-08",
+			"dateLabel": "08.08.2026",
+			"city": "Copenhagen",
+			"country": "Denmark",
+			"hostServerId": "nordics",
+			"status": "Singup Open",
+			"eventId": "",
 			"eventLinkOverride": ""
 		},
 		{
