@@ -243,9 +243,11 @@
 			"city": "Graz",
 			"country": "Austria",
 			"hostServerId": "europa",
-			"status": "Planning",
-			"eventId": "",
-			"eventLinkOverride": ""
+			"status": "Signup Open",
+			"eventId": "1527034290909745255",
+			"eventLinkOverride": "",
+			"mapEmbedUrl": "https://www.google.com/maps/d/embed?mid=1T-FlCAEmSYFFluo5gfo-f-VfAVam7Ig&ehbc=2E312F",
+			"mapTitle": "Game Map"
 		},
 		{
 			"id": "longhaul-2026-08-08",
@@ -270,7 +272,7 @@
 			"country": "Denmark",
 			"hostServerId": "nordics",
 			"status": "Singup Open",
-			"eventId": "",
+			"eventId": "1532305889397051482",
 			"eventLinkOverride": ""
 		},
 		{
@@ -295,9 +297,25 @@
 			"city": "Paris",
 			"country": "France",
 			"hostServerId": "europa",
-			"status": "Confirmed",
+			"status": "Signup Open",
 			"eventId": "1505266208197443785",
 			"eventLinkOverride": ""
+		},
+		
+		{
+			"id": "stockholm-2026-08-15",
+			"title": "H+S Stockholm II",
+			"startDate": "2026-08-15",
+			"endDate": "2026-08-15",
+			"dateLabel": "15.08.2026",
+			"city": "Stockholm",
+			"country": "Sweden",
+			"hostServerId": "nordics",
+			"status": "Signup Open",
+			"eventId": "1534213827753672795",
+			"eventLinkOverride": "",
+			"mapEmbedUrl": "",
+			"mapTitle": "Game Map"
 		},
 		{
 			"id": "bens-playground-2026-08-22",
@@ -330,7 +348,7 @@
 			"title": "H+S Switzerland",
 			"startDate": "2026-09-05",
 			"endDate": "2026-09-05",
-			"dateLabel": "05.09.2026",
+			"dateLabel": "TBD",
 			"city": "Switzerland",
 			"country": "",
 			"hostServerId": "switzerland",
@@ -366,7 +384,6 @@
 			"name": "Jet Lag: Germany",
 			"region": "Germany",
 			"icon": "JLD",
-			"invite": "https://discord.gg/gkzZQAHXnR"
 		},
 		{
 			"id": "nordics",
