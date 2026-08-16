@@ -83,7 +83,11 @@ New bot-generated IDs use this rule:
 
 1. slugify the city to lowercase ASCII words separated by hyphens;
 2. append `-YYYY-MM-DD` using `startDate`;
-3. if that ID already exists in `main` or an open bot PR, append the smallest available numeric suffix (`-2`, `-3`, ...).
+3. compute a normalized request fingerprint from the submitted title, date range, city, country, server ID, and status;
+4. before allocating a suffix, search `main` and open bot PR bodies for the same fingerprint. An exact match returns the existing event or PR instead of creating a duplicate;
+5. if the candidate ID is occupied by a different event or a different request, append the smallest available numeric suffix (`-2`, `-3`, ...).
+
+The fingerprint distinguishes a repeated submission from a separate event in the same city on the same date. The fingerprint is recorded in the generated PR body so retries remain idempotent.
 
 Migrated IDs are retained even if their historical slug was generated from a title rather than the city. Once a file exists, its ID never changes when the title, city, or dates change.
 
@@ -93,8 +97,8 @@ Migrated IDs are retained even if their historical slug was generated from a tit
 ---
 schemaVersion: 1
 title: H+S Amsterdam
-startDate: 2027-04-18
-endDate: 2027-04-18
+startDate: "2027-04-18"
+endDate: "2027-04-18"
 startTime: "10:00"
 endTime: "18:00"
 timezone: Europe/Amsterdam
@@ -123,14 +127,16 @@ The reviewer can expand this body directly in the PR.
 | --- | --- |
 | `schemaVersion` | Integer; currently `1`. |
 | `title` | Non-empty display title. |
-| `startDate` | ISO calendar date, `YYYY-MM-DD`. |
-| `endDate` | ISO calendar date; equal to or later than `startDate`. |
+| `startDate` | Quoted YAML string containing an ISO calendar date, `YYYY-MM-DD`. |
+| `endDate` | Quoted YAML string containing an ISO calendar date; equal to or later than `startDate`. |
 | `city` | Non-empty display location. |
 | `country` | Non-empty display country or region. |
 | `hostServerId` | Must match an ID in `servers.json`. |
-| `status` | One of `planning`, `confirmed`, `signup-open`, `full`, or `cancelled`. |
+| `status` | One of `planning`, `confirmed`, `signup-open`, `full`, `waitlist`, or `cancelled`. |
 
 `status` is a public registration/event state. It is not a publication state. A merged file is public.
+
+The legacy status values map during migration as follows: `Signup Open` to `signup-open`, `Confirmed` to `confirmed`, `Planning` to `planning`, and `Full / Wait list` to `waitlist`. The `waitlist` value preserves the existing meaning and is displayed as `Full / Wait list`.
 
 ### Optional front matter
 
@@ -143,10 +149,10 @@ The reviewer can expand this body directly in the PR.
 | `signupUrl` | Absolute `https://` URL; takes precedence over generated Discord links. |
 | `imageUrl` | Absolute `https://` URL. |
 | `imageAlt` | Required when `imageUrl` is present. |
-| `mapEmbedUrl` | Absolute `https://` URL for an embeddable map. |
+| `mapEmbedUrl` | Absolute `https://` URL whose origin/path matches `https://www.google.com/maps/` or `https://maps.google.com/`. |
 | `mapTitle` | Accessible map heading/title. |
 
-If `signupUrl` is absent and both `discordEventId` and the assigned server’s invite exist, the loader may preserve the current deep-link behavior by appending the event identifier to the server invite URL. `dateLabel` is removed; date display is derived from the ISO fields.
+If `signupUrl` is absent and both `discordEventId` and the assigned server’s invite exist, the loader must preserve the current deep-link behavior: construct `new URL(server.invite)`, call `url.searchParams.set('event', discordEventId)`, and use `url.toString()` as the signup URL. `dateLabel` is removed; date display is derived from the ISO fields.
 
 The Markdown body is optional. It may contain headings, paragraphs, lists, links, and images needed by migrated editorial content. The page heading comes from `title`, so an H1 is not required in the body. Unknown front-matter keys are rejected to keep the bot contract deterministic.
 
@@ -166,7 +172,7 @@ The home page uses the Jetlag Events in Europe site configuration and has this o
 6. shared Discord server directory;
 7. footer notes.
 
-Upcoming events are sorted by `startDate`, then title. Past events are sorted newest first. An event is past when its `endDate` is before the current date. Cancelled events remain visible with a cancelled state rather than silently disappearing.
+Upcoming events are sorted by `startDate`, then title. Past events are sorted newest first. An event is past when its `endDate` is before the visitor’s browser-local calendar date; an optional event timezone affects time display only, not the archive boundary. Cancelled events remain visible with a cancelled state rather than silently disappearing.
 
 Each event row displays the date/range, title, city/country, server icon/name, status, a stable detail link, and a signup/Discord link when available. Every event has a detail link even when its Markdown body is empty because the metadata is sufficient to render a valid page.
 
@@ -186,7 +192,7 @@ The initial site does not add a calendar grid, filtering, map overview, or searc
 - optional Markdown body;
 - optional map embed.
 
-Missing optional values remove only their corresponding sections. The page has a unique title and description, semantic heading structure, keyboard-visible focus, accessible image/map labels, and responsive layouts. External links use safe target/rel attributes. Map embeds are constrained by the deployment Content Security Policy.
+Missing optional values remove only their corresponding sections. The page has a unique title and description, semantic heading structure, keyboard-visible focus, accessible image/map labels, and responsive layouts. External links use safe target/rel attributes. Map embeds are constrained by a Content Security Policy with `frame-src https://www.google.com https://maps.google.com`, matching the schema allowlist.
 
 ### Visual direction
 
@@ -224,7 +230,7 @@ The command performs these steps:
 3. Present an ephemeral selection step for `hostServerId` from `servers.json` and `status` from the schema enum.
 4. Normalize whitespace, dates, and text; generate the immutable ID.
 5. Validate all values against the pinned website schema and server list.
-6. Check `main` and open bot PRs for the candidate ID.
+6. Compute the normalized request fingerprint and check `main` and open bot PRs for an exact match before allocating an ID suffix.
 7. Create branch `bot/event/add/<id>` from the current default branch.
 8. Commit `src/lib/content/events/<id>.md` with valid front matter and an empty body.
 9. Open one PR against `main`.
@@ -268,7 +274,7 @@ PR titles use `Add event: <title> (<id>)` or `Update event: <title> (<id>)`. The
 
 ## 8. Migration and verification acceptance
 
-Migration must convert every current event record into an event file, retain its stable URL ID, carry over server assignment/status/Discord identifier/map data, and preserve existing Markdown details and local static image assets. `dateLabel` and other central-index-only presentation fields are removed.
+Migration must convert every current event record into an event file, retain its stable URL ID, carry over server assignment/status/Discord identifier/map data, and preserve existing Markdown details and local static image assets. Status values use the explicit mapping above. `dateLabel` and other central-index-only presentation fields are removed.
 
 The website implementation is accepted when:
 
