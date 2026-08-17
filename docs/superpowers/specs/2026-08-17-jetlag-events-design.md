@@ -23,7 +23,7 @@ The first implementation covers the public website, migration of current content
 - A merged event is public. Upcoming/archive visibility is derived from dates, not from a publication field.
 - Support date ranges and optional local start/end times with an IANA timezone.
 - Accept external HTTPS media/map URLs only for automated fields. The bot does not upload files.
-- Preserve the existing events, event prose, and local image assets during migration.
+- Preserve the existing events, English event prose, and local image assets during migration; remove the German sections and language-switch markup from the two bilingual legacy pages.
 - Show upcoming events first and retain a past-event archive.
 - Use trusted Discord roles for future command authorization.
 - Allow at most one open bot PR per event.
@@ -34,7 +34,7 @@ The first implementation covers the public website, migration of current content
 - Rebrand all public copy and metadata from Summer Rush to Jetlag Events in Europe.
 - Replace the central event index with per-event content files.
 - Add build-time front-matter validation.
-- Migrate existing event records and detail Markdown.
+- Migrate existing event records and the English portions of detail Markdown.
 - Render upcoming events, past events, server information, and stable detail pages.
 - Configure a fully prerendered build suitable for Cloudflare Pages previews.
 - Document the future Discord-to-GitHub add/edit contract.
@@ -150,11 +150,13 @@ The legacy status values map during migration as follows: `Signup Open` to `sign
 | `imageUrl` | Absolute `https://` URL. |
 | `imageAlt` | Required when `imageUrl` is present. |
 | `mapEmbedUrl` | Absolute `https://` URL whose origin/path matches `https://www.google.com/maps/` or `https://maps.google.com/`. |
-| `mapTitle` | Accessible map heading/title. |
+| `mapTitle` | Optional accessible map heading/title; when absent, derive `${title} map` for the iframe title and section heading. |
 
 If `signupUrl` is absent and both `discordEventId` and the assigned server’s invite exist, the loader must preserve the current deep-link behavior: construct `new URL(server.invite)`, call `url.searchParams.set('event', discordEventId)`, and use `url.toString()` as the signup URL. `dateLabel` is removed; date display is derived from the ISO fields.
 
 The Markdown body is optional. It may contain headings, paragraphs, lists, links, and images needed by migrated editorial content. The page heading comes from `title`, so an H1 is not required in the body. Unknown front-matter keys are rejected to keep the bot contract deterministic.
+
+Migrated English Markdown may retain reviewed raw HTML, relative local-image references, and external image references where those constructs are needed to preserve the existing page. New bot-created bodies are empty and the bot does not accept arbitrary Markdown input.
 
 The validator rejects malformed dates, reversed ranges, invalid times/timezones, invalid status values, unknown server IDs, duplicate IDs, invalid URLs, missing image alt text, and schema versions the site does not support. It reports the file and field in the build error.
 
@@ -231,6 +233,8 @@ The command performs these steps:
 4. Normalize whitespace, dates, and text; generate the immutable ID.
 5. Validate all values against the pinned website schema and server list.
 6. Compute the normalized request fingerprint and check `main` and open bot PRs for an exact match before allocating an ID suffix.
+
+Fingerprint normalization applies Unicode NFKC, trims leading/trailing whitespace, collapses internal whitespace to one ASCII space, and lowercases each of `title`, `city`, `country`, `hostServerId`, and `status`. Dates use their quoted ISO strings. The bot computes `sha256(JSON.stringify([title, startDate, endDate, city, country, hostServerId, status]))` and records the lowercase hexadecimal digest in the PR body.
 7. Create branch `bot/event/add/<id>` from the current default branch.
 8. Commit `src/lib/content/events/<id>.md` with valid front matter and an empty body.
 9. Open one PR against `main`.
@@ -274,11 +278,11 @@ PR titles use `Add event: <title> (<id>)` or `Update event: <title> (<id>)`. The
 
 ## 8. Migration and verification acceptance
 
-Migration must convert every current event record into an event file, retain its stable URL ID, carry over server assignment/status/Discord identifier/map data, and preserve existing Markdown details and local static image assets. Status values use the explicit mapping above. `dateLabel` and other central-index-only presentation fields are removed.
+Migration must convert every current event record into an event file, retain its stable URL ID, carry over server assignment/status/Discord identifier/map data, preserve existing English Markdown details and local static image assets, and remove the German sections and language-switch markup from the two bilingual legacy pages. The three blank legacy country values are filled deterministically: `belgium-2026-08-01` uses `Belgium`, `bens-playground-2026-08-22` uses `Netherlands, Germany, France and Switzerland`, and `switzerland-2026-09-05` uses `Switzerland`. Status values use the explicit mapping above. `dateLabel` and other central-index-only presentation fields are removed.
 
 The website implementation is accepted when:
 
-1. all current events and event detail content are present after migration;
+1. all current event records and English event detail content are present after migration;
 2. the loader produces the correct upcoming and past sets from migrated dates;
 3. a valid new event file appears in the list and its stable detail route;
 4. invalid event fixtures fail the build with file-and-field diagnostics;
