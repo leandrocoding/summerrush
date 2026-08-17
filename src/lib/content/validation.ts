@@ -134,10 +134,9 @@ function validateTimezone(value: string, filePath: string): void {
 }
 
 function httpsUrl(value: string, field: string, filePath: string): URL {
-	if (/\s/u.test(value)) {
+	if (!value.startsWith('https://') || /\s/u.test(value)) {
 		fail(filePath, field, 'must be an absolute HTTPS URL');
 	}
-
 	let parsed: URL;
 	try {
 		parsed = new URL(value);

@@ -209,7 +209,9 @@ describe('validateEventFrontMatter', () => {
 	test.each([
 		['signupUrl', 'http://example.com/signup'],
 		['imageUrl', 'http://cdn.example.com/image.webp'],
-	] as const)('rejects a non-HTTPS %s', (field, value) => {
+		['signupUrl', 'https:example.com/signup'],
+		['imageUrl', 'https:/cdn.example.com/image.webp']
+	] as const)('rejects a non-HTTPS or malformed %s', (field, value) => {
 		const metadata = validFrontMatter();
 		metadata[field] = value;
 
