@@ -33,8 +33,9 @@ const DATE_PATTERN = /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/u;
 const TIME_PATTERN = /^(?:[01][0-9]|2[0-3]):[0-5][0-9]$/u;
 const HTTPS_URI_PATTERN = /^https:\/\/[A-Za-z0-9\-._~:\/?#[\]@!$&'()*+,;=%]+$/u;
 const INVALID_PERCENT_ESCAPE_PATTERN = /%(?![0-9A-Fa-f]{2})/u;
+const DUPLICATE_FRAGMENT_PATTERN = /#[^#]*#/u;
 const GOOGLE_MAP_URL_PATTERN =
-	/^(?![^?#]*\/(?:\.\.|\.%2[eE]|%2[eE]\.|%2[eE]%2[eE])(?:\/|[?#]|$))(?!.*%(?![0-9A-Fa-f]{2}))https:\/\/(?:www\.google\.com\/maps\/|maps\.google\.com\/)[A-Za-z0-9\-._~:\/?#[\]@!$&'()*+,;=%]*$/u;
+	/^(?![^?#]*\/(?:\.\.|\.%2[eE]|%2[eE]\.|%2[eE]%2[eE])(?:\/|[?#]|$))(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)https:\/\/(?:www\.google\.com\/maps\/|maps\.google\.com\/)[A-Za-z0-9\-._~:\/?#[\]@!$&'()*+,;=%]*$/u;
 const ALLOWED_FIELDS: Record<string, true> = {
 	schemaVersion: true,
 	title: true,
@@ -136,7 +137,11 @@ function validateTimezone(value: string, filePath: string): void {
 }
 
 function httpsUrl(value: string, field: string, filePath: string): URL {
-	if (!HTTPS_URI_PATTERN.test(value) || INVALID_PERCENT_ESCAPE_PATTERN.test(value)) {
+	if (
+		!HTTPS_URI_PATTERN.test(value) ||
+		INVALID_PERCENT_ESCAPE_PATTERN.test(value) ||
+		DUPLICATE_FRAGMENT_PATTERN.test(value)
+	) {
 		fail(filePath, field, 'must be an absolute HTTPS URI using valid URI characters and escapes');
 	}
 	let parsed: URL;

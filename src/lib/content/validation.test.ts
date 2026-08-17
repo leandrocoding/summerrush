@@ -214,7 +214,9 @@ describe('validateEventFrontMatter', () => {
 		['signupUrl', 'https://example.com/path%ZZ'],
 		['imageUrl', String.raw`https://cdn.example.com/image\b`],
 		['signupUrl', 'https://example.com/path|name'],
-		['imageUrl', 'https://cdn.example.com/image^name']
+		['imageUrl', 'https://cdn.example.com/image^name'],
+		['signupUrl', 'https://example.com/path#one#two'],
+		['imageUrl', 'https://cdn.example.com/image#one#two']
 	] as const)('rejects a non-HTTPS or malformed %s', (field, value) => {
 		const schemaPattern = new RegExp(
 			field === 'signupUrl' ? eventSchema.properties.signupUrl.pattern : eventSchema.properties.imageUrl.pattern
@@ -228,6 +230,20 @@ describe('validateEventFrontMatter', () => {
 	});
 
 	test.each([
+		['signupUrl', 'https://example.com/path?query=one#fragment'],
+		['imageUrl', 'https://cdn.example.com/image.webp#fragment']
+	] as const)('accepts a valid single-fragment %s', (field, value) => {
+		const schemaPattern = new RegExp(
+			field === 'signupUrl' ? eventSchema.properties.signupUrl.pattern : eventSchema.properties.imageUrl.pattern
+		);
+		expect(schemaPattern.test(value)).toBe(true);
+
+		const metadata = validFrontMatter();
+		metadata[field] = value;
+		expect(validateEventFrontMatter(metadata, SERVER_IDS, FILE_PATH)).toMatchObject({ [field]: value });
+	});
+
+	test.each([
 		['https://www.google.com/maps/', true],
 		['https://www.google.com/maps/?query=example', true],
 		['https://www.google.com/maps/d/embed?mid=example', true],
@@ -235,6 +251,7 @@ describe('validateEventFrontMatter', () => {
 		['https://www.google.com/maps/?query=foo..bar', true],
 		['https://maps.google.com/', true],
 		['https://maps.google.com/maps/d/embed?mid=example', true],
+		['https://www.google.com/maps/#fragment', true],
 		['https://www.google.com/maps', false],
 		['https://www.google.com/maps?query=example', false],
 		['HTTPS://www.google.com/maps/', false],
@@ -249,6 +266,7 @@ describe('validateEventFrontMatter', () => {
 		['https://www.google.com/maps/%2E%2E/search', false],
 		['https://www.google.com/maps/%2e%2e?query=example', false],
 		['https://www.google.com/maps/%2e%2e#fragment', false],
+		['https://www.google.com/maps/#one#two', false],
 		['https://www.google.com/maps/a%ZZ', false],
 		['https://www.google.com/maps/a|b', false],
 		[String.raw`https://www.google.com/maps/a\b`, false],
