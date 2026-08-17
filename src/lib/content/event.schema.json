@@ -68,13 +68,13 @@
     },
     "signupUrl": {
       "type": "string",
-      "pattern": "^https://(?![/?#])(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)[A-Za-z0-9\\-._~:/?#@!$&'()*+,;=%]+$",
-      "description": "Optional absolute HTTPS signup URI validated solely by this conservative pattern: a non-empty authority, RFC 3986 URI characters, valid percent escapes, and at most one fragment."
+      "pattern": "^https://(?![/?#])(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)(?:[A-Za-z0-9\\-._~!$&'()*+,;=%:]+@)?(?:\\[[0-9A-Fa-f:.]+\\]|[A-Za-z0-9\\-._~!$&'()*+,;=%]+)(?::[0-9]+)?(?:[/?#][A-Za-z0-9\\-._~:/?#@!$&'()*+,;=%]*)?$",
+      "description": "Optional absolute HTTPS signup URI validated solely by this conservative authority/component pattern: optional userinfo, a host or bracketed IPv6 address, an optional numeric port, RFC 3986 URI characters, valid percent escapes, and at most one fragment."
     },
     "imageUrl": {
       "type": "string",
-      "pattern": "^https://(?![/?#])(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)[A-Za-z0-9\\-._~:/?#@!$&'()*+,;=%]+$",
-      "description": "Optional absolute HTTPS event image URI validated solely by this conservative pattern: a non-empty authority, RFC 3986 URI characters, valid percent escapes, and at most one fragment."
+      "pattern": "^https://(?![/?#])(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)(?:[A-Za-z0-9\\-._~!$&'()*+,;=%:]+@)?(?:\\[[0-9A-Fa-f:.]+\\]|[A-Za-z0-9\\-._~!$&'()*+,;=%]+)(?::[0-9]+)?(?:[/?#][A-Za-z0-9\\-._~:/?#@!$&'()*+,;=%]*)?$",
+      "description": "Optional absolute HTTPS event image URI validated solely by this conservative authority/component pattern: optional userinfo, a host or bracketed IPv6 address, an optional numeric port, RFC 3986 URI characters, valid percent escapes, and at most one fragment."
     },
     "imageAlt": {
       "type": "string",

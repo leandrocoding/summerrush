@@ -220,7 +220,9 @@ describe('validateEventFrontMatter', () => {
 		['signupUrl', 'https:///example.com'],
 		['imageUrl', 'https:///cdn.example.com/image.webp'],
 		['signupUrl', 'https://example.com/[segment]'],
-		['imageUrl', 'https://cdn.example.com/[segment]']
+		['imageUrl', 'https://cdn.example.com/[segment]'],
+		['signupUrl', 'https://example.com:bogus/path'],
+		['imageUrl', 'https://cdn.example.com:bogus/image.webp']
 	] as const)('rejects a non-HTTPS or malformed %s', (field, value) => {
 		const schemaPattern = new RegExp(
 			field === 'signupUrl' ? eventSchema.properties.signupUrl.pattern : eventSchema.properties.imageUrl.pattern
@@ -235,8 +237,12 @@ describe('validateEventFrontMatter', () => {
 
 	test.each([
 		['signupUrl', 'https://example.com/path?query=one#fragment'],
-		['imageUrl', 'https://cdn.example.com/image.webp#fragment']
-	] as const)('accepts a valid single-fragment %s', (field, value) => {
+		['imageUrl', 'https://cdn.example.com/image.webp#fragment'],
+		['signupUrl', 'https://example.com:8443/path'],
+		['imageUrl', 'https://user:pass@example.com/image.webp'],
+		['signupUrl', 'https://[2001:db8::1]:8443/path'],
+		['imageUrl', 'https://[::1]/image.webp']
+	] as const)('accepts a valid single-fragment or authority form for %s', (field, value) => {
 		const schemaPattern = new RegExp(
 			field === 'signupUrl' ? eventSchema.properties.signupUrl.pattern : eventSchema.properties.imageUrl.pattern
 		);
