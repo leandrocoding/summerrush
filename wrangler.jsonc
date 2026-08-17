@@ -1,14 +1,6 @@
 {
-	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "summerrush",
-	"compatibility_date": "2026-05-13",
-	"compatibility_flags": ["nodejs_compat"],
-	"main": ".svelte-kit/cloudflare/_worker.js",
-	"assets": {
-		"binding": "ASSETS",
-		"directory": ".svelte-kit/cloudflare"
-	},
-	"observability": {
-		"enabled": true
-	}
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jetlag-events-in-europe",
+  "compatibility_date": "2026-08-17",
+  "pages_build_output_dir": "./build"
 }

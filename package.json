@@ -1,5 +1,5 @@
 {
-	"name": "summerrush",
+	"name": "jetlag-events-europe",
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
@@ -17,7 +17,7 @@
 	"devDependencies": {
 		"@eslint/compat": "^2.0.4",
 		"@eslint/js": "^10.0.1",
-		"@sveltejs/adapter-cloudflare": "^7.2.8",
+		"@sveltejs/adapter-static": "^3.0.10",
 		"@sveltejs/kit": "^2.57.0",
 		"@sveltejs/vite-plugin-svelte": "^7.0.0",
 		"@types/node": "^24",

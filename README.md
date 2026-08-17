@@ -1,42 +1,62 @@
-# sv
+# Jetlag Events in Europe
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```sh
-# create a new project
-npx sv create my-app
-```
-
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-bun x sv@0.15.3 create --template minimal --types ts --add prettier eslint mcp="ide:other+setup:remote" mdsvex --install bun summerrush
-```
+Community-run Jet Lag games and events across Europe. A static SvelteKit site
+built from a validated per-event Markdown catalog and deployed to Cloudflare Pages.
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Install dependencies and start the development server:
 
 ```sh
-npm run dev
+bun install
+bun run dev
+```
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+Open the printed local URL in a browser.
+
+## Content
+
+Each event lives in `src/lib/content/events/<event-id>.md`. The filename is the
+immutable event ID and URL segment. Front matter is validated against
+`src/lib/content/event.schema.json` at build time. Shared server records live in
+`src/lib/content/servers.json` and site copy in `src/lib/content/site.json`.
+
+Run the test suite with:
+
+```sh
+bun test
 ```
 
 ## Building
 
-To create a production version of your app:
+Build a production version of the app:
 
 ```sh
-npm run build
+bun run build
 ```
 
-You can preview the production build with `npm run preview`.
+The static adapter writes the prerendered site to the `build/` directory. The
+home page and every event detail route are prerendered. Preview it locally with:
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```sh
+bun run preview
+```
+
+## Deploying to Cloudflare Pages
+
+The Cloudflare Pages project is connected to this Git repository:
+
+- the production branch is `main` — pushes to `main` build and deploy production;
+- pushes to other branches create preview deployments;
+- pull requests receive a unique preview URL and a repository status check.
+
+The Pages build command is `bun run build` and the output directory is `build`.
+
+To deploy the built directory manually, run:
+
+```sh
+wrangler pages deploy build --project-name jetlag-events-in-europe
+```
+
+`wrangler.jsonc` pins the Cloudflare Pages output directory, and
+`static/_headers` restricts map-embed frames to Google Maps origins.
