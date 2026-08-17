@@ -86,8 +86,8 @@
     "mapEmbedUrl": {
       "type": "string",
       "format": "uri",
-      "pattern": "^https://(?:www\\.google\\.com/maps/|maps\\.google\\.com/)",
-      "description": "Optional absolute HTTPS Google Maps URL. The allowlist is https://www.google.com/maps/ or https://maps.google.com/; the runtime validator enforces the host and path."
+      "pattern": "^https://(?:www\\.google\\.com/maps(?:/[^?#\\s]*)?|maps\\.google\\.com/[^?#\\s]*)(?:[?#][^\\s]*)?$",
+      "description": "Optional absolute lowercase HTTPS Google Maps URL. The raw URL must use https://www.google.com/maps with an optional slash/path or query, or https://maps.google.com/ with a slash/path. The runtime validator additionally checks the parsed host, credentials, and port."
     },
     "mapTitle": {
       "type": "string",

@@ -31,6 +31,8 @@ export type EventFrontMatter = {
 
 const DATE_PATTERN = /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/u;
 const TIME_PATTERN = /^(?:[01][0-9]|2[0-3]):[0-5][0-9]$/u;
+const GOOGLE_MAP_URL_PATTERN =
+	/^https:\/\/(?:www\.google\.com\/maps(?:\/[^?#\s]*)?|maps\.google\.com\/[^?#\s]*)(?:[?#][^\s]*)?$/u;
 const ALLOWED_FIELDS: Record<string, true> = {
 	schemaVersion: true,
 	title: true,
@@ -150,17 +152,26 @@ function httpsUrl(value: string, field: string, filePath: string): URL {
 }
 
 function validateMapUrl(value: string, filePath: string): void {
+	if (!GOOGLE_MAP_URL_PATTERN.test(value)) {
+		fail(
+			filePath,
+			'mapEmbedUrl',
+			'must use a lowercase HTTPS Google Maps URL with https://www.google.com/maps or https://maps.google.com/'
+		);
+	}
+
 	const parsed = httpsUrl(value, 'mapEmbedUrl', filePath);
 	const isAllowedOrigin = parsed.port === '' && parsed.username === '' && parsed.password === '';
 	const isGoogleMapsPath =
-		isAllowedOrigin && parsed.hostname === 'www.google.com' && parsed.pathname.startsWith('/maps/');
-	const isGoogleMapsHost = isAllowedOrigin && parsed.hostname === 'maps.google.com' && parsed.pathname.startsWith('/');
+		isAllowedOrigin && parsed.hostname === 'www.google.com' && parsed.pathname.startsWith('/maps');
+	const isGoogleMapsHost =
+		isAllowedOrigin && parsed.hostname === 'maps.google.com' && parsed.pathname.startsWith('/');
 
 	if (!isGoogleMapsPath && !isGoogleMapsHost) {
 		fail(
 			filePath,
 			'mapEmbedUrl',
-			'must use https://www.google.com/maps/ or https://maps.google.com/'
+			'must use a lowercase HTTPS Google Maps URL with https://www.google.com/maps or https://maps.google.com/'
 		);
 	}
 }

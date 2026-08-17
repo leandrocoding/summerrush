@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { validateEventFrontMatter } from './validation';
+import eventSchema from './event.schema.json';
 
 const FILE_PATH = 'src/lib/content/events/amsterdam-2027-04-18.md';
 const SERVER_IDS = ['benelux', 'europa', 'uk', 'nordics'];
@@ -215,6 +216,32 @@ describe('validateEventFrontMatter', () => {
 		expectValidationError(metadata, field);
 	});
 
+	test.each([
+		['https://www.google.com/maps', true],
+		['https://www.google.com/maps/', true],
+		['https://www.google.com/maps?query=example', true],
+		['https://www.google.com/maps/d/embed?mid=example', true],
+		['https://maps.google.com/', true],
+		['https://maps.google.com/maps/d/embed?mid=example', true],
+		['HTTPS://www.google.com/maps/', false],
+		['https://WWW.google.com/maps/', false],
+		['https://maps.google.com', false],
+		['https://www.google.com/map', false],
+		['https://www.google.com:443/maps/', false],
+		['https://evil@www.google.com/maps/', false],
+		['https://maps.example.com/maps/d/embed?mid=example', false]
+	] as const)('keeps Google Maps URL schema and runtime validation in parity for %s', (value, accepted) => {
+		const schemaPattern = new RegExp(eventSchema.properties.mapEmbedUrl.pattern);
+		expect(schemaPattern.test(value)).toBe(accepted);
+
+		const metadata = validFrontMatter();
+		metadata.mapEmbedUrl = value;
+		if (accepted) {
+			expect(validateEventFrontMatter(metadata, SERVER_IDS, FILE_PATH)).toMatchObject({ mapEmbedUrl: value });
+		} else {
+			expectValidationError(metadata, 'mapEmbedUrl');
+		}
+	});
 
 	test('rejects a map URL outside the Google Maps allowlist', () => {
 		const metadata = validFrontMatter();
