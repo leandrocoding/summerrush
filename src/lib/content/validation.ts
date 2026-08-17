@@ -32,11 +32,11 @@ export type EventFrontMatter = {
 const DATE_PATTERN = /^[0-9]{4}-[0-9]{2}-[0-9]{2}(?![\s\S])/u;
 const TIME_PATTERN = /^(?:[01][0-9]|2[0-3]):[0-5][0-9](?![\s\S])/u;
 const HTTPS_URI_PATTERN =
-	/^https:\/\/(?![/?#])(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)(?:[A-Za-z0-9\-._~!$&'()*+,;=%:]+@)?(?:\[[0-9A-Fa-f:.]+\]|[A-Za-z0-9\-._~!$&'()*+,;=%]+)(?::[0-9]+)?(?:[/?#][A-Za-z0-9\-._~:\/?#@!$&'()*+,;=%]*)?(?![\s\S])/u;
+	/^https:\/\/(?![/?#])(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)(?:[A-Za-z0-9\-._~!$&'()*+,;=%:]+@)?(?:\[[0-9A-Fa-f:.]+\]|[A-Za-z0-9\-._~!$&'()*+,;=%]+)(?::[0-9]+)?(?:[/?#][A-Za-z0-9\-._~:/?#@!$&'()*+,;=%]*)?(?![\s\S])/u;
 const INVALID_PERCENT_ESCAPE_PATTERN = /%(?![0-9A-Fa-f]{2})/u;
 const DUPLICATE_FRAGMENT_PATTERN = /#[^#]*#/u;
 const GOOGLE_MAP_URL_PATTERN =
-	/^(?![^?#]*\/(?:\.\.|\.%2[eE]|%2[eE]\.|%2[eE]%2[eE])(?:\/|[?#]|$))(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)https:\/\/(?![/?#])(?:www\.google\.com\/maps\/|maps\.google\.com\/)[A-Za-z0-9\-._~:\/?#@!$&'()*+,;=%]*(?![\s\S])/u;
+	/^(?![^?#]*\/(?:\.\.|\.%2[eE]|%2[eE]\.|%2[eE]%2[eE])(?:\/|[?#]|$))(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)https:\/\/(?![/?#])(?:www\.google\.com\/maps\/|maps\.google\.com\/)[A-Za-z0-9\-._~:/?#@!$&'()*+,;=%]*(?![\s\S])/u;
 const ALLOWED_FIELDS: Record<string, true> = {
 	schemaVersion: true,
 	title: true,
@@ -86,7 +86,12 @@ function requiredString(record: RawFrontMatter, field: string, filePath: string)
 	return value;
 }
 
-function optionalString(record: RawFrontMatter, field: string, filePath: string, nonEmpty = false): string | undefined {
+function optionalString(
+	record: RawFrontMatter,
+	field: string,
+	filePath: string,
+	nonEmpty = false
+): string | undefined {
 	if (!hasOwn(record, field)) return undefined;
 
 	const value = record[field];
@@ -275,15 +280,19 @@ export function validateEventFrontMatter(
 	const hasAnyTime = TIME_FIELDS.some((field) => hasOwn(record, field));
 	if (hasAnyTime) {
 		for (const field of TIME_FIELDS) {
-			if (!hasOwn(record, field)) fail(filePath, field, 'is required when event times are provided');
+			if (!hasOwn(record, field))
+				fail(filePath, field, 'is required when event times are provided');
 		}
 
 		const startTime = optional.startTime;
 		const endTime = optional.endTime;
 		const timezone = optional.timezone;
-		if (startTime === undefined) fail(filePath, 'startTime', 'is required when event times are provided');
-		if (endTime === undefined) fail(filePath, 'endTime', 'is required when event times are provided');
-		if (timezone === undefined) fail(filePath, 'timezone', 'is required when event times are provided');
+		if (startTime === undefined)
+			fail(filePath, 'startTime', 'is required when event times are provided');
+		if (endTime === undefined)
+			fail(filePath, 'endTime', 'is required when event times are provided');
+		if (timezone === undefined)
+			fail(filePath, 'timezone', 'is required when event times are provided');
 
 		const startMinutes = clockMinutes(startTime, 'startTime', filePath);
 		const endMinutes = clockMinutes(endTime, 'endTime', filePath);

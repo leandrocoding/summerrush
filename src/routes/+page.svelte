@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 	import { onMount } from 'svelte';
+	import { SvelteSet } from 'svelte/reactivity';
 	import { partitionEvents, type EventRecord } from '$lib/content/catalog';
 	import { browserToday } from '$lib/content/page-data';
 	import { formatDateRange, statusLabel } from '$lib/content/event-utils';
@@ -23,7 +24,7 @@
 	});
 
 	function uniqueCountryCount(events: EventRecord[]): number {
-		const countries = new Set<string>();
+		const countries = new SvelteSet<string>();
 		for (const event of events) {
 			for (const part of event.country.split(/,\s*|\s+and\s+/i)) {
 				const country = part.trim();
@@ -158,6 +159,7 @@
 		<img class="server-icon" src={serverIconFor(event.server.icon)} alt="" />
 
 		<div class="event-main">
+			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
 			<h3><a href={eventPathFor(event)}>{event.title}</a></h3>
 			<p>{locationFor(event)}</p>
 		</div>
@@ -168,8 +170,8 @@
 		</div>
 
 		<div class="event-action">
-			<a class="info-button" href={eventPathFor(event)}
-				>{isArchived ? 'View event' : 'More info'}</a
+			<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+			<a class="info-button" href={eventPathFor(event)}>{isArchived ? 'View event' : 'More info'}</a
 			>
 			{#if !isArchived && event.signupUrl}
 				<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
@@ -194,8 +196,7 @@
 		--accent-ink: #f4eee0;
 		--font-display:
 			'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
-		--font-sans:
-			'Avenir Next', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		--font-sans: 'Avenir Next', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	}
 
 	:global(*) {
