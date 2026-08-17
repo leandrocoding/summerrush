@@ -68,15 +68,13 @@
     },
     "signupUrl": {
       "type": "string",
-      "format": "uri",
-      "pattern": "^https://(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)[A-Za-z0-9\\-._~:/?#[\\]@!$&'()*+,;=%]+$",
-      "description": "Optional absolute HTTPS signup URI using conservative RFC 3986 URI characters, valid percent escapes, and at most one fragment."
+      "pattern": "^https://(?![/?#])(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)[A-Za-z0-9\\-._~:/?#@!$&'()*+,;=%]+$",
+      "description": "Optional absolute HTTPS signup URI validated solely by this conservative pattern: a non-empty authority, RFC 3986 URI characters, valid percent escapes, and at most one fragment."
     },
     "imageUrl": {
       "type": "string",
-      "format": "uri",
-      "pattern": "^https://(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)[A-Za-z0-9\\-._~:/?#[\\]@!$&'()*+,;=%]+$",
-      "description": "Optional absolute HTTPS event image URI using conservative RFC 3986 URI characters, valid percent escapes, and at most one fragment."
+      "pattern": "^https://(?![/?#])(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)[A-Za-z0-9\\-._~:/?#@!$&'()*+,;=%]+$",
+      "description": "Optional absolute HTTPS event image URI validated solely by this conservative pattern: a non-empty authority, RFC 3986 URI characters, valid percent escapes, and at most one fragment."
     },
     "imageAlt": {
       "type": "string",
@@ -85,9 +83,8 @@
     },
     "mapEmbedUrl": {
       "type": "string",
-      "format": "uri",
-      "pattern": "^(?![^?#]*\\/(?:\\.\\.|\\.%2[eE]|%2[eE]\\.|%2[eE]%2[eE])(?:\\/|[?#]|$))(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)https://(?:www\\.google\\.com/maps/|maps\\.google\\.com/)[A-Za-z0-9\\-._~:/?#[\\]@!$&'()*+,;=%]*$",
-      "description": "Optional absolute lowercase HTTPS Google Maps URI using conservative RFC 3986 URI characters, valid percent escapes, and at most one fragment. The raw URL must use https://www.google.com/maps/ or https://maps.google.com/ with a slash/path. Only slash-delimited literal or encoded dot traversal segments are rejected before URL normalization; the runtime validator additionally checks the parsed host, credentials, and port."
+      "pattern": "^(?![^?#]*\\/(?:\\.\\.|\\.%2[eE]|%2[eE]\\.|%2[eE]%2[eE])(?:\\/|[?#]|$))(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)https://(?![/?#])(?:www\\.google\\.com/maps/|maps\\.google\\.com/)[A-Za-z0-9\\-._~:/?#@!$&'()*+,;=%]*$",
+      "description": "Optional absolute lowercase HTTPS Google Maps URI validated solely by this conservative pattern: the required Google Maps prefix, RFC 3986 URI characters, valid percent escapes, at most one fragment, and slash/path traversal checks."
     },
     "mapTitle": {
       "type": "string",

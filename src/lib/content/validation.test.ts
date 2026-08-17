@@ -216,7 +216,11 @@ describe('validateEventFrontMatter', () => {
 		['signupUrl', 'https://example.com/path|name'],
 		['imageUrl', 'https://cdn.example.com/image^name'],
 		['signupUrl', 'https://example.com/path#one#two'],
-		['imageUrl', 'https://cdn.example.com/image#one#two']
+		['imageUrl', 'https://cdn.example.com/image#one#two'],
+		['signupUrl', 'https:///example.com'],
+		['imageUrl', 'https:///cdn.example.com/image.webp'],
+		['signupUrl', 'https://example.com/[segment]'],
+		['imageUrl', 'https://cdn.example.com/[segment]']
 	] as const)('rejects a non-HTTPS or malformed %s', (field, value) => {
 		const schemaPattern = new RegExp(
 			field === 'signupUrl' ? eventSchema.properties.signupUrl.pattern : eventSchema.properties.imageUrl.pattern
@@ -263,6 +267,8 @@ describe('validateEventFrontMatter', () => {
 		['https://www.google.com/maps/.%2e/search', false],
 		['https://www.google.com/maps/%2e./search', false],
 		['https://www.google.com/maps/%2e%2e/search', false],
+		['https://www.google.com/maps/[segment]', false],
+		['https:///example.com', false],
 		['https://www.google.com/maps/%2E%2E/search', false],
 		['https://www.google.com/maps/%2e%2e?query=example', false],
 		['https://www.google.com/maps/%2e%2e#fragment', false],
