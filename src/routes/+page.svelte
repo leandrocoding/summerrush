@@ -153,7 +153,7 @@
 	<article class="event-row" class:archived={isArchived}>
 		<div class="date">
 			<span>{formatDateRange(event.startDate, event.endDate)}</span>
-			<small>{isArchived ? 'Completed' : statusLabel(event.status)}</small>
+			<small>{statusLabel(event.status)}</small>
 		</div>
 
 		<img class="server-icon" src={serverIconFor(event.server.icon)} alt="" />
