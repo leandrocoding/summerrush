@@ -1,0 +1,8 @@
+{
+	"title": "Jetlag Events in Europe",
+	"tagline": "Community-run Jet Lag games and events across Europe",
+	"description": "Find upcoming games, event details, and the Discord communities hosting them.",
+	"primaryAction": { "label": "Events" },
+	"secondaryAction": { "label": "Servers" },
+	"notes": ["Join the corresponding community server for event details and signups."]
+}

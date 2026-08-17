@@ -1,0 +1,44 @@
+[
+	{
+		"id": "europa",
+		"name": "Jet Lag Europa",
+		"region": "Europe-wide",
+		"icon": "JLE",
+		"invite": "https://discord.gg/aZsKMx7aht"
+	},
+	{
+		"id": "benelux",
+		"name": "Jet Lag Benelux",
+		"region": "Belgium, Netherlands and Luxembourg",
+		"icon": "JLB",
+		"invite": "https://discord.gg/eeWcZg5f5c"
+	},
+	{
+		"id": "switzerland",
+		"name": "Jet Lag Switzerland",
+		"region": "Switzerland",
+		"icon": "JLS",
+		"invite": "https://discord.gg/VaUdHf6Dy7"
+	},
+	{
+		"id": "germany",
+		"name": "Jet Lag Germany",
+		"region": "Germany",
+		"icon": "JLD",
+		"invite": "https://discord.gg/gkzZQAHXnR"
+	},
+	{
+		"id": "nordics",
+		"name": "Jet Lag Nordics",
+		"region": "Denmark, Norway, Sweden, Finland and Iceland",
+		"icon": "JLN",
+		"invite": "https://discord.gg/6fwsNZDJck"
+	},
+	{
+		"id": "uk",
+		"name": "Jet Lag: UK and Ireland",
+		"region": "UK and Ireland",
+		"icon": "JLUK",
+		"invite": "https://discord.gg/a7B9BujnjQ"
+	}
+]
