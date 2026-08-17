@@ -96,6 +96,17 @@ describe('validateEventFrontMatter', () => {
 
 		expectValidationError(metadata, field);
 	});
+	test.each([
+		['startDate', '2027-04-17\n'],
+		['endDate', '2027-04-17\n']
+	] as const)('rejects a trailing newline in %s', (field, value) => {
+		const schemaPattern = new RegExp(eventSchema.properties[field].pattern);
+		expect(schemaPattern.test(value)).toBe(false);
+
+		const metadata = validFrontMatter();
+		metadata[field] = value;
+		expectValidationError(metadata, field);
+	});
 
 	test('rejects an unsupported schema version', () => {
 		const metadata = validFrontMatter();
@@ -129,6 +140,17 @@ describe('validateEventFrontMatter', () => {
 		const metadata = validFrontMatter();
 		metadata[field] = value;
 
+		expectValidationError(metadata, field);
+	});
+	test.each([
+		['startTime', '10:00\r'],
+		['endTime', '18:00\r']
+	] as const)('rejects a trailing carriage return in %s', (field, value) => {
+		const schemaPattern = new RegExp(eventSchema.properties[field].pattern);
+		expect(schemaPattern.test(value)).toBe(false);
+
+		const metadata = validFrontMatter();
+		metadata[field] = value;
 		expectValidationError(metadata, field);
 	});
 

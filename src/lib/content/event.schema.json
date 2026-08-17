@@ -18,23 +18,23 @@
     "startDate": {
       "type": "string",
       "minLength": 1,
-      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(?![\\s\\S])",
       "description": "Quoted YAML string containing an ISO calendar date (YYYY-MM-DD)."
     },
     "endDate": {
       "type": "string",
       "minLength": 1,
-      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(?![\\s\\S])",
       "description": "Quoted YAML string containing an ISO calendar date (YYYY-MM-DD)."
     },
     "startTime": {
       "type": "string",
-      "pattern": "^(?:[01][0-9]|2[0-3]):[0-5][0-9]$",
+      "pattern": "^(?:[01][0-9]|2[0-3]):[0-5][0-9](?![\\s\\S])",
       "description": "Optional local start time in 24-hour HH:mm form."
     },
     "endTime": {
       "type": "string",
-      "pattern": "^(?:[01][0-9]|2[0-3]):[0-5][0-9]$",
+      "pattern": "^(?:[01][0-9]|2[0-3]):[0-5][0-9](?![\\s\\S])",
       "description": "Optional local end time in 24-hour HH:mm form."
     },
     "timezone": {
