@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Jetlag event front matter",
-  "description": "Front matter for one Jetlag Events in Europe event Markdown file.",
+  "description": "Front matter for one Jetlag Events in Europe event Markdown file. Calendar validity, date ordering, IANA timezone validity, and local-time ordering are semantic checks enforced by the runtime validator.",
   "type": "object",
   "additionalProperties": false,
   "properties": {
@@ -95,14 +95,10 @@
       "description": "Optional accessible heading/title for the map embed."
     }
   },
-  "required": [
-    "schemaVersion",
-    "title",
-    "startDate",
-    "endDate",
-    "city",
-    "country",
-    "hostServerId",
-    "status"
-  ]
+  "dependentRequired": {
+    "startTime": ["endTime", "timezone"],
+    "endTime": ["startTime", "timezone"],
+    "timezone": ["startTime", "endTime"],
+    "imageUrl": ["imageAlt"]
+  }
 }
