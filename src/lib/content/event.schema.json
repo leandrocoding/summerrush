@@ -95,6 +95,16 @@
       "description": "Optional accessible heading/title for the map embed."
     }
   },
+  "required": [
+    "schemaVersion",
+    "title",
+    "startDate",
+    "endDate",
+    "city",
+    "country",
+    "hostServerId",
+    "status"
+  ],
   "dependentRequired": {
     "startTime": ["endTime", "timezone"],
     "endTime": ["startTime", "timezone"],
