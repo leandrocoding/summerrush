@@ -217,16 +217,20 @@ describe('validateEventFrontMatter', () => {
 	});
 
 	test.each([
-		['https://www.google.com/maps', true],
 		['https://www.google.com/maps/', true],
-		['https://www.google.com/maps?query=example', true],
+		['https://www.google.com/maps/?query=example', true],
 		['https://www.google.com/maps/d/embed?mid=example', true],
 		['https://maps.google.com/', true],
 		['https://maps.google.com/maps/d/embed?mid=example', true],
+		['https://www.google.com/maps', false],
+		['https://www.google.com/maps?query=example', false],
 		['HTTPS://www.google.com/maps/', false],
 		['https://WWW.google.com/maps/', false],
 		['https://maps.google.com', false],
 		['https://www.google.com/map', false],
+		['https://www.google.com/maps/../search', false],
+		['https://www.google.com/maps/%2e%2e/search', false],
+		['https://www.google.com/maps/%2E%2E/search', false],
 		['https://www.google.com:443/maps/', false],
 		['https://evil@www.google.com/maps/', false],
 		['https://maps.example.com/maps/d/embed?mid=example', false]
