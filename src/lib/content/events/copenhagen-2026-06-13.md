@@ -1,3 +1,16 @@
+---
+schemaVersion: 1
+title: H+S Copenhagen
+startDate: "2026-06-13"
+endDate: "2026-06-13"
+city: Copenhagen
+country: Denmark
+hostServerId: nordics
+status: signup-open
+discordEventId: "1505649314721173565"
+mapEmbedUrl: https://www.google.com/maps/d/embed?mid=13kYC2ShWK2WuIIJUY_cskzXNOuqhUaM&ehbc=2E312F
+mapTitle: Game Map
+---
 ![Copenhagen River](copenhagen.webp)
 
 Join us on Saturday, June 13, 2026 for a Hide + Seek game across Copenhagen and the surrounding area. With Denmark's extensive public transport network, expect quick connections, tactical station choices, and plenty of opportunities to move around the city.

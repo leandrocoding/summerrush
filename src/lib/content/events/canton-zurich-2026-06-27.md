@@ -1,17 +1,16 @@
-# Event Markdown
-
-Create one Markdown file per event using the event ID as the filename:
-
-```text
-src/lib/events/utrecht-2026-05-25.md
-src/lib/events/brno-2026-05-30.md
-```
-
-The event detail page automatically renders the matching file at `/events/<event-id>`.
-
-## Example Content
-
-```md
+---
+schemaVersion: 1
+title: H+S Canton Zurich
+startDate: "2026-06-27"
+endDate: "2026-06-27"
+city: Canton Zurich
+country: Switzerland
+hostServerId: switzerland
+status: signup-open
+discordEventId: "1504831127708504114"
+mapEmbedUrl: https://www.google.com/maps/d/u/1/embed?mid=12jDeazKnODw0iv2N9h6sh5StSKgUgYA&ehbc=2E312F
+mapTitle: Game Map
+---
 ![Zürich Panorama](zh-panorama.jpg)
 
 Join us on Saturday, June 27, 2026 for a Hide + Seek game across Zürich and the surrounding canton. The game uses the dense ZVV public transport network, so expect quick connections, tactical station choices, and plenty of chances to move between urban, lakeside, and hillside areas.
@@ -35,19 +34,3 @@ Join us on Saturday, June 27, 2026 for a Hide + Seek game across Zürich and the
 Zürich is compact, walkable, and very transit-heavy, which makes it a strong setting for Hide + Seek. The city mixes dense central stations with quieter suburbs, lakefront routes, and elevated viewpoints, so both seekers and hiders should have interesting strategic options.
 
 You do not need to rely on bottled water during the day: Zürich has many public fountains with clean drinking water. Bring a bottle, comfortable shoes, and enough phone battery for navigation, communication, and checking connections.
-```
-
-Put embedded images in `static/events/`, then reference them with `/events/<filename>`.
-
-## Map Embeds
-
-Add a Google Maps embed to an event in `src/lib/data/summer-rush.json`:
-
-```json
-{
-	"mapEmbedUrl": "https://www.google.com/maps/d/u/1/embed?mid=...",
-	"mapTitle": "Game map"
-}
-```
-
-The map appears at the bottom of the event detail page.

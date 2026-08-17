@@ -1,3 +1,14 @@
+---
+schemaVersion: 1
+title: H+S South Limburg
+startDate: "2026-07-04"
+endDate: "2026-07-04"
+city: South Limburg
+country: Netherlands
+hostServerId: benelux
+status: signup-open
+discordEventId: "1503374560827805767"
+---
 ![Church Limburg](southlimburg1.JPG)
 
 Join us on Saturday, July 4th, 2026 for a Hide + Seek game across South Limburg! The game uses the regional buses and trains of the region, making it a fun map with some complex strategy.  

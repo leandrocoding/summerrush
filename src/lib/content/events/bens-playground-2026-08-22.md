@@ -1,6 +1,17 @@
+---
+schemaVersion: 1
+title: Race to Ben's Playground
+startDate: "2026-08-21"
+endDate: "2026-08-22"
+city: Netherlands, Germany, France and Switzerland
+country: Netherlands, Germany, France and Switzerland
+hostServerId: benelux
+status: signup-open
+discordEventId: "1498353015164375241"
+---
 ![Swiss Highway](race.webp)
 
-Be part of **the largest event of Summer Rush!!**
+Be part of **the largest Jetlag event in Europe!!**
 
 The objective of the event is simple: The team which arrives at Ben's famous playground in Merlischachen, Switzerland in the shortest time by hitchhiking, wins!
 

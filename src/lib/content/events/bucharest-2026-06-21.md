@@ -1,3 +1,16 @@
+---
+schemaVersion: 1
+title: H+S Bucharest
+startDate: "2026-06-21"
+endDate: "2026-06-21"
+city: Bucharest
+country: Romania
+hostServerId: europa
+status: signup-open
+discordEventId: "1483202864150220900"
+mapEmbedUrl: https://www.google.com/maps/d/embed?mid=1nuFY_Trs7jGm4xP4NY_LqnkyvJVG47U&ehbc=2E312F
+mapTitle: Game Map
+---
 ![Bucharest Skyline](bucharest1.jpg)
 
 Sunday, 21st of June, we are organsing our first game in Romania! Join us for a 1-day game of Hide + Seek across the Municipality of Bucharest. This game uses the frequent metro network and the dense, ancient tram network. Hide between Communist era blocks, in beautiful parks or on quaint neighbourhood markets. We can promise you that playing here is unlike anywhere in the world!
