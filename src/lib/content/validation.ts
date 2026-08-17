@@ -32,7 +32,7 @@ export type EventFrontMatter = {
 const DATE_PATTERN = /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/u;
 const TIME_PATTERN = /^(?:[01][0-9]|2[0-3]):[0-5][0-9]$/u;
 const GOOGLE_MAP_URL_PATTERN =
-	/^https:\/\/(?!.*(?:\.\.|%2[eE]))(?:www\.google\.com\/maps\/[^?#\s]*|maps\.google\.com\/[^?#\s]*)(?:[?#][^\s]*)?$/u;
+	/^(?![^?#]*\/(?:\.\.|\.%2[eE]|%2[eE]\.|%2[eE]%2[eE])(?:\/|$))https:\/\/(?:www\.google\.com\/maps\/|maps\.google\.com\/)[^\s]*$/u;
 const ALLOWED_FIELDS: Record<string, true> = {
 	schemaVersion: true,
 	title: true,
