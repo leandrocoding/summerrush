@@ -1,57 +1,49 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
-	import summerRush from '$lib/data/summer-rush.json';
+	import { onMount } from 'svelte';
+	import { partitionEvents, type EventRecord } from '$lib/content/catalog';
+	import { browserToday } from '$lib/content/page-data';
+	import { formatDateRange, statusLabel } from '$lib/content/event-utils';
 	import { serverIconFor } from '$lib/server-icons';
+	import type { PageData } from './$types';
 
-	type SummerRushEvent = (typeof summerRush.events)[number];
-	type Server = (typeof summerRush.servers)[number];
+	let { data }: { data: PageData } = $props();
 
-	const eventContentModules = import.meta.glob('/src/lib/events/*.md', { eager: true });
-	const { site, events, servers, notes } = summerRush;
-	const today = new Date().toLocaleDateString('sv-SE');
-	const upcomingEvents = events.filter((event) => !isPastEvent(event));
-	const pastEvents = events.filter(isPastEvent).reverse();
+	const site = $derived(data.site);
+	const servers = $derived(data.servers);
+	const events = $derived(data.events);
 
-	function dateLabel(event: SummerRushEvent) {
-		return event.dateLabel || 'Date TBA';
+	let visitorToday = $state<string | undefined>(undefined);
+	const today = $derived(visitorToday ?? data.buildToday);
+	const partition = $derived(partitionEvents(events, today));
+	const uniqueCountries = $derived(uniqueCountryCount(events));
+
+	onMount(() => {
+		visitorToday = browserToday();
+	});
+
+	function uniqueCountryCount(events: EventRecord[]): number {
+		const countries = new Set<string>();
+		for (const event of events) {
+			for (const part of event.country.split(/,\s*|\s+and\s+/i)) {
+				const country = part.trim();
+				if (country) countries.add(country);
+			}
+		}
+		return countries.size;
 	}
 
-	function organizerFor(event: SummerRushEvent) {
-		return servers.find((server) => server.id === event.hostServerId);
+	function locationFor(event: EventRecord): string {
+		return event.city === event.country ? event.city : `${event.city}, ${event.country}`;
 	}
 
-	function iconFor(server: Server) {
-		return serverIconFor(server.icon);
-	}
-
-	function locationFor(event: SummerRushEvent) {
-		return [event.city, event.country].filter(Boolean).join(' - ');
-	}
-
-	function eventUrlFor(event: SummerRushEvent, organizer: Server | undefined) {
-		if (event.eventLinkOverride) return event.eventLinkOverride;
-		if (!event.eventId || !organizer?.invite) return '';
-
-		const url = new URL(organizer.invite);
-		url.searchParams.set('event', event.eventId);
-		return url.toString();
-	}
-
-	function eventPathFor(event: SummerRushEvent) {
+	function eventPathFor(event: EventRecord): string {
 		return resolve(`/events/${event.id}`);
-	}
-
-	function hasEventInfo(event: SummerRushEvent) {
-		return `/src/lib/events/${event.id}.md` in eventContentModules;
-	}
-
-	function isPastEvent(event: SummerRushEvent) {
-		return Boolean(event.endDate && event.endDate < today);
 	}
 </script>
 
 <svelte:head>
-	<title>{site.title} | {site.season}</title>
+	<title>{site.title}</title>
 	<meta name="description" content={site.description} />
 </svelte:head>
 
@@ -65,7 +57,7 @@
 	</header>
 
 	<section class="hero" aria-labelledby="hero-title">
-		<p class="eyebrow">{site.season}</p>
+		<p class="eyebrow">European community bulletin</p>
 		<h1 id="hero-title">{site.title}</h1>
 		<p class="tagline">{site.tagline}</p>
 		<p class="intro">{site.description}</p>
@@ -75,44 +67,44 @@
 		</div>
 	</section>
 
-	<section class="summary" aria-label="Series summary">
+	<section class="summary" aria-label="Catalog summary">
 		<div>
-			<strong>{events.length}</strong>
-			<span>event{events.length === 1 ? '' : 's'}</span>
+			<strong>{partition.upcoming.length}</strong>
+			<span>upcoming events</span>
+		</div>
+		<div>
+			<strong>{uniqueCountries}</strong>
+			<span>countries</span>
 		</div>
 		<div>
 			<strong>{servers.length}</strong>
-			<span>participating servers</span>
-		</div>
-		<div>
-			<strong>14</strong>
-			<span>Countries</span>
+			<span>servers</span>
 		</div>
 	</section>
 
 	<section class="section" id="events" aria-labelledby="events-title">
 		<div class="section-header">
 			<p class="eyebrow">Schedule</p>
-			<h2 id="events-title">Events</h2>
+			<h2 id="events-title">Upcoming events</h2>
 		</div>
 
 		<div class="event-list">
-			{#each upcomingEvents as event (event.id)}
+			{#each partition.upcoming as event (event.id)}
 				{@render eventRow(event)}
 			{:else}
 				<p class="empty-state">No upcoming events right now.</p>
 			{/each}
 		</div>
 
-		{#if pastEvents.length}
+		{#if partition.archive.length}
 			<details class="archive">
 				<summary>
 					<span>Past events</span>
-					<strong>{pastEvents.length}</strong>
+					<strong>{partition.archive.length}</strong>
 				</summary>
 
 				<div class="event-list">
-					{#each pastEvents as event (event.id)}
+					{#each partition.archive as event (event.id)}
 						{@render eventRow(event, true)}
 					{/each}
 				</div>
@@ -123,21 +115,23 @@
 	<section class="section" id="servers" aria-labelledby="servers-title">
 		<div class="section-header">
 			<p class="eyebrow">Communities</p>
-			<h2 id="servers-title">Discord Servers</h2>
+			<h2 id="servers-title">Discord servers</h2>
 		</div>
 
 		<div class="server-list">
 			{#each servers as server (server.id)}
 				<article class="server-row">
-					<img class="server-icon" src={iconFor(server)} alt="" />
-					<div>
+					<img class="server-icon" src={serverIconFor(server.icon)} alt="" />
+					<div class="server-main">
 						<h3>{server.name}</h3>
 						<p>{server.region}</p>
 					</div>
 					<div class="join-block">
 						{#if server.invite}
 							<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-							<a class="join-button" href={server.invite}>Join server</a>
+							<a class="join-button" href={server.invite} target="_blank" rel="noreferrer"
+								>Join server <span aria-hidden="true">↗</span></a
+							>
 						{:else}
 							<span class="join-button disabled">Join server</span>
 						{/if}
@@ -148,26 +142,20 @@
 	</section>
 
 	<footer>
-		{#each notes as note (note)}
+		{#each site.notes as note (note)}
 			<p>{note}</p>
 		{/each}
 	</footer>
 </main>
 
-{#snippet eventRow(event: SummerRushEvent, isArchived = false)}
-	{@const organizer = organizerFor(event)}
-	{@const eventUrl = eventUrlFor(event, organizer)}
+{#snippet eventRow(event: EventRecord, isArchived = false)}
 	<article class="event-row" class:archived={isArchived}>
 		<div class="date">
-			<span>{dateLabel(event)}</span>
-			<small>{isArchived ? 'Completed' : event.status}</small>
+			<span>{formatDateRange(event.startDate, event.endDate)}</span>
+			<small>{isArchived ? 'Completed' : statusLabel(event.status)}</small>
 		</div>
 
-		{#if organizer}
-			<img class="server-icon" src={iconFor(organizer)} alt="" />
-		{:else}
-			<span class="server-icon empty" aria-hidden="true"></span>
-		{/if}
+		<img class="server-icon" src={serverIconFor(event.server.icon)} alt="" />
 
 		<div class="event-main">
 			<h3><a href={eventPathFor(event)}>{event.title}</a></h3>
@@ -176,34 +164,40 @@
 
 		<div class="organizer">
 			<span>Organizer</span>
-			<strong>{organizer?.name ?? 'TBA'}</strong>
+			<strong>{event.server.name}</strong>
 		</div>
 
 		<div class="event-action">
-			{#if hasEventInfo(event)}
-				<a class="info-button" href={eventPathFor(event)}
-					>{isArchived ? 'View event' : 'More info'}</a
+			<a class="info-button" href={eventPathFor(event)}
+				>{isArchived ? 'View event' : 'More info'}</a
+			>
+			{#if !isArchived && event.signupUrl}
+				<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+				<a class="event-button" href={event.signupUrl} target="_blank" rel="noreferrer"
+					>Sign up <span aria-hidden="true">↗</span></a
 				>
-			{:else}
-				<span class="info-button disabled">{isArchived ? 'View event' : 'More info'}</span>
-			{/if}
-			{#if !isArchived}
-				{#if eventUrl}
-					<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
-					<a class="event-button" href={eventUrl} target="_blank" rel="noreferrer"
-						>Open in Discord <span aria-hidden="true">↗</span></a
-					>
-				{:else}
-					<span class="event-button disabled"
-						>Open in Discord <span aria-hidden="true">↗</span></span
-					>
-				{/if}
 			{/if}
 		</div>
 	</article>
 {/snippet}
 
 <style>
+	:global(:root) {
+		--paper: #f4eee0;
+		--paper-soft: #ece4d1;
+		--ink: #1a1510;
+		--ink-soft: #4c4538;
+		--ink-faint: #756b5a;
+		--rule: #1a1510;
+		--rule-soft: #d8ccb3;
+		--accent: #c22e1c;
+		--accent-ink: #f4eee0;
+		--font-display:
+			'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
+		--font-sans:
+			'Avenir Next', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	}
+
 	:global(*) {
 		box-sizing: border-box;
 	}
@@ -214,68 +208,78 @@
 
 	:global(body) {
 		margin: 0;
-		background: #faf8f2;
-		color: #171717;
-		font-family:
-			Inter,
-			ui-sans-serif,
-			system-ui,
-			-apple-system,
-			BlinkMacSystemFont,
-			'Segoe UI',
-			sans-serif;
+		background: var(--paper);
+		color: var(--ink);
+		font-family: var(--font-sans);
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
 	}
 
 	:global(a) {
 		color: inherit;
 	}
 
+	:global(:focus-visible) {
+		outline: 2px solid var(--accent);
+		outline-offset: 3px;
+	}
+
 	main {
-		width: min(1040px, calc(100% - 32px));
+		width: min(1080px, calc(100% - 40px));
 		margin: 0 auto;
-		padding-bottom: 48px;
+		padding-bottom: 64px;
 	}
 
 	.site-header {
 		display: flex;
-		align-items: center;
+		align-items: baseline;
 		justify-content: space-between;
 		gap: 24px;
-		padding: 24px 0;
-		border-bottom: 1px solid #ded9cf;
-	}
-
-	.brand,
-	nav a,
-	.button,
-	.event-row a,
-	.server-row a {
-		font-weight: 700;
-		text-decoration: none;
+		padding: 22px 0 18px;
+		border-bottom: 3px solid var(--rule);
 	}
 
 	.brand {
-		font-size: 1.05rem;
+		font-family: var(--font-display);
+		font-size: 1.35rem;
+		font-weight: 700;
+		letter-spacing: -0.01em;
+		text-decoration: none;
 	}
 
 	nav {
 		display: flex;
-		gap: 18px;
-		color: #55524c;
-		font-size: 0.95rem;
+		gap: 22px;
+	}
+
+	nav a {
+		font-family: var(--font-sans);
+		font-size: 0.78rem;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		text-decoration: none;
+	}
+
+	.brand:hover,
+	nav a:hover {
+		text-decoration: underline;
+		text-underline-offset: 4px;
+		text-decoration-thickness: 1px;
 	}
 
 	.hero {
-		max-width: 760px;
-		padding: 72px 0 56px;
+		max-width: 820px;
+		padding: 80px 0 64px;
 	}
 
 	.eyebrow {
-		margin: 0 0 10px;
-		color: #a34525;
-		font-size: 0.78rem;
-		font-weight: 800;
-		letter-spacing: 0;
+		margin: 0 0 14px;
+		color: var(--accent);
+		font-family: var(--font-sans);
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.22em;
 		text-transform: uppercase;
 	}
 
@@ -286,37 +290,46 @@
 		margin-top: 0;
 	}
 
+	h1,
+	h2,
+	h3 {
+		font-family: var(--font-display);
+		font-weight: 700;
+		letter-spacing: -0.015em;
+	}
+
 	h1 {
-		margin-bottom: 14px;
-		font-size: clamp(3.4rem, 10vw, 7.5rem);
-		line-height: 0.9;
-		letter-spacing: 0;
+		margin-bottom: 22px;
+		font-size: clamp(3.1rem, 9vw, 6.9rem);
+		line-height: 0.92;
 	}
 
 	h2 {
 		margin-bottom: 0;
-		font-size: clamp(1.8rem, 4vw, 3rem);
-		line-height: 1;
-		letter-spacing: 0;
+		font-size: clamp(1.9rem, 4vw, 3.1rem);
+		line-height: 0.98;
 	}
 
 	h3 {
 		margin-bottom: 5px;
-		font-size: 1rem;
-		line-height: 1.25;
+		font-family: var(--font-display);
+		font-size: 1.22rem;
+		line-height: 1.15;
 	}
 
 	.tagline {
-		margin-bottom: 10px;
-		font-size: clamp(1.2rem, 2.5vw, 1.7rem);
-		font-weight: 750;
-		line-height: 1.25;
+		margin-bottom: 12px;
+		font-family: var(--font-display);
+		font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+		font-weight: 600;
+		line-height: 1.2;
 	}
 
 	.intro {
-		max-width: 680px;
-		margin-bottom: 22px;
-		color: #55524c;
+		max-width: 620px;
+		margin-bottom: 26px;
+		color: var(--ink-soft);
+		font-family: var(--font-sans);
 		line-height: 1.65;
 	}
 
@@ -330,31 +343,45 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		min-height: 40px;
-		border: 1px solid #171717;
-		border-radius: 6px;
-		padding: 0 14px;
+		min-height: 44px;
+		border: 1px solid var(--rule);
+		border-radius: 2px;
+		padding: 0 18px;
+		font-family: var(--font-sans);
+		font-size: 0.82rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		text-decoration: none;
+	}
+
+	.button:hover {
+		text-decoration: none;
 	}
 
 	.button.primary {
-		background: #171717;
-		color: #faf8f2;
+		background: var(--ink);
+		color: var(--paper);
+	}
+
+	.button:not(.primary):hover {
+		background: var(--paper-soft);
 	}
 
 	.summary {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		border-top: 1px solid #ded9cf;
-		border-bottom: 1px solid #ded9cf;
+		border-top: 1px solid var(--rule);
+		border-bottom: 1px solid var(--rule);
 	}
 
 	.summary div {
-		padding: 18px 0;
+		padding: 20px 0;
 	}
 
 	.summary div + div {
-		padding-left: 24px;
-		border-left: 1px solid #ded9cf;
+		padding-left: 28px;
+		border-left: 1px solid var(--rule-soft);
 	}
 
 	.summary strong,
@@ -363,21 +390,24 @@
 	}
 
 	.summary strong {
-		margin-bottom: 4px;
-		font-size: 1.55rem;
+		margin-bottom: 5px;
+		font-family: var(--font-display);
+		font-size: 2.2rem;
+		font-weight: 700;
 		line-height: 1;
 	}
 
-	.summary span,
-	.event-main p,
-	.server-row p,
-	.organizer span,
-	footer {
-		color: #69645d;
+	.summary span {
+		color: var(--ink-faint);
+		font-family: var(--font-sans);
+		font-size: 0.72rem;
+		font-weight: 700;
+		letter-spacing: 0.16em;
+		text-transform: uppercase;
 	}
 
 	.section {
-		padding-top: 56px;
+		padding-top: 72px;
 	}
 
 	.section-header {
@@ -385,18 +415,22 @@
 		align-items: end;
 		justify-content: space-between;
 		gap: 24px;
-		margin-bottom: 18px;
+		margin-bottom: 22px;
+	}
+
+	.section-header .eyebrow {
+		margin-bottom: 8px;
 	}
 
 	.event-list,
 	.server-list {
 		display: grid;
-		border-top: 1px solid #ded9cf;
+		border-top: 1px solid var(--rule);
 	}
 
 	.archive {
-		margin-top: 24px;
-		border-top: 1px solid #ded9cf;
+		margin-top: 28px;
+		border-top: 1px solid var(--rule);
 	}
 
 	.archive summary {
@@ -404,23 +438,32 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: 16px;
-		min-height: 54px;
+		min-height: 56px;
 		cursor: pointer;
-		color: #55524c;
-		font-weight: 850;
-		list-style-position: inside;
+		color: var(--ink-soft);
+		font-family: var(--font-sans);
+		font-size: 0.82rem;
+		font-weight: 700;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		list-style: none;
+	}
+
+	.archive summary::-webkit-details-marker {
+		display: none;
 	}
 
 	.archive summary strong {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		min-width: 28px;
-		height: 28px;
-		border: 1px solid #ded9cf;
+		min-width: 30px;
+		height: 30px;
+		border: 1px solid var(--rule);
 		border-radius: 999px;
-		color: #171717;
-		font-size: 0.9rem;
+		color: var(--ink);
+		font-size: 0.82rem;
+		letter-spacing: 0;
 	}
 
 	.archive .event-list {
@@ -431,60 +474,61 @@
 	.server-row {
 		display: grid;
 		align-items: center;
-		gap: 18px;
-		border-bottom: 1px solid #ded9cf;
-		padding: 16px 0;
+		gap: 20px;
+		border-bottom: 1px solid var(--rule-soft);
+		padding: 18px 0;
 	}
 
 	.event-row {
-		grid-template-columns: 120px 42px minmax(180px, 1fr) minmax(160px, 0.8fr) 296px;
+		grid-template-columns: 128px 42px minmax(180px, 1fr) minmax(160px, 0.8fr) 300px;
 	}
 
 	.event-row.archived {
-		grid-template-columns: 120px 42px minmax(180px, 1fr) minmax(160px, 0.8fr) 144px;
-		color: #55524c;
+		color: var(--ink-soft);
 	}
 
 	.server-row {
-		grid-template-columns: 42px minmax(180px, 1fr) minmax(190px, auto);
+		grid-template-columns: 42px minmax(200px, 1fr) minmax(200px, auto);
 	}
 
 	.date {
 		display: grid;
-		gap: 5px;
+		gap: 7px;
 	}
 
 	.date span {
-		font-weight: 800;
+		font-family: var(--font-sans);
+		font-size: 0.82rem;
+		font-weight: 700;
+		letter-spacing: 0.02em;
 	}
 
 	.date small {
 		width: fit-content;
-		border: 1px solid #ded9cf;
-		border-radius: 999px;
+		border: 1px solid var(--accent);
+		border-radius: 2px;
 		padding: 3px 7px;
-		color: #a34525;
-		font-size: 0.76rem;
-		font-weight: 800;
+		color: var(--accent);
+		font-family: var(--font-sans);
+		font-size: 0.66rem;
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
 	}
 
 	.server-icon {
 		width: 42px;
 		height: 42px;
-		border-radius: 8px;
+		border-radius: 6px;
 		object-fit: contain;
 		background: transparent;
 	}
 
-	.server-icon.empty {
-		display: block;
-		border: 1px dashed #cfc8bc;
-		background: transparent;
-	}
-
 	.event-main p,
-	.server-row p {
+	.server-main p {
 		margin-bottom: 0;
+		color: var(--ink-faint);
+		font-family: var(--font-sans);
 		line-height: 1.45;
 	}
 
@@ -495,17 +539,27 @@
 	.event-main a:hover {
 		text-decoration: underline;
 		text-underline-offset: 3px;
+		text-decoration-thickness: 1px;
 	}
 
 	.organizer {
 		display: grid;
-		gap: 3px;
+		gap: 4px;
 	}
 
 	.organizer span {
-		font-size: 0.78rem;
-		font-weight: 750;
+		color: var(--ink-faint);
+		font-family: var(--font-sans);
+		font-size: 0.68rem;
+		font-weight: 700;
+		letter-spacing: 0.14em;
 		text-transform: uppercase;
+	}
+
+	.organizer strong {
+		font-family: var(--font-sans);
+		font-size: 0.92rem;
+		font-weight: 600;
 	}
 
 	.join-block {
@@ -514,14 +568,10 @@
 	}
 
 	.event-action {
-		display: grid;
-		grid-template-columns: repeat(2, 144px);
+		display: flex;
+		flex-wrap: wrap;
 		justify-content: flex-end;
 		gap: 8px;
-	}
-
-	.event-row.archived .event-action {
-		grid-template-columns: 144px;
 	}
 
 	.event-button,
@@ -530,73 +580,89 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		min-height: 46px;
-		width: min(100%, 180px);
-		border-radius: 6px;
-		background: #171717;
-		color: #faf8f2;
-		font-size: 1rem;
-		font-weight: 850;
+		min-height: 44px;
+		width: 142px;
+		border-radius: 2px;
+		font-family: var(--font-sans);
+		font-size: 0.82rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
 		text-decoration: none;
-	}
-
-	.event-button {
-		min-height: 40px;
-		width: 144px;
-		border: 1px solid #5865f2;
-		padding: 0 12px;
-		background: #5865f2;
-		color: white;
 		gap: 6px;
 	}
 
 	.info-button {
-		min-height: 40px;
-		width: 144px;
-		border: 1px solid #171717;
+		border: 1px solid var(--rule);
 		padding: 0 12px;
 		background: transparent;
-		color: #171717;
+		color: var(--ink);
 	}
 
-	.event-button.disabled,
-	.info-button.disabled,
+	.info-button:hover {
+		background: var(--paper-soft);
+	}
+
+	.event-button,
+	.join-button {
+		border: 1px solid var(--accent);
+		padding: 0 12px;
+		background: var(--accent);
+		color: var(--accent-ink);
+	}
+
+	.event-button:hover,
+	.join-button:hover {
+		filter: brightness(0.94);
+	}
+
+	.join-button {
+		width: 100%;
+		min-width: 168px;
+	}
+
 	.join-button.disabled {
 		cursor: not-allowed;
-		opacity: 0.42;
-	}
-
-	.info-button.disabled {
-		border-color: #bdb6aa;
-		background: #ebe6dc;
-		color: #69645d;
+		border-color: var(--rule-soft);
+		background: var(--paper-soft);
+		color: var(--ink-faint);
+		opacity: 0.7;
 	}
 
 	.empty-state {
-		border-bottom: 1px solid #ded9cf;
+		border-bottom: 1px solid var(--rule-soft);
 		margin-bottom: 0;
-		padding: 18px 0;
-		color: #69645d;
+		padding: 20px 0;
+		color: var(--ink-faint);
+		font-family: var(--font-sans);
 	}
 
 	footer {
-		border-top: 1px solid #ded9cf;
-		margin-top: 56px;
-		padding-top: 18px;
-		font-size: 0.95rem;
+		border-top: 1px solid var(--rule);
+		margin-top: 72px;
+		padding-top: 20px;
+		color: var(--ink-faint);
+		font-family: var(--font-sans);
+		font-size: 0.88rem;
+		line-height: 1.6;
 	}
 
 	footer p {
 		margin-bottom: 0;
 	}
 
-	@media (max-width: 820px) {
+	@media (max-width: 940px) {
+		.event-row {
+			grid-template-columns: 108px 42px minmax(160px, 1fr) minmax(140px, 0.8fr) 156px;
+		}
+	}
+
+	@media (max-width: 760px) {
 		main {
 			width: min(100% - 24px, 640px);
 		}
 
 		.hero {
-			padding: 48px 0 40px;
+			padding: 52px 0 44px;
 		}
 
 		.summary,
@@ -607,24 +673,44 @@
 
 		.summary div + div {
 			padding-left: 0;
-			border-top: 1px solid #ded9cf;
+			border-top: 1px solid var(--rule-soft);
 			border-left: 0;
 		}
 
 		.event-row,
 		.server-row {
 			align-items: start;
-			gap: 10px;
+			gap: 12px;
+			padding: 20px 0;
+		}
+
+		.event-row {
+			grid-template-columns: 42px 1fr;
+		}
+
+		.event-row .date {
+			grid-column: 2;
+		}
+
+		.event-row .server-icon {
+			grid-column: 1;
+			grid-row: 1 / span 2;
+			margin-top: 2px;
+		}
+
+		.event-row .event-main,
+		.event-row .organizer,
+		.event-row .event-action {
+			grid-column: 1 / -1;
+		}
+
+		.event-row .event-action {
+			justify-content: start;
+			width: 100%;
 		}
 
 		.join-block {
 			justify-items: start;
-			width: 100%;
-		}
-
-		.event-action {
-			grid-template-columns: 1fr;
-			justify-content: flex-start;
 			width: 100%;
 		}
 
@@ -643,11 +729,17 @@
 	@media (max-width: 520px) {
 		.site-header {
 			display: grid;
+			gap: 12px;
 		}
 
 		.actions,
 		.button {
 			width: 100%;
+		}
+
+		.section-header {
+			display: grid;
+			align-items: start;
 		}
 	}
 </style>
