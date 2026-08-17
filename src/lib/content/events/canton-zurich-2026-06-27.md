@@ -1,33 +1,34 @@
 ---
 schemaVersion: 1
 title: H+S Canton Zurich
-startDate: "2026-06-27"
-endDate: "2026-06-27"
+startDate: '2026-06-27'
+endDate: '2026-06-27'
 city: Canton Zurich
 country: Switzerland
 hostServerId: switzerland
 status: signup-open
-discordEventId: "1504831127708504114"
+discordEventId: '1504831127708504114'
 mapEmbedUrl: https://www.google.com/maps/d/u/1/embed?mid=12jDeazKnODw0iv2N9h6sh5StSKgUgYA&ehbc=2E312F
 mapTitle: Game Map
 ---
+
 ![Zürich Panorama](zh-panorama.jpg)
 
 Join us on Saturday, June 27, 2026 for a Hide + Seek game across Zürich and the surrounding canton. The game uses the dense ZVV public transport network, so expect quick connections, tactical station choices, and plenty of chances to move between urban, lakeside, and hillside areas.
 
 ### Getting There
 
-* **Meeting point:** We will meet at Zürich Hauptbahnhof (HB), the city's main station and the best-connected point for local and long-distance arrivals.
-* **Flights:** Zürich Airport (ZRH) is about 10 minutes from the city center by train. EuroAirport Basel-Mulhouse-Freiburg (BSL) can also work as a budget option, with onward rail connections to Zürich.
-* **Trains:** Zürich HB has direct international and intercity connections, including ICE, TGV, Railjet, and frequent Swiss long-distance trains.
-* **Transit tickets:** The game runs on the ZVV network. Depending on when you arrive and how long you stay, consider a ZVV 9 Uhr Pass, a 24-hour ZVV ticket, or a Swiss day pass.
+- **Meeting point:** We will meet at Zürich Hauptbahnhof (HB), the city's main station and the best-connected point for local and long-distance arrivals.
+- **Flights:** Zürich Airport (ZRH) is about 10 minutes from the city center by train. EuroAirport Basel-Mulhouse-Freiburg (BSL) can also work as a budget option, with onward rail connections to Zürich.
+- **Trains:** Zürich HB has direct international and intercity connections, including ICE, TGV, Railjet, and frequent Swiss long-distance trains.
+- **Transit tickets:** The game runs on the ZVV network. Depending on when you arrive and how long you stay, consider a ZVV 9 Uhr Pass, a 24-hour ZVV ticket, or a Swiss day pass.
 
 ### Game Info & Map
 
-* **Format:** Standard Hide + Seek rules with a medium metric setup.
-* **Playable area:** The map covers train stations inside the canton Zürich.
-* **Hiding radius:** 500 m around the chosen station.
-* **Map:** Checkout the embedded map below, or open the full version [here](https://www.google.com/maps/d/u/1/edit?mid=12jDeazKnODw0iv2N9h6sh5StSKgUgYA&usp=sharing).
+- **Format:** Standard Hide + Seek rules with a medium metric setup.
+- **Playable area:** The map covers train stations inside the canton Zürich.
+- **Hiding radius:** 500 m around the chosen station.
+- **Map:** Checkout the embedded map below, or open the full version [here](https://www.google.com/maps/d/u/1/edit?mid=12jDeazKnODw0iv2N9h6sh5StSKgUgYA&usp=sharing).
 
 ### About Zürich
 

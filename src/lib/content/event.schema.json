@@ -1,111 +1,111 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Jetlag event front matter",
-  "description": "Front matter for one Jetlag Events in Europe event Markdown file. Calendar validity, date ordering, IANA timezone validity, and local-time ordering are semantic checks enforced by the runtime validator.",
-  "type": "object",
-  "additionalProperties": false,
-  "properties": {
-    "schemaVersion": {
-      "type": "integer",
-      "const": 1,
-      "description": "Version of the event front-matter contract."
-    },
-    "title": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Non-empty display title."
-    },
-    "startDate": {
-      "type": "string",
-      "minLength": 1,
-      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(?![\\s\\S])",
-      "description": "Quoted YAML string containing an ISO calendar date (YYYY-MM-DD)."
-    },
-    "endDate": {
-      "type": "string",
-      "minLength": 1,
-      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(?![\\s\\S])",
-      "description": "Quoted YAML string containing an ISO calendar date (YYYY-MM-DD)."
-    },
-    "startTime": {
-      "type": "string",
-      "pattern": "^(?:[01][0-9]|2[0-3]):[0-5][0-9](?![\\s\\S])",
-      "description": "Optional local start time in 24-hour HH:mm form."
-    },
-    "endTime": {
-      "type": "string",
-      "pattern": "^(?:[01][0-9]|2[0-3]):[0-5][0-9](?![\\s\\S])",
-      "description": "Optional local end time in 24-hour HH:mm form."
-    },
-    "timezone": {
-      "type": "string",
-      "minLength": 1,
-      "description": "IANA timezone used for the optional local times."
-    },
-    "city": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Non-empty display city or location."
-    },
-    "country": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Non-empty display country or region."
-    },
-    "hostServerId": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Stable ID of the hosting server in servers.json."
-    },
-    "status": {
-      "type": "string",
-      "enum": ["planning", "confirmed", "signup-open", "full", "waitlist", "cancelled"],
-      "description": "Public registration/event state."
-    },
-    "discordEventId": {
-      "type": "string",
-      "description": "Optional Discord event identifier."
-    },
-    "signupUrl": {
-      "type": "string",
-      "pattern": "^https://(?![/?#])(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)(?:[A-Za-z0-9\\-._~!$&'()*+,;=%:]+@)?(?:\\[[0-9A-Fa-f:.]+\\]|[A-Za-z0-9\\-._~!$&'()*+,;=%]+)(?::[0-9]+)?(?:[/?#][A-Za-z0-9\\-._~:/?#@!$&'()*+,;=%]*)?(?![\\s\\S])",
-      "description": "Optional absolute HTTPS signup URI. This structural pattern checks the URI shape and characters; semantic URL validity, including IPv6 literals, port ranges, and host normalization, is enforced by validateEventFrontMatter as the authoritative boundary."
-    },
-    "imageUrl": {
-      "type": "string",
-      "pattern": "^https://(?![/?#])(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)(?:[A-Za-z0-9\\-._~!$&'()*+,;=%:]+@)?(?:\\[[0-9A-Fa-f:.]+\\]|[A-Za-z0-9\\-._~!$&'()*+,;=%]+)(?::[0-9]+)?(?:[/?#][A-Za-z0-9\\-._~:/?#@!$&'()*+,;=%]*)?(?![\\s\\S])",
-      "description": "Optional absolute HTTPS event image URI. This structural pattern checks the URI shape and characters; semantic URL validity, including IPv6 literals, port ranges, and host normalization, is enforced by validateEventFrontMatter as the authoritative boundary."
-    },
-    "imageAlt": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Accessible alternative text required when imageUrl is present."
-    },
-    "mapEmbedUrl": {
-      "type": "string",
-      "pattern": "^(?![^?#]*\\/(?:\\.\\.|\\.%2[eE]|%2[eE]\\.|%2[eE]%2[eE])(?:\\/|[?#]|$))(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)https://(?![/?#])(?:www\\.google\\.com/maps/|maps\\.google\\.com/)[A-Za-z0-9\\-._~:/?#@!$&'()*+,;=%]*(?![\\s\\S])",
-      "description": "Optional absolute lowercase HTTPS Google Maps URI. This structural pattern checks the required Google Maps prefix, URI shape, characters, fragments, and traversal segments; semantic URL validity, including host normalization and port/IPv6 rules, is enforced by validateEventFrontMatter as the authoritative boundary."
-    },
-    "mapTitle": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Optional accessible heading/title for the map embed."
-    }
-  },
-  "required": [
-    "schemaVersion",
-    "title",
-    "startDate",
-    "endDate",
-    "city",
-    "country",
-    "hostServerId",
-    "status"
-  ],
-  "dependentRequired": {
-    "startTime": ["endTime", "timezone"],
-    "endTime": ["startTime", "timezone"],
-    "timezone": ["startTime", "endTime"],
-    "imageUrl": ["imageAlt"]
-  }
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"title": "Jetlag event front matter",
+	"description": "Front matter for one Jetlag Events in Europe event Markdown file. Calendar validity, date ordering, IANA timezone validity, and local-time ordering are semantic checks enforced by the runtime validator.",
+	"type": "object",
+	"additionalProperties": false,
+	"properties": {
+		"schemaVersion": {
+			"type": "integer",
+			"const": 1,
+			"description": "Version of the event front-matter contract."
+		},
+		"title": {
+			"type": "string",
+			"minLength": 1,
+			"description": "Non-empty display title."
+		},
+		"startDate": {
+			"type": "string",
+			"minLength": 1,
+			"pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(?![\\s\\S])",
+			"description": "Quoted YAML string containing an ISO calendar date (YYYY-MM-DD)."
+		},
+		"endDate": {
+			"type": "string",
+			"minLength": 1,
+			"pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}(?![\\s\\S])",
+			"description": "Quoted YAML string containing an ISO calendar date (YYYY-MM-DD)."
+		},
+		"startTime": {
+			"type": "string",
+			"pattern": "^(?:[01][0-9]|2[0-3]):[0-5][0-9](?![\\s\\S])",
+			"description": "Optional local start time in 24-hour HH:mm form."
+		},
+		"endTime": {
+			"type": "string",
+			"pattern": "^(?:[01][0-9]|2[0-3]):[0-5][0-9](?![\\s\\S])",
+			"description": "Optional local end time in 24-hour HH:mm form."
+		},
+		"timezone": {
+			"type": "string",
+			"minLength": 1,
+			"description": "IANA timezone used for the optional local times."
+		},
+		"city": {
+			"type": "string",
+			"minLength": 1,
+			"description": "Non-empty display city or location."
+		},
+		"country": {
+			"type": "string",
+			"minLength": 1,
+			"description": "Non-empty display country or region."
+		},
+		"hostServerId": {
+			"type": "string",
+			"minLength": 1,
+			"description": "Stable ID of the hosting server in servers.json."
+		},
+		"status": {
+			"type": "string",
+			"enum": ["planning", "confirmed", "signup-open", "full", "waitlist", "cancelled"],
+			"description": "Public registration/event state."
+		},
+		"discordEventId": {
+			"type": "string",
+			"description": "Optional Discord event identifier."
+		},
+		"signupUrl": {
+			"type": "string",
+			"pattern": "^https://(?![/?#])(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)(?:[A-Za-z0-9\\-._~!$&'()*+,;=%:]+@)?(?:\\[[0-9A-Fa-f:.]+\\]|[A-Za-z0-9\\-._~!$&'()*+,;=%]+)(?::[0-9]+)?(?:[/?#][A-Za-z0-9\\-._~:/?#@!$&'()*+,;=%]*)?(?![\\s\\S])",
+			"description": "Optional absolute HTTPS signup URI. This structural pattern checks the URI shape and characters; semantic URL validity, including IPv6 literals, port ranges, and host normalization, is enforced by validateEventFrontMatter as the authoritative boundary."
+		},
+		"imageUrl": {
+			"type": "string",
+			"pattern": "^https://(?![/?#])(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)(?:[A-Za-z0-9\\-._~!$&'()*+,;=%:]+@)?(?:\\[[0-9A-Fa-f:.]+\\]|[A-Za-z0-9\\-._~!$&'()*+,;=%]+)(?::[0-9]+)?(?:[/?#][A-Za-z0-9\\-._~:/?#@!$&'()*+,;=%]*)?(?![\\s\\S])",
+			"description": "Optional absolute HTTPS event image URI. This structural pattern checks the URI shape and characters; semantic URL validity, including IPv6 literals, port ranges, and host normalization, is enforced by validateEventFrontMatter as the authoritative boundary."
+		},
+		"imageAlt": {
+			"type": "string",
+			"minLength": 1,
+			"description": "Accessible alternative text required when imageUrl is present."
+		},
+		"mapEmbedUrl": {
+			"type": "string",
+			"pattern": "^(?![^?#]*\\/(?:\\.\\.|\\.%2[eE]|%2[eE]\\.|%2[eE]%2[eE])(?:\\/|[?#]|$))(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)https://(?![/?#])(?:www\\.google\\.com/maps/|maps\\.google\\.com/)[A-Za-z0-9\\-._~:/?#@!$&'()*+,;=%]*(?![\\s\\S])",
+			"description": "Optional absolute lowercase HTTPS Google Maps URI. This structural pattern checks the required Google Maps prefix, URI shape, characters, fragments, and traversal segments; semantic URL validity, including host normalization and port/IPv6 rules, is enforced by validateEventFrontMatter as the authoritative boundary."
+		},
+		"mapTitle": {
+			"type": "string",
+			"minLength": 1,
+			"description": "Optional accessible heading/title for the map embed."
+		}
+	},
+	"required": [
+		"schemaVersion",
+		"title",
+		"startDate",
+		"endDate",
+		"city",
+		"country",
+		"hostServerId",
+		"status"
+	],
+	"dependentRequired": {
+		"startTime": ["endTime", "timezone"],
+		"endTime": ["startTime", "timezone"],
+		"timezone": ["startTime", "endTime"],
+		"imageUrl": ["imageAlt"]
+	}
 }

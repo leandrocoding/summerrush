@@ -14,36 +14,36 @@
 
 ## File map
 
-| File | Responsibility |
-| --- | --- |
-| `src/lib/content/site.json` | Jetlag Events in Europe site copy and navigation labels. |
-| `src/lib/content/servers.json` | Existing shared Jet Lag server records. |
-| `src/lib/content/event.schema.json` | Machine-readable front-matter contract for the site and future bot. |
-| `src/lib/content/validation.ts` | Pure validation and normalization for parsed front matter. |
-| `src/lib/content/event-utils.ts` | Pure date/status/link/sort helpers. |
-| `src/lib/content/catalog.ts` | Pure injectable catalog construction, ID checks, server joins, link derivation, and date-parameterized partitioning. |
-| `src/lib/content/load-events.ts` | Vite/mdsvex glob adapter that passes modules into `catalog.ts`. |
-| `src/lib/content/catalog.test.ts` | Loader-boundary tests with injected modules and server fixtures. |
-| `src/lib/content/page-data.ts` | Pure route/view-model helpers for entries, lookup, metadata, and optional sections. |
-| `src/lib/content/page-data.test.ts` | Route and detail-page view-model behavior tests. |
-| `src/app.d.ts` | Type declaration for mdsvex `metadata` exports. |
-| `src/routes/+layout.ts` | Shared `prerender = true` route setting. |
-| `src/routes/+page.server.ts` | Server-only serialized build-date load. |
-| `src/routes/+page.ts` | Home-page data load. |
-| `src/routes/+page.svelte` | Public catalog, archive, server directory, and rebranded visual layout. |
-| `src/routes/events/[id]/+page.ts` | Detail-page lookup, generated entries, and 404 behavior. |
-| `src/routes/events/[id]/+page.svelte` | Event detail presentation and Markdown component rendering. |
-| `src/routes/+layout.svelte` | Favicon and global shell; remove obsolete language-toggle styles. |
-| `svelte.config.js` | mdsvex plus static adapter/prerender configuration. |
-| `package.json` | Static adapter dependency, package name, and Bun test script. |
-| `wrangler.jsonc` | Exact Cloudflare Pages build configuration. |
-| `static/_headers` | Cloudflare Pages CSP restricting map frames. |
-| `README.md` | Content authoring and Cloudflare Pages deployment instructions. |
-| `scripts/migrate-events.ts` | Temporary deterministic migration utility; remove after migration verification. |
-| `scripts/verify-events-migration.ts` | Temporary source/output comparison and generated-file validation utility; remove after migration verification. |
-| `src/lib/data/summer-rush.json` | Delete after its records and servers are migrated. |
-| `src/lib/events/*.md` | Move into `src/lib/content/events/`, transforming bilingual/branding/media content. |
-| `static/events/*` | Retain existing local assets; no automated upload path is added. |
+| File                                  | Responsibility                                                                                                       |
+| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `src/lib/content/site.json`           | Jetlag Events in Europe site copy and navigation labels.                                                             |
+| `src/lib/content/servers.json`        | Existing shared Jet Lag server records.                                                                              |
+| `src/lib/content/event.schema.json`   | Machine-readable front-matter contract for the site and future bot.                                                  |
+| `src/lib/content/validation.ts`       | Pure validation and normalization for parsed front matter.                                                           |
+| `src/lib/content/event-utils.ts`      | Pure date/status/link/sort helpers.                                                                                  |
+| `src/lib/content/catalog.ts`          | Pure injectable catalog construction, ID checks, server joins, link derivation, and date-parameterized partitioning. |
+| `src/lib/content/load-events.ts`      | Vite/mdsvex glob adapter that passes modules into `catalog.ts`.                                                      |
+| `src/lib/content/catalog.test.ts`     | Loader-boundary tests with injected modules and server fixtures.                                                     |
+| `src/lib/content/page-data.ts`        | Pure route/view-model helpers for entries, lookup, metadata, and optional sections.                                  |
+| `src/lib/content/page-data.test.ts`   | Route and detail-page view-model behavior tests.                                                                     |
+| `src/app.d.ts`                        | Type declaration for mdsvex `metadata` exports.                                                                      |
+| `src/routes/+layout.ts`               | Shared `prerender = true` route setting.                                                                             |
+| `src/routes/+page.server.ts`          | Server-only serialized build-date load.                                                                              |
+| `src/routes/+page.ts`                 | Home-page data load.                                                                                                 |
+| `src/routes/+page.svelte`             | Public catalog, archive, server directory, and rebranded visual layout.                                              |
+| `src/routes/events/[id]/+page.ts`     | Detail-page lookup, generated entries, and 404 behavior.                                                             |
+| `src/routes/events/[id]/+page.svelte` | Event detail presentation and Markdown component rendering.                                                          |
+| `src/routes/+layout.svelte`           | Favicon and global shell; remove obsolete language-toggle styles.                                                    |
+| `svelte.config.js`                    | mdsvex plus static adapter/prerender configuration.                                                                  |
+| `package.json`                        | Static adapter dependency, package name, and Bun test script.                                                        |
+| `wrangler.jsonc`                      | Exact Cloudflare Pages build configuration.                                                                          |
+| `static/_headers`                     | Cloudflare Pages CSP restricting map frames.                                                                         |
+| `README.md`                           | Content authoring and Cloudflare Pages deployment instructions.                                                      |
+| `scripts/migrate-events.ts`           | Temporary deterministic migration utility; remove after migration verification.                                      |
+| `scripts/verify-events-migration.ts`  | Temporary source/output comparison and generated-file validation utility; remove after migration verification.       |
+| `src/lib/data/summer-rush.json`       | Delete after its records and servers are migrated.                                                                   |
+| `src/lib/events/*.md`                 | Move into `src/lib/content/events/`, transforming bilingual/branding/media content.                                  |
+| `static/events/*`                     | Retain existing local assets; no automated upload path is added.                                                     |
 
 The plan does not modify or create a Discord bot repository.
 
@@ -54,6 +54,7 @@ The plan does not modify or create a Discord bot repository.
 ### Task 1: Add the test runner and write failing validation tests
 
 **Files:**
+
 - Modify: `package.json`
 - Modify: `tsconfig.json`
 - Modify: `bun.lock`
@@ -104,6 +105,7 @@ Do not commit a deliberately failing test suite. Task 2 commits the test, schema
 ### Task 2: Implement the schema and validation boundary
 
 **Files:**
+
 - Create: `src/lib/content/event.schema.json`
 - Create: `src/lib/content/validation.ts`
 - Modify: `src/lib/content/validation.test.ts`
@@ -155,10 +157,10 @@ git add package.json tsconfig.json bun.lock src/lib/content/event.schema.json sr
 git commit -m "feat: validate event content files"
 ```
 
-
 ### Task 3: Add date, status, and signup-link domain helpers with tests
 
 **Files:**
+
 - Create: `src/lib/content/event-utils.ts`
 - Create: `src/lib/content/event-utils.test.ts`
 
@@ -212,6 +214,7 @@ git commit -m "feat: add event catalog domain helpers"
 ### Task 4: Create site/server content and mdsvex module typing
 
 **Files:**
+
 - Create: `src/lib/content/site.json`
 - Create: `src/lib/content/servers.json`
 - Modify: `src/app.d.ts`
@@ -222,12 +225,12 @@ Use these initial values, keeping labels English-only:
 
 ```json
 {
-  "title": "Jetlag Events in Europe",
-  "tagline": "Community-run Jet Lag games and events across Europe",
-  "description": "Find upcoming games, event details, and the Discord communities hosting them.",
-  "primaryAction": { "label": "Events" },
-  "secondaryAction": { "label": "Servers" },
-  "notes": ["Join the corresponding community server for event details and signups."]
+	"title": "Jetlag Events in Europe",
+	"tagline": "Community-run Jet Lag games and events across Europe",
+	"description": "Find upcoming games, event details, and the Discord communities hosting them.",
+	"primaryAction": { "label": "Events" },
+	"secondaryAction": { "label": "Servers" },
+	"notes": ["Join the corresponding community server for event details and signups."]
 }
 ```
 
@@ -259,6 +262,7 @@ git commit -m "feat: add Jetlag site and server content"
 ### Task 5: Write and run the deterministic content migration
 
 **Files:**
+
 - Create: `scripts/migrate-events.ts`
 - Create: `scripts/verify-events-migration.ts`
 - Create: `src/lib/content/events/*.md`
@@ -338,10 +342,10 @@ git add -A -- src/lib/content/events src/lib/data src/lib/events static/events p
 git commit -m "feat: migrate events to validated content files"
 ```
 
-
 ### Task 6: Implement the typed content loader
 
 **Files:**
+
 - Create: `src/lib/content/catalog.ts`
 - Create: `src/lib/content/catalog.test.ts`
 - Create: `src/lib/content/load-events.ts`
@@ -384,6 +388,7 @@ git commit -m "feat: load validated event catalog"
 ### Task 7: Configure static SvelteKit output and route data
 
 **Files:**
+
 - Modify: `package.json`
 - Modify: `svelte.config.js`
 - Create: `src/routes/+layout.ts`
@@ -408,17 +413,16 @@ Implement `page-data.ts` with `eventEntries`, `findEvent`, `detailMeta`, `option
 
 Run `bun remove @sveltejs/adapter-cloudflare` and `bun add --dev @sveltejs/adapter-static`. Set the package name to `jetlag-events-europe`. Configure `adapter()` in `svelte.config.js` and create `src/routes/+layout.ts` exporting `const prerender = true`. The dynamic event route’s `entries()` must return every catalog ID.
 
-
 - [ ] **Step 4: Configure the exact Cloudflare Pages output and CSP**
 
 Replace `wrangler.jsonc` with exactly:
 
 ```json
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "jetlag-events-in-europe",
-  "compatibility_date": "2026-08-17",
-  "pages_build_output_dir": "./build"
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "jetlag-events-in-europe",
+	"compatibility_date": "2026-08-17",
+	"pages_build_output_dir": "./build"
 }
 ```
 
@@ -450,6 +454,7 @@ git commit -m "feat: configure static Cloudflare Pages routes"
 ### Task 8: Rebuild the home page and detail page around the catalog
 
 **Files:**
+
 - Modify: `src/routes/+page.svelte`
 - Modify: `src/routes/events/[id]/+page.svelte`
 - Modify: `src/routes/+layout.svelte`
@@ -498,6 +503,7 @@ git commit -m "feat: launch Jetlag Events in Europe catalog"
 ### Task 9: Verify behavior against the approved contract
 
 **Files:**
+
 - Modify only the affected implementation/content files if verification exposes a defect.
 
 - [ ] **Step 1: Run the complete test suite**

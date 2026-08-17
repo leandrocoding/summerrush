@@ -86,14 +86,9 @@ function eventRecord(overrides: Partial<EventRecord> = {}): EventRecord {
 
 describe('buildCatalog', () => {
 	test('constructs a catalog from valid modules', () => {
-		const rawSource = [
-			'---',
-			'title: H+S Amsterdam',
-			'---',
-			'',
-			'Join us in Amsterdam.',
-			''
-		].join('\n');
+		const rawSource = ['---', 'title: H+S Amsterdam', '---', '', 'Join us in Amsterdam.', ''].join(
+			'\n'
+		);
 
 		const catalog = buildCatalog(
 			module('./events/amsterdam-2027-04-18.md', validMetadata(), rawSource),
@@ -282,7 +277,11 @@ describe('buildCatalog', () => {
 
 	test('sets hasMarkdownBody true when a body remains after front matter', () => {
 		const catalog = buildCatalog(
-			module('./events/amsterdam-2027-04-18.md', validMetadata(), '---\ntitle: X\n---\n\nSome body.\n'),
+			module(
+				'./events/amsterdam-2027-04-18.md',
+				validMetadata(),
+				'---\ntitle: X\n---\n\nSome body.\n'
+			),
 			SERVERS,
 			SITE
 		);
@@ -302,11 +301,7 @@ describe('buildCatalog', () => {
 
 	test('sets hasMarkdownBody false for a whitespace-only body', () => {
 		const catalog = buildCatalog(
-			module(
-				'./events/amsterdam-2027-04-18.md',
-				validMetadata(),
-				'---\ntitle: X\n---\n\n  \n\t\n'
-			),
+			module('./events/amsterdam-2027-04-18.md', validMetadata(), '---\ntitle: X\n---\n\n  \n\t\n'),
 			SERVERS,
 			SITE
 		);

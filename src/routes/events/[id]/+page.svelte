@@ -121,8 +121,7 @@
 		--accent-ink: #f4eee0;
 		--font-display:
 			'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
-		--font-sans:
-			'Avenir Next', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		--font-sans: 'Avenir Next', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	}
 
 	:global(*) {

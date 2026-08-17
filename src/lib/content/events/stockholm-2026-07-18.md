@@ -1,36 +1,37 @@
 ---
 schemaVersion: 1
 title: H+S Stockholm
-startDate: "2026-07-18"
-endDate: "2026-07-18"
+startDate: '2026-07-18'
+endDate: '2026-07-18'
 city: Stockholm
 country: Sweden
 hostServerId: nordics
 status: signup-open
 mapTitle: Game Map
 ---
+
 ![Stockholm Skyline](stockholm.webp)
 
 Join us on Saturday, July 19, 2026 for a Hide + Seek game across Stockholm and the surrounding area. With Stockholm's extensive public transport network, expect quick connections, tactical station choices, and plenty of opportunities to move around the city.
 
 ### Getting There
 
-* **Meeting point:** T-Centralen
-* **Flights:** Stockholm Arlanda Airport (ARN) has direct rail connections to the city center.
-* **Trains:** Stockholm Central Station offers connections across Sweden and to neighboring countries.
-* **Transit tickets:** Consider an SL ticket or another suitable day pass.
+- **Meeting point:** T-Centralen
+- **Flights:** Stockholm Arlanda Airport (ARN) has direct rail connections to the city center.
+- **Trains:** Stockholm Central Station offers connections across Sweden and to neighboring countries.
+- **Transit tickets:** Consider an SL ticket or another suitable day pass.
 
 ### Game Info & Map
 
-* **Format:** Standard Hide + Seek rules with a medium metric setup.
-* **Starting location:** T-Centralen
-* **Meet up time:** 09:00 CEST
-* **End time:** 19:00 CEST
-* **Duration:** ~10 hours (depends when we finish two rounds)
-* **Playable area:** To be announced.
-* **Hiding radius:** 500 m around the chosen station.
+- **Format:** Standard Hide + Seek rules with a medium metric setup.
+- **Starting location:** T-Centralen
+- **Meet up time:** 09:00 CEST
+- **End time:** 19:00 CEST
+- **Duration:** ~10 hours (depends when we finish two rounds)
+- **Playable area:** To be announced.
+- **Hiding radius:** 500 m around the chosen station.
 
 ### Contact
 
-* For reference, anytime the name Tage is mentioned, we refer to the person with the username @tage4444 on Discord.
-* For further questions, you can always reach out to Tage or Air in DMs or in the Jet Lag: Nordics Discord server.
+- For reference, anytime the name Tage is mentioned, we refer to the person with the username @tage4444 on Discord.
+- For further questions, you can always reach out to Tage or Air in DMs or in the Jet Lag: Nordics Discord server.

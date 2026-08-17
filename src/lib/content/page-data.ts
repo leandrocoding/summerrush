@@ -17,10 +17,7 @@ export function eventEntries(events: readonly EventRecord[]): string[] {
 	return events.map((event) => event.id);
 }
 
-export function findEvent(
-	events: readonly EventRecord[],
-	id: string
-): EventRecord | undefined {
+export function findEvent(events: readonly EventRecord[], id: string): EventRecord | undefined {
 	return events.find((event) => event.id === id);
 }
 

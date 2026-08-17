@@ -26,7 +26,7 @@ function validFrontMatter(): FrontMatter {
 		imageUrl: 'https://cdn.example.com/amsterdam.webp',
 		imageAlt: 'Amsterdam skyline',
 		mapEmbedUrl: 'https://www.google.com/maps/d/embed?mid=example',
-		mapTitle: 'Game map',
+		mapTitle: 'Game map'
 	};
 }
 
@@ -58,7 +58,7 @@ describe('validateEventFrontMatter', () => {
 			timezone: 'Europe/Amsterdam',
 			hostServerId: 'benelux',
 			status: 'waitlist',
-			mapEmbedUrl: 'https://www.google.com/maps/d/embed?mid=example',
+			mapEmbedUrl: 'https://www.google.com/maps/d/embed?mid=example'
 		});
 	});
 
@@ -70,7 +70,7 @@ describe('validateEventFrontMatter', () => {
 		['city', 'city'],
 		['country', 'country'],
 		['hostServerId', 'hostServerId'],
-		['status', 'status'],
+		['status', 'status']
 	] as const)('rejects missing required field %s', (field, offendingField) => {
 		const metadata = validFrontMatter();
 		delete metadata[field];
@@ -78,18 +78,21 @@ describe('validateEventFrontMatter', () => {
 		expectValidationError(metadata, offendingField);
 	});
 
-	test.each(['title', 'city', 'country', 'hostServerId'] as const)('rejects an empty required display field %s', (field) => {
-		const metadata = validFrontMatter();
-		metadata[field] = '';
+	test.each(['title', 'city', 'country', 'hostServerId'] as const)(
+		'rejects an empty required display field %s',
+		(field) => {
+			const metadata = validFrontMatter();
+			metadata[field] = '';
 
-		expectValidationError(metadata, field);
-	});
+			expectValidationError(metadata, field);
+		}
+	);
 
 	test.each([
 		['startDate', new Date('2027-04-18')],
 		['startDate', 20270418],
 		['endDate', new Date('2027-04-18')],
-		['endDate', 20270418],
+		['endDate', 20270418]
 	] as const)('rejects non-string or unquoted date values in %s', (field, value) => {
 		const metadata = validFrontMatter();
 		metadata[field] = value;
@@ -135,7 +138,7 @@ describe('validateEventFrontMatter', () => {
 		['startTime', '9:00'],
 		['startTime', '25:00'],
 		['endTime', '9:00'],
-		['endTime', '25:00'],
+		['endTime', '25:00']
 	] as const)('rejects malformed or out-of-range time %s=%s', (field, value) => {
 		const metadata = validFrontMatter();
 		metadata[field] = value;
@@ -154,12 +157,15 @@ describe('validateEventFrontMatter', () => {
 		expectValidationError(metadata, field);
 	});
 
-	test.each(['startTime', 'endTime', 'timezone'] as const)('rejects a time without its paired %s field', (missingField) => {
-		const metadata = validFrontMatter();
-		delete metadata[missingField];
+	test.each(['startTime', 'endTime', 'timezone'] as const)(
+		'rejects a time without its paired %s field',
+		(missingField) => {
+			const metadata = validFrontMatter();
+			delete metadata[missingField];
 
-		expectValidationError(metadata, missingField);
-	});
+			expectValidationError(metadata, missingField);
+		}
+	);
 
 	test('rejects an invalid IANA timezone', () => {
 		const metadata = validFrontMatter();
@@ -201,7 +207,7 @@ describe('validateEventFrontMatter', () => {
 			metadata.status = status;
 
 			expect(validateEventFrontMatter(metadata, SERVER_IDS, FILE_PATH)).toMatchObject({ status });
-		},
+		}
 	);
 
 	test('rejects an unknown front-matter key', () => {
@@ -220,7 +226,7 @@ describe('validateEventFrontMatter', () => {
 		['imageUrl', { url: 'https://cdn.example.com/image.webp' }],
 		['imageAlt', ['Amsterdam skyline']],
 		['mapEmbedUrl', true],
-		['mapTitle', 7],
+		['mapTitle', 7]
 	] as const)('rejects an optional field with the wrong type: %s', (field, value) => {
 		const metadata = validFrontMatter();
 		metadata[field] = value;
@@ -249,7 +255,9 @@ describe('validateEventFrontMatter', () => {
 		['imageUrl', 'https://cdn.example.com/image.webp\r']
 	] as const)('rejects a non-HTTPS or malformed %s', (field, value) => {
 		const schemaPattern = new RegExp(
-			field === 'signupUrl' ? eventSchema.properties.signupUrl.pattern : eventSchema.properties.imageUrl.pattern
+			field === 'signupUrl'
+				? eventSchema.properties.signupUrl.pattern
+				: eventSchema.properties.imageUrl.pattern
 		);
 		expect(schemaPattern.test(value)).toBe(false);
 
@@ -268,13 +276,17 @@ describe('validateEventFrontMatter', () => {
 		['imageUrl', 'https://[::1]/image.webp']
 	] as const)('accepts a valid single-fragment or authority form for %s', (field, value) => {
 		const schemaPattern = new RegExp(
-			field === 'signupUrl' ? eventSchema.properties.signupUrl.pattern : eventSchema.properties.imageUrl.pattern
+			field === 'signupUrl'
+				? eventSchema.properties.signupUrl.pattern
+				: eventSchema.properties.imageUrl.pattern
 		);
 		expect(schemaPattern.test(value)).toBe(true);
 
 		const metadata = validFrontMatter();
 		metadata[field] = value;
-		expect(validateEventFrontMatter(metadata, SERVER_IDS, FILE_PATH)).toMatchObject({ [field]: value });
+		expect(validateEventFrontMatter(metadata, SERVER_IDS, FILE_PATH)).toMatchObject({
+			[field]: value
+		});
 	});
 
 	test.each([
@@ -311,18 +323,23 @@ describe('validateEventFrontMatter', () => {
 		['https://www.google.com:443/maps/', false],
 		['https://evil@www.google.com/maps/', false],
 		['https://maps.example.com/maps/d/embed?mid=example', false]
-	] as const)('keeps Google Maps URL schema and runtime validation in parity for %s', (value, accepted) => {
-		const schemaPattern = new RegExp(eventSchema.properties.mapEmbedUrl.pattern);
-		expect(schemaPattern.test(value)).toBe(accepted);
+	] as const)(
+		'keeps Google Maps URL schema and runtime validation in parity for %s',
+		(value, accepted) => {
+			const schemaPattern = new RegExp(eventSchema.properties.mapEmbedUrl.pattern);
+			expect(schemaPattern.test(value)).toBe(accepted);
 
-		const metadata = validFrontMatter();
-		metadata.mapEmbedUrl = value;
-		if (accepted) {
-			expect(validateEventFrontMatter(metadata, SERVER_IDS, FILE_PATH)).toMatchObject({ mapEmbedUrl: value });
-		} else {
-			expectValidationError(metadata, 'mapEmbedUrl');
+			const metadata = validFrontMatter();
+			metadata.mapEmbedUrl = value;
+			if (accepted) {
+				expect(validateEventFrontMatter(metadata, SERVER_IDS, FILE_PATH)).toMatchObject({
+					mapEmbedUrl: value
+				});
+			} else {
+				expectValidationError(metadata, 'mapEmbedUrl');
+			}
 		}
-	});
+	);
 
 	test('rejects a map URL outside the Google Maps allowlist', () => {
 		const metadata = validFrontMatter();

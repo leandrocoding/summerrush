@@ -131,10 +131,7 @@ export function buildCatalog(
 	};
 }
 
-export function partitionEvents(
-	events: readonly EventRecord[],
-	today: string
-): EventPartition {
+export function partitionEvents(events: readonly EventRecord[], today: string): EventPartition {
 	const upcoming: EventRecord[] = [];
 	const archive: EventRecord[] = [];
 

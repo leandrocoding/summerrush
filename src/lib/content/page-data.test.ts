@@ -89,9 +89,7 @@ describe('detailMeta', () => {
 			country: 'Italy'
 		});
 
-		expect(detailMeta(event, SITE).description).toBe(
-			'Milan Meetup in Milan, Italy on 18.04.2027.'
-		);
+		expect(detailMeta(event, SITE).description).toBe('Milan Meetup in Milan, Italy on 18.04.2027.');
 	});
 });
 

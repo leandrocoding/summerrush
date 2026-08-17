@@ -20,8 +20,7 @@ export function isPastEvent(event: Pick<EventFrontMatter, 'endDate'>, today: str
 
 export function sortUpcoming<T extends SortableEvent>(events: readonly T[]): T[] {
 	return [...events].sort(
-		(a, b) =>
-			compareAscending(a.startDate, b.startDate) || compareAscending(a.title, b.title)
+		(a, b) => compareAscending(a.startDate, b.startDate) || compareAscending(a.title, b.title)
 	);
 }
 

@@ -126,16 +126,16 @@ The reviewer can expand this body directly in the PR.
 
 ### Required front matter
 
-| Field | Contract |
-| --- | --- |
-| `schemaVersion` | Integer; currently `1`. |
-| `title` | Non-empty display title. |
-| `startDate` | Quoted YAML string containing an ISO calendar date, `YYYY-MM-DD`. |
-| `endDate` | Quoted YAML string containing an ISO calendar date; equal to or later than `startDate`. |
-| `city` | Non-empty display location. |
-| `country` | Non-empty display country or region. |
-| `hostServerId` | Must match an ID in `servers.json`. |
-| `status` | One of `planning`, `confirmed`, `signup-open`, `full`, `waitlist`, or `cancelled`. |
+| Field           | Contract                                                                                |
+| --------------- | --------------------------------------------------------------------------------------- |
+| `schemaVersion` | Integer; currently `1`.                                                                 |
+| `title`         | Non-empty display title.                                                                |
+| `startDate`     | Quoted YAML string containing an ISO calendar date, `YYYY-MM-DD`.                       |
+| `endDate`       | Quoted YAML string containing an ISO calendar date; equal to or later than `startDate`. |
+| `city`          | Non-empty display location.                                                             |
+| `country`       | Non-empty display country or region.                                                    |
+| `hostServerId`  | Must match an ID in `servers.json`.                                                     |
+| `status`        | One of `planning`, `confirmed`, `signup-open`, `full`, `waitlist`, or `cancelled`.      |
 
 `status` is a public registration/event state. It is not a publication state. A merged file is public.
 
@@ -143,17 +143,17 @@ The legacy status values map during migration as follows: `Signup Open` to `sign
 
 ### Optional front matter
 
-| Field | Contract |
-| --- | --- |
-| `startTime` | Local `HH:mm` value; must be supplied together with `endTime` and `timezone`. |
-| `endTime` | Local `HH:mm` value; must be supplied together with `startTime` and `timezone`. |
-| `timezone` | IANA timezone, required when either time is present. |
-| `discordEventId` | Discord event identifier as a string. |
-| `signupUrl` | Absolute `https://` URL; takes precedence over generated Discord links. |
-| `imageUrl` | Absolute `https://` URL. |
-| `imageAlt` | Required when `imageUrl` is present. |
-| `mapEmbedUrl` | Absolute `https://` URL whose origin/path matches `https://www.google.com/maps/` or `https://maps.google.com/`. |
-| `mapTitle` | Optional accessible map heading/title; when absent, derive `${title} map` for the iframe title and section heading. |
+| Field            | Contract                                                                                                            |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `startTime`      | Local `HH:mm` value; must be supplied together with `endTime` and `timezone`.                                       |
+| `endTime`        | Local `HH:mm` value; must be supplied together with `startTime` and `timezone`.                                     |
+| `timezone`       | IANA timezone, required when either time is present.                                                                |
+| `discordEventId` | Discord event identifier as a string.                                                                               |
+| `signupUrl`      | Absolute `https://` URL; takes precedence over generated Discord links.                                             |
+| `imageUrl`       | Absolute `https://` URL.                                                                                            |
+| `imageAlt`       | Required when `imageUrl` is present.                                                                                |
+| `mapEmbedUrl`    | Absolute `https://` URL whose origin/path matches `https://www.google.com/maps/` or `https://maps.google.com/`.     |
+| `mapTitle`       | Optional accessible map heading/title; when absent, derive `${title} map` for the iframe title and section heading. |
 
 For a same-day event, `endTime` must be later than `startTime`. An overnight event must use an `endDate` later than `startDate`; an earlier same-day `endTime` is invalid.
 
@@ -239,11 +239,7 @@ The command performs these steps:
 5. Validate all values against the pinned website schema and server list.
 6. Compute the normalized request fingerprint and check `main` and open bot PRs for an exact match before allocating an ID suffix.
 
-Fingerprint normalization applies Unicode NFKC, trims leading/trailing whitespace, collapses internal whitespace to one ASCII space, and lowercases each of `title`, `city`, `country`, `hostServerId`, and `status`. Dates use their quoted ISO strings. The bot computes `sha256(JSON.stringify([title, startDate, endDate, city, country, hostServerId, status]))` and records the lowercase hexadecimal digest in the PR body.
-7. Create branch `bot/event/add/<id>` from the current default branch.
-8. Commit `src/lib/content/events/<id>.md` with valid front matter, quoted ISO date strings, and an empty body.
-9. Open one PR against `main`.
-10. Reply with the PR URL.
+Fingerprint normalization applies Unicode NFKC, trims leading/trailing whitespace, collapses internal whitespace to one ASCII space, and lowercases each of `title`, `city`, `country`, `hostServerId`, and `status`. Dates use their quoted ISO strings. The bot computes `sha256(JSON.stringify([title, startDate, endDate, city, country, hostServerId, status]))` and records the lowercase hexadecimal digest in the PR body. 7. Create branch `bot/event/add/<id>` from the current default branch. 8. Commit `src/lib/content/events/<id>.md` with valid front matter, quoted ISO date strings, and an empty body. 9. Open one PR against `main`. 10. Reply with the PR URL.
 
 The initial Discord flow does not collect prose, images, maps, optional times, or custom URLs. A reviewer/developer can add those fields directly in the PR. The schema supports them for future advanced interactions.
 
