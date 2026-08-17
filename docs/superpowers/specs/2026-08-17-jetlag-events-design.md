@@ -23,7 +23,7 @@ The first implementation covers the public website, migration of current content
 - A merged event is public. Upcoming/archive visibility is derived from dates, not from a publication field.
 - Support date ranges and optional local start/end times with an IANA timezone.
 - Accept external HTTPS media/map URLs only for automated fields. The bot does not upload files.
-- Preserve the existing events, English event prose, and local image assets during migration; remove the German sections and language-switch markup from the two bilingual legacy pages.
+- Preserve the existing events and English event prose during migration, except for required rebranding substitutions and repository-URL rewrites; retain local image assets and remove the German sections and language-switch markup from the two bilingual legacy pages.
 - Show upcoming events first and retain a past-event archive.
 - Use trusted Discord roles for future command authorization.
 - Allow at most one open bot PR per event.
@@ -81,11 +81,14 @@ The filename is the immutable event ID. It must be a lowercase URL-safe slug mat
 
 New bot-generated IDs use this rule:
 
-1. slugify the city to lowercase ASCII words separated by hyphens;
-2. append `-YYYY-MM-DD` using `startDate`;
-3. compute a normalized request fingerprint from the submitted title, date range, city, country, server ID, and status;
-4. before allocating a suffix, search `main` and open bot PR bodies for the same fingerprint. An exact match returns the existing event or PR instead of creating a duplicate;
-5. if the candidate ID is occupied by a different event or a different request, append the smallest available numeric suffix (`-2`, `-3`, ...).
+1. Apply Unicode NFKD normalization to `city`.
+2. Apply these explicit European transliterations before removing non-ASCII characters: `æ→ae`, `œ→oe`, `ß→ss`, `ø→o`, `ł→l`, `đ→d`, `ð→d`, `þ→th`, and `ħ→h`.
+3. Remove combining marks, lowercase, replace each run of characters outside `[a-z0-9]` with one hyphen, and trim leading/trailing hyphens.
+4. Append `-YYYY-MM-DD` using `startDate`.
+5. If the city slug is empty, use `event-YYYY-MM-DD-<hash>`, where `<hash>` is the first eight lowercase hexadecimal characters of SHA-256 over the normalized city.
+6. Compute a normalized request fingerprint from the submitted title, date range, city, country, server ID, and status.
+7. Before allocating a suffix, search `main` and open bot PR bodies for the same fingerprint. An exact match returns the existing event or PR instead of creating a duplicate.
+8. If the candidate ID is occupied by a different event or a different request, append the smallest available numeric suffix (`-2`, `-3`, ...).
 
 The fingerprint distinguishes a repeated submission from a separate event in the same city on the same date. The fingerprint is recorded in the generated PR body so retries remain idempotent.
 
@@ -142,8 +145,8 @@ The legacy status values map during migration as follows: `Signup Open` to `sign
 
 | Field | Contract |
 | --- | --- |
-| `startTime` | Local `HH:mm` value. |
-| `endTime` | Local `HH:mm` value. |
+| `startTime` | Local `HH:mm` value; must be supplied together with `endTime` and `timezone`. |
+| `endTime` | Local `HH:mm` value; must be supplied together with `startTime` and `timezone`. |
 | `timezone` | IANA timezone, required when either time is present. |
 | `discordEventId` | Discord event identifier as a string. |
 | `signupUrl` | Absolute `https://` URL; takes precedence over generated Discord links. |
@@ -152,13 +155,15 @@ The legacy status values map during migration as follows: `Signup Open` to `sign
 | `mapEmbedUrl` | Absolute `https://` URL whose origin/path matches `https://www.google.com/maps/` or `https://maps.google.com/`. |
 | `mapTitle` | Optional accessible map heading/title; when absent, derive `${title} map` for the iframe title and section heading. |
 
+For a same-day event, `endTime` must be later than `startTime`. An overnight event must use an `endDate` later than `startDate`; an earlier same-day `endTime` is invalid.
+
 If `signupUrl` is absent and both `discordEventId` and the assigned server’s invite exist, the loader must preserve the current deep-link behavior: construct `new URL(server.invite)`, call `url.searchParams.set('event', discordEventId)`, and use `url.toString()` as the signup URL. `dateLabel` is removed; date display is derived from the ISO fields.
 
 The Markdown body is optional. It may contain headings, paragraphs, lists, links, and images needed by migrated editorial content. The page heading comes from `title`, so an H1 is not required in the body. Unknown front-matter keys are rejected to keep the bot contract deterministic.
 
 Migrated English Markdown may retain reviewed raw HTML, relative local-image references, and external image references where those constructs are needed to preserve the existing page. New bot-created bodies are empty and the bot does not accept arbitrary Markdown input.
 
-The validator rejects malformed dates, reversed ranges, invalid times/timezones, invalid status values, unknown server IDs, duplicate IDs, invalid URLs, missing image alt text, and schema versions the site does not support. It reports the file and field in the build error.
+The validator rejects malformed dates, reversed ranges, invalid times/timezones or time ordering, invalid status values, unknown server IDs, duplicate IDs, invalid URLs, missing image alt text, and schema versions the site does not support. It reports the file and field in the build error.
 
 ## 5. Public website behavior
 
@@ -174,7 +179,7 @@ The home page uses the Jetlag Events in Europe site configuration and has this o
 6. shared Discord server directory;
 7. footer notes.
 
-Upcoming events are sorted by `startDate`, then title. Past events are sorted newest first. An event is past when its `endDate` is before the visitor’s browser-local calendar date; an optional event timezone affects time display only, not the archive boundary. Cancelled events remain visible with a cancelled state rather than silently disappearing.
+Upcoming events are sorted by `startDate`, then title. Past events are sorted by `endDate` descending, then `startDate` descending, then title. An event is past when its `endDate` is before the visitor’s browser-local calendar date; an optional event timezone affects time display only, not the archive boundary. Cancelled events remain visible with a cancelled state rather than silently disappearing.
 
 Each event row displays the date/range, title, city/country, server icon/name, status, a stable detail link, and a signup/Discord link when available. Every event has a detail link even when its Markdown body is empty because the metadata is sufficient to render a valid page.
 
@@ -236,7 +241,7 @@ The command performs these steps:
 
 Fingerprint normalization applies Unicode NFKC, trims leading/trailing whitespace, collapses internal whitespace to one ASCII space, and lowercases each of `title`, `city`, `country`, `hostServerId`, and `status`. Dates use their quoted ISO strings. The bot computes `sha256(JSON.stringify([title, startDate, endDate, city, country, hostServerId, status]))` and records the lowercase hexadecimal digest in the PR body.
 7. Create branch `bot/event/add/<id>` from the current default branch.
-8. Commit `src/lib/content/events/<id>.md` with valid front matter and an empty body.
+8. Commit `src/lib/content/events/<id>.md` with valid front matter, quoted ISO date strings, and an empty body.
 9. Open one PR against `main`.
 10. Reply with the PR URL.
 
@@ -278,7 +283,7 @@ PR titles use `Add event: <title> (<id>)` or `Update event: <title> (<id>)`. The
 
 ## 8. Migration and verification acceptance
 
-Migration must convert every current event record into an event file, retain its stable URL ID, carry over server assignment/status/Discord identifier/map data, preserve existing English Markdown details and local static image assets, and remove the German sections and language-switch markup from the two bilingual legacy pages. The three blank legacy country values are filled deterministically: `belgium-2026-08-01` uses `Belgium`, `bens-playground-2026-08-22` uses `Netherlands, Germany, France and Switzerland`, and `switzerland-2026-09-05` uses `Switzerland`. Status values use the explicit mapping above. `dateLabel` and other central-index-only presentation fields are removed.
+Migration must convert every current event record into an event file, retain its stable URL ID, carry over server assignment/status/Discord identifier/map data, preserve existing English Markdown details and local static image assets, and remove the German sections and language-switch markup from the two bilingual legacy pages. Visible `Summer Rush` wording is rewritten to `Jetlag Events in Europe`, and raw repository media URLs are rewritten to local `/events/<filename>` references. The three blank legacy country values are filled deterministically: `belgium-2026-08-01` uses `Belgium`, `bens-playground-2026-08-22` uses `Netherlands, Germany, France and Switzerland`, and `switzerland-2026-09-05` uses `Switzerland`. Status values use the explicit mapping above. `dateLabel` and other central-index-only presentation fields are removed.
 
 The website implementation is accepted when:
 
