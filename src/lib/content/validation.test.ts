@@ -238,6 +238,8 @@ describe('validateEventFrontMatter', () => {
 		['https://www.google.com/maps/%2e./search', false],
 		['https://www.google.com/maps/%2e%2e/search', false],
 		['https://www.google.com/maps/%2E%2E/search', false],
+		['https://www.google.com/maps/%2e%2e?query=example', false],
+		['https://www.google.com/maps/%2e%2e#fragment', false],
 		['https://www.google.com:443/maps/', false],
 		['https://evil@www.google.com/maps/', false],
 		['https://maps.example.com/maps/d/embed?mid=example', false]
