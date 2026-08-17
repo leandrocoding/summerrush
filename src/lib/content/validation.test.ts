@@ -222,7 +222,9 @@ describe('validateEventFrontMatter', () => {
 		['signupUrl', 'https://example.com/[segment]'],
 		['imageUrl', 'https://cdn.example.com/[segment]'],
 		['signupUrl', 'https://example.com:bogus/path'],
-		['imageUrl', 'https://cdn.example.com:bogus/image.webp']
+		['imageUrl', 'https://cdn.example.com:bogus/image.webp'],
+		['signupUrl', 'https://example.com/path\n'],
+		['imageUrl', 'https://cdn.example.com/image.webp\r']
 	] as const)('rejects a non-HTTPS or malformed %s', (field, value) => {
 		const schemaPattern = new RegExp(
 			field === 'signupUrl' ? eventSchema.properties.signupUrl.pattern : eventSchema.properties.imageUrl.pattern
@@ -282,6 +284,8 @@ describe('validateEventFrontMatter', () => {
 		['https://www.google.com/maps/a%ZZ', false],
 		['https://www.google.com/maps/a|b', false],
 		[String.raw`https://www.google.com/maps/a\b`, false],
+		['https://www.google.com/maps/\n', false],
+		['https://www.google.com/maps/\r', false],
 		['https://www.google.com:443/maps/', false],
 		['https://evil@www.google.com/maps/', false],
 		['https://maps.example.com/maps/d/embed?mid=example', false]

@@ -68,12 +68,12 @@
     },
     "signupUrl": {
       "type": "string",
-      "pattern": "^https://(?![/?#])(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)(?:[A-Za-z0-9\\-._~!$&'()*+,;=%:]+@)?(?:\\[[0-9A-Fa-f:.]+\\]|[A-Za-z0-9\\-._~!$&'()*+,;=%]+)(?::[0-9]+)?(?:[/?#][A-Za-z0-9\\-._~:/?#@!$&'()*+,;=%]*)?$",
+      "pattern": "^https://(?![/?#])(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)(?:[A-Za-z0-9\\-._~!$&'()*+,;=%:]+@)?(?:\\[[0-9A-Fa-f:.]+\\]|[A-Za-z0-9\\-._~!$&'()*+,;=%]+)(?::[0-9]+)?(?:[/?#][A-Za-z0-9\\-._~:/?#@!$&'()*+,;=%]*)?(?![\\s\\S])",
       "description": "Optional absolute HTTPS signup URI. This structural pattern checks the URI shape and characters; semantic URL validity, including IPv6 literals, port ranges, and host normalization, is enforced by validateEventFrontMatter as the authoritative boundary."
     },
     "imageUrl": {
       "type": "string",
-      "pattern": "^https://(?![/?#])(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)(?:[A-Za-z0-9\\-._~!$&'()*+,;=%:]+@)?(?:\\[[0-9A-Fa-f:.]+\\]|[A-Za-z0-9\\-._~!$&'()*+,;=%]+)(?::[0-9]+)?(?:[/?#][A-Za-z0-9\\-._~:/?#@!$&'()*+,;=%]*)?$",
+      "pattern": "^https://(?![/?#])(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)(?:[A-Za-z0-9\\-._~!$&'()*+,;=%:]+@)?(?:\\[[0-9A-Fa-f:.]+\\]|[A-Za-z0-9\\-._~!$&'()*+,;=%]+)(?::[0-9]+)?(?:[/?#][A-Za-z0-9\\-._~:/?#@!$&'()*+,;=%]*)?(?![\\s\\S])",
       "description": "Optional absolute HTTPS event image URI. This structural pattern checks the URI shape and characters; semantic URL validity, including IPv6 literals, port ranges, and host normalization, is enforced by validateEventFrontMatter as the authoritative boundary."
     },
     "imageAlt": {
@@ -83,7 +83,7 @@
     },
     "mapEmbedUrl": {
       "type": "string",
-      "pattern": "^(?![^?#]*\\/(?:\\.\\.|\\.%2[eE]|%2[eE]\\.|%2[eE]%2[eE])(?:\\/|[?#]|$))(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)https://(?![/?#])(?:www\\.google\\.com/maps/|maps\\.google\\.com/)[A-Za-z0-9\\-._~:/?#@!$&'()*+,;=%]*$",
+      "pattern": "^(?![^?#]*\\/(?:\\.\\.|\\.%2[eE]|%2[eE]\\.|%2[eE]%2[eE])(?:\\/|[?#]|$))(?!.*%(?![0-9A-Fa-f]{2}))(?![^#]*#[^#]*#)https://(?![/?#])(?:www\\.google\\.com/maps/|maps\\.google\\.com/)[A-Za-z0-9\\-._~:/?#@!$&'()*+,;=%]*(?![\\s\\S])",
       "description": "Optional absolute lowercase HTTPS Google Maps URI. This structural pattern checks the required Google Maps prefix, URI shape, characters, fragments, and traversal segments; semantic URL validity, including host normalization and port/IPv6 rules, is enforced by validateEventFrontMatter as the authoritative boundary."
     },
     "mapTitle": {
