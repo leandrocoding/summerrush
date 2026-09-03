@@ -52,6 +52,20 @@ The Cloudflare Pages project is connected to this Git repository:
 
 The Pages build command is `bun run build` and the output directory is `build`.
 
+Do not configure `npx wrangler versions upload` as the Cloudflare deploy
+command. That is a Workers version-upload command and expects a Worker entry
+point or a Workers `assets` directory; this project is a static Cloudflare
+Pages build.
+
+For a Git-connected Pages project, leave the custom deploy command empty.
+Cloudflare Pages deploys the output directory after `bun run build` and creates
+the branch/pull-request preview automatically. If the hosting setup requires a
+manual deploy command instead, use:
+
+```sh
+wrangler pages deploy build --project-name jetlag-events-in-europe
+```
+
 To deploy the built directory manually, run:
 
 ```sh
